@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/13/2021
-ms.openlocfilehash: c4280a9b120530b84bbaac9f7f963a695c0eaf99
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.date: 02/10/2021
+ms.openlocfilehash: 66156b01796c483f509b5b0787ca947f85fa6a1a
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208031"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487869"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI ソリューションの概要
 
@@ -103,6 +103,15 @@ Azure Stack HCI は、既に大規模にデプロイされている実証済み�
 - ソフトウェアによるネットワーク制御 (SDN) を使用する計画の場合は、ネットワーク コントローラー VM を作成するために Azure Stack HCI オペレーティング システム用の仮想ハード ディスク (VHD) が必要です (「[ネットワーク コントローラーのデプロイを計画する](concepts/network-controller.md)」をご覧ください)
 
 詳細については、[システム要件](concepts/system-requirements.md)に関するページを参照してください。 Azure Stack HCI での Azure Kubernetes Service の要件については、[Azure Stack HCI での AKS の要件](../aks-hci/overview.md#what-you-need-to-get-started)に関するページを参照してください。
+
+## <a name="availability"></a>可用性
+
+|側面|詳細|
+|----|:----|
+|リリース状態:|一般提供 (GA)|
+|価格:|[Azure サブスクリプションに対して課金](concepts/billing.md)|
+|必要なロールとアクセス許可:|**Azure Active Directory 管理者** または委任されたアクセス許可|
+|||
 
 ## <a name="hardware-partners"></a>ハードウェア パートナー
 
