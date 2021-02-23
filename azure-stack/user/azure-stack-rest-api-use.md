@@ -3,16 +3,16 @@ title: Azure Stack Hub に対する API 要求を作成する
 description: Azure から認証を取得して、Azure Stack Hub に対して API 要求を行う方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 70a1a6e1d2fb4eb6766948a4e02d5072f4e04281
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: c48eb869ded6be5f2c05171edf4d0cc6a88945ca
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623321"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975845"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 

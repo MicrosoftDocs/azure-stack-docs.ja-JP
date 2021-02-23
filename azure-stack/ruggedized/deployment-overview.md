@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 02/17/2021
+ms.openlocfilehash: 4d61fc75cd7db67f113369981fe0fa4742178dd5
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256185"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648067"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Azure Stack Hub ラグドの配置の概要
 
@@ -63,31 +63,36 @@ Azure Stack Hub ラグドは、Microsoft Azure Stack Hub 向けの耐久性が�
 |Pod    |Azure Stack Hub ラグドのコンテキストでは、ポッドは 2 人で運ぶように設計された耐久性の高い物理コンテナーであり、Azure Stack Hub ラグド ハードウェアを物理的な環境ストレスから保護するためのラック マウント ブラケットとショック アブソーバーが含まれています。 ハードウェアを輸送する場合に取り付けて密封するできる前面および背面の運送用ケース カバーが含まれています。 最小構成のソリューション一式には、3 つのポッドが含まれています。|
 
 
-## <a name="deployment-overflow"></a>配置のオーバーフロー
+## <a name="deployment-workflow"></a>デプロイのワークフロー
 
-大まかに説明すると、Azure Stack Hub ラグドの配置プロセスは次の手順で構成されます。
+大まかに言えば、MDC のデプロイ プロセスは以下のセクションで説明するフェーズで構成されています。
 
-1. 計画フェーズ:
-   1. データセンターの電力と冷却の計画。
-   1. Azure Stack Hub の論理ネットワーク構成の計画。
-   1. データセンターのネットワーク統合の計画。
-   1. ID とセキュリティの統合の計画。
-   1. PKI 証明書の計画。
-1. 準備フェーズ:
-   1. 棚卸資産の開封と収集。
-   1. 電源の接続と、ソリューションの電源オン。
-   1. 物理ハードウェアの正常性の検証。
-1. 実行フェーズ:
-   1. ハードウェア ライフサイクル ホストの構成。
-   1. ネットワーク スイッチの構成。
-   1. データセンターのネットワークの統合。
-   1. 物理ハードウェアの設定の構成。
-   1. Azure Stack Hub ファブリック インフラストラクチャのデプロイ。
-   1. データセンターの ID の統合。
-   1. 拡張機能用のアドオンのインストール。
-1. 検証フェーズ:
-   1. デプロイ後の正常性の検証。
-   1. Microsoft への Azure Stack Hub の登録。
-   1. Azure Stack Hub オペレーターへの引き継ぎ。
-   
-上記の各トピックについて、このガイドで詳しく説明します。
+### <a name="planning-phase"></a>計画フェーズ
+1. データセンターの電力の計画。
+1. Azure Stack Hub の論理ネットワーク構成の計画。
+1. [データセンターのネットワーク統合](../operator/azure-stack-network.md)の計画。
+1. [ID](../operator/azure-stack-identity-overview.md) の統合の計画。
+1. [セキュリティ](../operator/azure-stack-security-foundations.md)の統合の計画。
+1. [PKI 証明書](../operator/azure-stack-pki-certs.md)の計画。
+
+### <a name="preparation-phase"></a>準備フェーズ
+1. インベントリの収集。
+1. 電源の接続と、ソリューションの電源オン。
+1. HVAC システムの正常性の検証。
+1. 火災監視と警告システムの正常性の検証。
+1. 物理ハードウェアの正常性の検証。
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>実行フェーズ – 3 つのポッドに対して個別に実行
+1. ハードウェア ライフサイクル ホストの構成。
+1. ネットワーク スイッチの構成。
+1. データセンターのネットワークの統合。
+1. 物理ハードウェアの設定の構成。
+1. Isilon ストレージの構成。
+1. Azure Stack Hub ファブリック インフラストラクチャのデプロイ。
+1. データセンターの ID の統合。
+1. 拡張機能用のアドオンのインストール。
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>検証フェーズ – 3 つのポッドに対して個別に実行
+1. デプロイ後の正常性の検証。
+1. Microsoft への Azure Stack Hub の登録。
+1. Azure Stack Hub のお客様への引き継ぎ。

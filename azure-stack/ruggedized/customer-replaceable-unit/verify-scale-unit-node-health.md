@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 0393d62f040499114a4d66383da1fd5c44a2eeb8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: fcc4c90cfa9c11ae45572e58835641f2ea9cf861
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874423"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487920"
 ---
 # <a name="verifying-scale-unit-node-health"></a>スケール ユニット ノードの正常性の確認
 

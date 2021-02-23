@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 7928ab8ba09ed834f00c05e6c606e993fc2f3ebe
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 8d872a11ce0312e0e1624a310606190da90c48a2
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974168"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487971"
 ---
 # <a name="verifying-scale-unit-node-disk-health"></a>スケール ユニット ノードのディスク正常性の確認
 

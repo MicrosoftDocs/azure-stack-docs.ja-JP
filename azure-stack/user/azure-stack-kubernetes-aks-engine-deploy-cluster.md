@@ -3,16 +3,16 @@ title: AKS エンジンを使用して Azure Stack Hub に Kubernetes クラス�
 description: AKS エンジンを実行しているクライアント VM から Azure Stack Hub に Kubernetes クラスターをデプロイする方法。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 2/5/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 9da037a08aaa7394306c518211fc045453530a71
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 2/5/2021
+ms.openlocfilehash: 3343dc1a4fddbac0e01d0b63fcc8f434084237f0
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246964"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850850"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -26,10 +26,10 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
 
 このセクションでは、クラスターの API モデルの作成について説明します。
 
-1.  まず、Azure Stack Hub の[サンプル](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) API モデル ファイルを使用し、デプロイ用のローカル コピーを作成します。 AKS エンジンをインストールしたマシンから、次を実行します。
+1.  まず、[Linux](https://aka.ms/aksengine-json-example-raw) 用または [Windows](https://aka.ms/aksengine-json-example-raw-win) 用の Azure Stack Hub API モデル ファイルを使用して、デプロイ用のローカル コピーを作成します。 AKS エンジンをインストールしたマシンから、次を実行します。
 
     ```bash
-    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
+    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/v0.55.4/examples/azure-stack/kubernetes-azurestack.json
     ```
 
     > [!NOTE]  
@@ -75,7 +75,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
 
     | フィールド | 説明 |
     | --- | --- |
-    | count | デプロイに必要なエージェントの数を入力します。 サブスクリプションごとに使用するノードの最大数は 50 です。 サブスクリプションごとに複数のクラスターをデプロイする場合は、エージェントの合計数が 50 を超えないようにしてください。 [API モデルの JSON ファイルのサンプル](https://aka.ms/aksengine-json-example)で指定されている構成アイテムを使用してください。  |
+    | count | デプロイに必要なエージェントの数を入力します。 サブスクリプションごとに使用するノードの最大数は 50 です。 サブスクリプションごとに複数のクラスターをデプロイする場合は、エージェントの合計数が 50 を超えないようにしてください。 [API モデルの JSON ファイルのサンプル](https://aka.ms/aksengine-json-example-raw)で指定されている構成アイテムを使用してください。  |
     | vmSize | [Azure Stack Hub でサポートされているサイズ](./azure-stack-vm-sizes.md) (例: `Standard_D2_v2`) を入力します。 |
     | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
 

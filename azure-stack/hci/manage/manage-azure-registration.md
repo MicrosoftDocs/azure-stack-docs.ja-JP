@@ -1,22 +1,22 @@
 ---
-title: Azure Stack HCI の Azure 登録を管理する
-description: Azure Stack HCI の Azure 登録を管理し、登録状態を把握して、使用停止の準備ができたときにクラスターの登録を解除する方法。
+title: Azure での Azure Stack HCI クラスター登録の管理
+description: Azure Stack HCI クラスターの Azure 登録を管理し、登録状態を把握して、使用停止の準備ができたときにクラスターの登録を解除する方法。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: a187730ed43c6c4a57bbe2d1f81d39085d8b94a1
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2021
+ms.openlocfilehash: 7128ddae1a1b67e0085806ecd988f475c9bf8708
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050095"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487461"
 ---
-# <a name="manage-azure-registration"></a>Azure 登録の管理
+# <a name="manage-cluster-registration-with-azure"></a>Azure でのクラスター登録の管理
 
 > Azure Stack HCI v20H2 に適用されます
 
-Azure Stack HCI クラスターを作成したら、[クラスターを Azure Arc](../deploy/register-with-azure.md) に登録する必要があります。クラスターが登録されると、オンプレミス クラスターとクラウドの間で定期的に情報が同期されます。 このトピックでは、登録状態を把握し、Azure Active Directory のアクセス許可を付与し、使用停止の準備ができたらクラスターの登録を解除する方法について説明します。
+Azure Stack HCI クラスターを作成したら、[Windows Admin Center を Azure に登録](register-windows-admin-center.md)してから、[そのクラスターを Azure に登録](../deploy/register-with-azure.md)する必要があります。 クラスターが登録されると、オンプレミス クラスターとクラウドの間で定期的に情報が同期されます。 このトピックでは、登録状態を把握し、Azure Active Directory のアクセス許可を付与し、使用停止の準備ができたらクラスターの登録を解除する方法について説明します。
 
 ## <a name="understanding-registration-status-using-windows-admin-center"></a>Windows Admin Center を使用して登録状態を把握する
 
@@ -162,7 +162,7 @@ Azure Active Directory で、 **[ユーザー設定] > [アプリの登録]** �
 ご自身の Azure Stack HCI クラスターの使用を停止する準備ができたら、Windows Admin Center を使用してクラスターに接続し、左側の **[ツール]** メニューの一番下にある **[設定]** を選択するだけです。 次に、 **[Azure Stack HCI registration]\(Azure Stack HCI の登録\)** を選択し、 **[登録解除]** をクリックします。 登録解除プロセスによって、クラスターを表す Azure リソース、Azure リソース グループ (登録中に作成されたグループで、他のリソースが含まれていない場合)、および Azure AD アプリ ID が自動的にクリーンアップされます。 これにより、Azure Arc による監視、サポート、課金のすべての機能が停止します。
 
    > [!NOTE]
-   > Azure Stack HCI クラスターの登録を解除するには、Azure Active Directory 管理者、または十分なアクセス許可を委任されている他のユーザーが必要です。 「[Azure Active Directory ユーザーのアクセス許可](#azure-active-directory-user-permissions)」をご覧ください。
+   > Azure Stack HCI クラスターの登録を解除するには、Azure Active Directory 管理者、または十分なアクセス許可を委任されている他のユーザーが必要です。 「[Azure Active Directory ユーザーのアクセス許可](#azure-active-directory-user-permissions)」をご覧ください。 Windows Admin Center ゲートウェイが、クラスターの初期登録に使用されたものとは異なる Azure Active Directory (テナント) ID に登録されている場合、Windows Admin Center を使用してクラスターの登録を解除しようとすると問題が発生する可能性があります。 これが発生した場合は、次の PowerShell の手順に従います。
 
 ## <a name="unregister-azure-stack-hci-using-powershell"></a>PowerShell を使用して Azure Stack HCI の登録を解除する
 
@@ -200,8 +200,27 @@ Unregister-AzStackHCI -ComputerName ClusterNode1 -SubscriptionId "e569b8af-6ecc-
 
 Azure Stack HCI リソースを削除するには、Azure portal のそのページに移動し、上部の操作バーから **[削除]** を選択します。 削除を確認するためにリソースの名前を入力し、 **[削除]** をクリックします。 Azure AD アプリ ID を削除するには、**Azure AD**、 **[アプリの登録]** の順に移動して、 **[すべてのアプリケーション]** の下にそれを表示します。 **[削除]** を選択して、確定します。
 
+PowerShell を使用して Azure Stack HCI リソースを削除することもできます。
+
+```PowerShell
+Remove-AzResource -ResourceId "HCI001"
+```
+
+`Az.Resources` モジュールのインストールが必要になる場合があります。
+
+```PowerShell
+Install-Module -Name Az.Resources
+```
+
+リソース グループが登録時に作成され、他のリソースが含まれていない場合は、それも削除できます。
+
+```PowerShell
+Remove-AzResourceGroup -Name "HCI001-rg"
+```
+
 ## <a name="next-steps"></a>次のステップ
 
-関連情報については、以下も参照してください。
+関連情報については、以下もご覧ください。
 
+- [Windows Admin Center を Azure に登録する](register-windows-admin-center.md)
 - [Azure Stack HCI を Azure に接続する](../deploy/register-with-azure.md)

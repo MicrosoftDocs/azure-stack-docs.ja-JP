@@ -3,15 +3,15 @@ title: 同じハードウェア上の Azure Stack HCI に移行する
 description: 同じハードウェア上の Azure Stack HCI にクラスターを移行する方法について説明します
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/12/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 35c1de7da10fbecbf6b861a23cdebb752502ca44
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 593be52321230f3fc1ae4329f8f2284cf964298a
+ms.sourcegitcommit: 5a8b6dfdf75df1aa9474e062ec3a91ca1b8e58bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772267"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100524944"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>同じハードウェア上の Azure Stack HCI に移行する
 
@@ -215,15 +215,9 @@ PowerShell を使用してクラスターを作成する方法の詳細につい
 
 ## <a name="refs-volumes"></a>ReFS ボリューム
 
-Windows Server 2016 から移行する場合、回復性があるファイル システム (ReFS) ボリュームがサポートされますが、そのようなボリュームは、Azure Stack HCI の次のパフォーマンス向上の恩恵を受けません。
+Windows Server 2016 から移行する場合、Resilient File System (ReFS) ボリュームがサポートされますが、そのようなボリュームは、ミラー高速パリティ (MAP) ボリュームの使用による Azure Stack HCI のパフォーマンス向上の恩恵を受けません。 この機能強化には、PowerShell の `New-Volume` コマンドレットを使用して作成する新しい ReFS ボリュームが必要です。
 
-- ミラー高速パリティ
-- MAP ログ バイパス
-
-これらの機能強化には、`New-Volume` コマンドレットを使用して新しい ReFS ボリュームを作成する必要があります。
-
-> [!NOTE]
-> Windows Server 2016 ミラー高速パリティ ボリュームの場合、ReFS 圧縮は使用できませんでした。そのため、これらのボリュームを再アタッチしても問題ありませんが、Azure Stack HCI クラスター上で新しい MAP ボリュームを作成する場合に比べてパフォーマンスは低くなります。
+Windows Server 2016 MAP ボリュームの場合、ReFS 圧縮は使用できませんでした。そのため、これらのボリュームを再アタッチしても問題ありませんが、Azure Stack HCI クラスター上で新しい MAP ボリュームを作成する場合に比べてパフォーマンスは低くなります。
 
 ## <a name="import-the-vms"></a>VM をインポートする
 

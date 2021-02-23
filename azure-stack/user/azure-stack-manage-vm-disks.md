@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: fec078689ca640c66eeec338e3c3a52cd5169287
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 2b5f985f5a7ea6537a56f48f87cf77edf711fde5
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518400"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562651"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Azure Stack Hub で VM ディスク ストレージを作成する
 
@@ -20,7 +20,7 @@ ms.locfileid: "95518400"
 
 ## <a name="overview"></a>概要
 
-バージョン 1808 以降、Azure Stack Hub では、マネージド ディスクとアンマネージド ディスクを、オペレーティング システム (OS) およびデータ ディスクの両方として VM で使用できます。 バージョン 1808 未満では、アンマネージド ディスクのみがサポートされます。
+Azure Stack Hub では、マネージド ディスクとアンマネージド ディスクを、オペレーティング システム (OS) およびデータ ディスクの両方として VM で使用できます。
 
 [マネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)を使用すると、VM ディスクに関連付けられているストレージ アカウントを管理できるため、Azure IaaS VM のディスク管理が簡素化されます。 Azure Stack Hub では、必要なディスクのサイズを指定するだけで、ディスクの作成と管理が自動的に行われます。
 
@@ -56,21 +56,18 @@ VM の作成後、ポータルを使って次の操作を行うことができ�
 
 追加した各アンマネージド ディスクを別のコンテナーに配置します。
 
-> [!NOTE]  
-> Azure によって作成および管理されているディスクは、[マネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)と呼ばれます。
-
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>ポータルを使用して新しいデータ ディスクを作成して接続する
 
-1. ポータルで、 **[すべてのサービス]** を選択し、次に **[仮想マシン]** を選択します。
-   ![例:VM ダッシュボード](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. ポータル内で、 **[すべてのサービス]** 、 **[Compute]** 、 **[仮想マシン]** の順に選択します。
+   [![例:VM ダッシュボード](media/azure-stack-manage-vm-disks/vm-dashboard-small.png)](media/azure-stack-manage-vm-disks/vm-dashboard.png#lightbox)
 
 2. 以前に作成した VM を選択します。
    ![選択された仮想マシンを示すスクリーンショット。](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3. その VM について、 **[ディスク]** を選択し、次に **[データ ディスクの追加]** を選択します。
-   ![新しいディスクを VM に接続する方法を示すスクリーンショット。](media/azure-stack-manage-vm-disks/Attach-disks.png)
+   [![新しいディスクを VM に接続する方法を示すスクリーンショット。](media/azure-stack-manage-vm-disks/attach-disks-small.png)](media/azure-stack-manage-vm-disks/attach-disks.png#lightbox)
 
-4. データ ディスクに対して次の操作を実行します。
+4. データ ディスクに対して:
    * **LUN** を入力します。 LUN には有効な数値を指定してください。
    * **[ディスクの作成]** を選択します。
    ![新しいデータ ディスクの作成方法を示すスクリーンショット。](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
@@ -102,9 +99,9 @@ VM の作成後、ポータルを使って次の操作を行うことができ�
 
    * **［作成］** を選択します Azure Stack Hub でマネージド ディスクが作成されて検証されます。
 
-6. Azure Stack Hub でディスクが作成され、VM に接続されると、VM のディスク設定の **[データ ディスク]** に新しいディスクが表示されます。
+6. Azure Stack Hub によってディスクが作成され、VM に接続されると、VM のディスク設定の **[データ ディスク]** に新しいディスクが表示されます。
 
-   ![例:ディスクを表示する](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   [![例:ディスクを表示する](media/azure-stack-manage-vm-disks/view-data-disk-small.png)](media/azure-stack-manage-vm-disks/view-data-disk.png#lightbox)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>ストレージ アカウントからデータ ディスクを追加する
 
@@ -114,7 +111,7 @@ Azure Stack Hub でのストレージ アカウントの使用について詳し
 2. データ ディスクを配置する **コンテナー** を選択します。 必要に応じて、 **[コンテナー]** ブレードで新しいコンテナーを作成できます。 その後、新しいディスクの場所をそのコンテナーに変更できます。 ディスクごとに別のコンテナーを使用する場合は、データ ディスクの分散配置することでパフォーマンスを向上させることができます。
 3. **[選択]** を選択して、選択内容を保存します。
 
-    ![コンテナーの選択方法を示すスクリーンショット。](media/azure-stack-manage-vm-disks/select-container.png)
+    [![コンテナーの選択方法を示すスクリーンショット。](media/azure-stack-manage-vm-disks/select-container-small.png)](media/azure-stack-manage-vm-disks/select-container.png#lightbox)
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>VM に既存のデータ ディスクを接続する
 

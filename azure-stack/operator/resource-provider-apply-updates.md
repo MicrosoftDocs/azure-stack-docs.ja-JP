@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/18/2019
-ms.openlocfilehash: ff1a6258e682d3230ea7968a97b9e392991ca72b
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: a51a0f53b6df1ec88623f274dec30a68bfaa47c0
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107122"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100563032"
 ---
 # <a name="how-to-update-an-azure-stack-hub-resource-provider"></a>Azure Stack Hub リソース プロバイダーを更新する方法
 
 > [!IMPORTANT]
-> 続行する前に、必ずリソース プロバイダーの最新リリース ノートを確認して、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題について確認してください。 リリース ノートには、リソース プロバイダーに必要な Azure Stack Hub の最小バージョンが指定されている場合もあります。
+> 続行する前に、必ずリソース プロバイダーの最新リリース ノートを確認して、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題について確認してください。 リリース ノートには、リソース プロバイダーに必要な Azure Stack Hub の最小バージョンが指定されている場合もあります。 これまでリソース プロバイダーをインストールしたことがない場合は、リソース プロバイダーの前提条件と最初のインストール手順を代わりに参照してください。
 
 Marketplace からインストールされたリソース プロバイダーには、定期的な保守が必要です。 保守は、Microsoft から定期的に提供されるサービス更新プログラムを適用することによって行います。 更新プログラムには、新機能と修正プログラムの両方が含まれます。  
 

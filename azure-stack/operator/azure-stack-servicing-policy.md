@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub サービス ポリシーの詳細と、サポートを受けられる状態に統合システムを維持する方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/17/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: baa622bf9d80d0896dfb3431e1363e4a8a780567
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 95686f1fc9ae56cefe2063c03e8e80d0e156af83
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255757"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648033"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -27,7 +27,7 @@ Microsoft では、完全な更新プログラム パッケージと、特定の
 
 修正プログラム パッケージは、セキュリティで保護された同じ Azure エンドポイントでホストされます。 これらは、各修正プログラムの KB 記事 (たとえば、[Azure Stack Hub 修正プログラム 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)) の埋め込みリンクを使用してダウンロードできます。 毎月の完全版更新プログラム パッケージと同様に、Azure Stack Hub オペレーターは、[Azure Stack Hub での更新プログラムの適用](azure-stack-apply-updates.md)に関する記事に記載されている手順を使用して、.xml および .zip ファイルのダウンロードとインポートを行うことができます。 スケール ユニットが接続されている Azure Stack Hub オペレーターに対しては、修正プログラムが "**更新プログラムが利用可能です**" というメッセージと共に、自動的に管理者ポータルに表示されます。
 
-スケール ユニットが接続されておらず、各修正プログラムのリリースについて通知を受け取る場合は、各リリースに記載されている [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) または [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) フィードを購読します。
+スケール ユニットが接続されておらず、各修正プログラムのリリースについて通知を受け取る場合は、[RSS フィード](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss)をサブスクライブして、各修正プログラムのリリースについての通知を受け取ります。
 
 ## <a name="update-package-types"></a>更新プログラム パッケージの種類
 

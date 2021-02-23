@@ -1,59 +1,58 @@
 ---
 title: Azure Stack Hub でマルチテナントを構成する
-description: Azure Stack Hub で複数の Azure Active Directory テナントを有効および無効にする方法について説明します。
+description: Azure Stack Hub でゲスト Azure Active Directory テナント用のマルチテナントを構成する方法について説明します。
 author: BryanLa
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 01/26/2021
 ms.author: bryanla
 ms.reviewer: bryanr
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 923c430291c742069a29806449b45d4fc9cdef07
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 01/26/2021
+ms.openlocfilehash: 3de6c5db42285f90e1d4ce6c1ebf6736d7ce4863
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544226"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975947"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Azure Stack Hub でマルチテナントを構成する
 
-Azure Stack Hub を構成して、複数の Azure Active Directory (Azure AD) テナントのユーザーが Azure Stack Hub のサービスを使用できるようにできます。 ここでは、次のシナリオを例に説明します。
+他の Azure Active Directory (Azure AD) ディレクトリにいるユーザーからのサインインをサポートするように Azure Stack Hub を構成して、それらのユーザーが Azure Stack Hub のサービスを使用できるようにすることができます。 これらのディレクトリには、Azure Stack Hub との "ゲスト" 関係があり、そのためゲスト Azure AD テナントと見なされます。 ここでは、次のシナリオを例に説明します。
 
-- あなたは、Azure Stack Hub がインストールされている contoso.onmicrosoft.com のサービス管理者です。
-- メアリーは、ゲスト ユーザーがいる fabrikam.onmicrosoft.com のディレクトリ管理者です。
-- あなたの会社から IaaS および PaaS サービスを受けているメアリーの会社では、ゲスト ディレクトリ (fabrikam.onmicrosoft.com) のユーザーが、contoso.onmicrosoft.com にある Azure Stack Hub のリソースにサインインして使用できるようにする必要があります。
+- あなたは、Azure Stack Hub に ID とアクセス管理のサービスを提供するホーム Azure AD テナントである contoso.onmicrosoft.com のサービス管理者です。
+- Mary は、ゲスト ユーザーがいるゲスト Azure AD テナントである fabrikam.onmicrosoft.com のディレクトリ管理者です。
+- Mary の会社 (Fabrikam) は、あなたの会社の IaaS と PaaS サービスを使用しています。 Fabrikam は、ゲスト ディレクトリ (fabrikam.onmicrosoft.com) のユーザーが、contoso.onmicrosoft.com によってセキュリティ保護された Azure Stack Hub リソースにサインインしてそれを使用できるようにしたいと考えています。
 
-このガイドでは、このシナリオの内容に基づいて、Azure Stack Hub でマルチテナントを構成するために必要な手順を説明します。 このシナリオでは、Fabrikam のユーザーが Contoso の Azure Stack Hub デプロイのサービスにサインインして使用できるようにする手順を、あなたとメアリーが完了する必要があります。
+このガイドでは、ゲスト ディレクトリ テナント用に Azure Stack Hub のマルチテナントを有効または無効にするために、このシナリオのコンテキストで必要となる手順について説明します。 あなたと Mary は、ゲスト ディレクトリ テナントを登録または登録解除することにより、このプロセスを実現します。これにより、Fabrikam ユーザーによる Azure Stack Hub のサインインとサービスの使用が、有効または無効になります。 
 
 クラウド ソリューション プロバイダー (CSP) の場合は、[マルチテナント Azure Stack Hub を構成および管理](azure-stack-add-manage-billing-as-a-csp.md)できる追加の方法があります。 
 
-## <a name="enable-multi-tenancy"></a>マルチテナントの有効化
+## <a name="prerequisites"></a>前提条件
 
-Azure Stack Hub でマルチテナントを構成する前に、対応すべき前提条件がいくつかあります。
-  
- - あなたとメアリーは連携して、Azure Stack Hub がインストールされているディレクトリ (Contoso) とゲスト ディレクトリ (Fabrikam) の両方に管理手順を実行する必要があります。
- - Azure Stack Hub 用の PowerShell が[インストール](powershell-install-az-module.md)および[構成](azure-stack-powershell-configure-admin.md)済みであることを確認します。
+ゲスト ディレクトリを登録または登録解除する前に、あなたと Mary は、それぞれの Azure AD テナント (Azure Stack Hub のホーム ディレクトリ (Contoso) と、ゲスト ディレクトリ (Fabrikam)) の管理手順を完了する必要があります。
+
+ - PowerShell for Azure Stack Hub を[インストール](powershell-install-az-module.md)して[構成](azure-stack-powershell-configure-admin.md)します。
  - [Azure Stack Hub のツールをダウンロード](azure-stack-powershell-download.md)して、Connect モジュールと Identity モジュールをインポートします。
 
     ```powershell
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
 
-### <a name="configure-azure-stack-hub-directory"></a>Azure Stack Hub ディレクトリの構成
+## <a name="register-a-guest-directory"></a>ゲスト ディレクトリを登録する
 
-このセクションでは、Fabrikam の Azure AD ディレクトリのテナントからのサインインを許可するように Azure Stack Hub を構成します。
+マルチテナント用にゲスト ディレクトリを登録するには、Azure Stack Hub のホーム ディレクトリとゲスト ディレクトリの両方を構成する必要があります。
 
-ゲスト ディレクトリ テナント (Fabrikam) のユーザーとサービス プリンシパルを許可するよう Azure Resource Manager を構成して、ゲスト ディレクトリ テナントを Azure Stack Hub にオンボードします。
+#### <a name="configure-azure-stack-hub-directory"></a>Azure Stack Hub ディレクトリの構成
 
-contoso.onmicrosoft.com のサービス管理者は、次のコマンドを実行します。
+contoso.onmicrosoft.com のサービス管理者であるあなたは、最初に Fabrikam のゲスト ディレクトリ テナントを Azure Stack Hub にオンボードする必要があります。 次のスクリプトを実行すると、fabrikam.onmicrosoft.com テナントのユーザーとサービス プリンシパルからのサインインを受け入れるように、Azure Resource Manager が構成されます。
 
 ```powershell  
-## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as adminmanagement.<region>.<FQDN>.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack Hub directory
 $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 
-## Replace the value below with the guest tenant directory. 
+## Replace the value below with the guest directory tenant. 
 $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 
 ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
@@ -73,19 +72,15 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
  -SubscriptionName $SubscriptionName
 ```
 
-### <a name="configure-guest-directory"></a>ゲスト ディレクトリの構成
+#### <a name="configure-guest-directory"></a>ゲスト ディレクトリの構成
 
-Azure Stack Hub のオペレーターが Azure Stack Hub で使用する Fabrikam ディレクトリを有効にしたら、メアリーは Azure Stack Hub を Fabrikam のディレクトリ テナントに登録する必要があります。
-
-#### <a name="register-azure-stack-hub-with-the-guest-directory"></a>ゲスト ディレクトリへの Azure Stack Hub の登録
-
-メアリー (Fabrikam のディレクトリ管理者) は、ゲスト ディレクトリ fabrikam.onmicrosoft.com で次のコマンドを実行します。
+次に、Mary (Fabrikam のディレクトリ管理者) は、次のスクリプトを実行して、Azure Stack Hub を fabrikam.onmicrosoft.com ゲスト ディレクトリに登録する必要があります。
 
 ```powershell
-## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as management.<region>.<FQDN>.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
-## Replace the value below with the guest tenant directory.
+## Replace the value below with the guest directory tenant.
 $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
 Register-AzSWithMyDirectoryTenant `
@@ -103,21 +98,21 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>ユーザーをサインインに誘導する
 
-あなたとメアリーの両方が Fabrikam ディレクトリのオンボード手順を完了したので、メアリーは Fabrikam のユーザーをサインインに誘導することができます。 Fabrikam ユーザー (fabrikam.onmicrosoft.com のサフィックスを持つユーザー) は、https\://portal.local.azurestack.external にアクセスしてサインインします。
+最後に、Mary は、@fabrikam.onmicrosoft.com アカウントを使用する Fabrikam のユーザーに、[Azure Stack Hub ユーザー ポータル](../user/azure-stack-use-portal.md)にアクセスすることによってサインインするよう指示することができます。 マルチノード システムの場合、ユーザー ポータルの URL は `https://management.<region>.<FQDN>` という形式になります。 ASDK のデプロイの場合、URL は `https://portal.local.azurestack.external` です。
 
-メアリーは、Fabrikam ディレクトリの[外部プリンシパル](/azure/role-based-access-control/rbac-and-directory-admin-roles) (fabrikam.onmicrosoft.com のサフィックスを持たない Fabrikam ディレクトリ内のユーザー) はすべて、https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com を使用してサインインするように誘導します。 この URL を使用しない場合、これらのユーザーは自分の既定のディレクトリ (Fabrikam) に送信され、管理者が同意していないことを示すエラーを受信します。
+Mary は、外部のプリンシパル (fabrikam.onmicrosoft.com というサフィックスを使用していない Fabrikam ディレクトリのユーザー) にも、`https://<user-portal-url>/fabrikam.onmicrosoft.com` を使用してサインインするよう指示する必要があります。 URL で `/fabrikam.onmicrosoft.com` ディレクトリ テナントを指定しない場合、これらのユーザーは自分の既定のディレクトリに送られ、管理者が同意していないことを示すエラーを受け取ります。
 
-## <a name="disable-multi-tenancy"></a>マルチテナントの無効化
+## <a name="unregister-a-guest-directory"></a>ゲスト ディレクトリを登録解除する
 
-Azure Stack Hub に複数のテナントが不要になった場合は、次の手順を順番に実行してマルチ テナントを無効にできます。
+ゲスト ディレクトリ テナントからの Azure Stack Hub サービスへのサインインを許可する必要がなくなった場合は、ディレクトリの登録を解除できます。 ここでも、Azure Stack Hub のホーム ディレクトリとゲスト ディレクトリの両方を構成する必要があります。
 
-1. ゲスト ディレクトリの管理者 (このシナリオでは Mary) として、 *Unregister-AzsWithMyDirectoryTenant* を実行します。 このコマンドレットは、新しいディレクトリからすべての Azure Stack Hub アプリをアンインストールします。
+1. ゲスト ディレクトリの管理者 (このシナリオでは Mary) として、`Unregister-AzsWithMyDirectoryTenant` を実行します。 このコマンドレットは、新しいディレクトリからすべての Azure Stack Hub アプリをアンインストールします。
 
     ``` PowerShell
-    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as management.<region>.<FQDN>.
     $tenantARMEndpoint = "https://management.local.azurestack.external"
         
-    ## Replace the value below with the guest tenant directory.
+    ## Replace the value below with the guest directory tenant.
     $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
     
     Unregister-AzsWithMyDirectoryTenant `
@@ -126,19 +121,19 @@ Azure Stack Hub に複数のテナントが不要になった場合は、次の�
      -Verbose 
     ```
 
-2. Azure Stack Hub のサービス管理者 (このシナリオではあなた) として、 *Unregister-AzSGuestDirectoryTenant* を実行します。
+2. Azure Stack Hub のサービス管理者として (このシナリオではあなた)、`Unregister-AzSGuestDirectoryTenant` コマンドレットを実行します。
 
     ``` PowerShell
-    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint, formatted as adminmanagement.<region>.<FQDN>.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
     ## Replace the value below with the Azure Stack Hub directory
     $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
     
-    ## Replace the value below with the guest tenant directory. 
+    ## Replace the value below with the guest directory tenant. 
     $guestDirectoryTenantToBeDecommissioned = "fabrikam.onmicrosoft.com"
     
-    ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
+    ## Replace the value below with the name of the resource group in which the directory tenant resource was created (resource group must already exist).
     $ResourceGroupName = "system.local"
     
     Unregister-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
@@ -167,7 +162,7 @@ Write-Host "Unhealthy directories: "
 $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property tenantName,tenantId,status | ft
 ```
 
-### <a name="update-azure-ad-tenant-permissions"></a>Azure AD テナントのアクセス許可の更新
+## <a name="update-azure-ad-tenant-permissions"></a>Azure AD テナントのアクセス許可の更新
 
 このアクションにより、ディレクトリの更新が必要であることを示す Azure Stack Hub のアラートがクリアされます。 **Azurestack-tools-master/identity** フォルダーから次のコマンドを実行します。
 
@@ -176,7 +171,7 @@ Import-Module ..\Identity\AzureStack.Identity.psm1
 
 $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
 
-# This is the primary tenant Azure Stack is registered to:
+# This is the primary tenant Azure Stack Hub is registered to:
 $homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com"
 
 Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `

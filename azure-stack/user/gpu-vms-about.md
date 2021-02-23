@@ -5,15 +5,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 2/1/2021
+ms.date: 2/8/2021
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 84c218c36b370c5b0be2cbe415ae3f3f10a6397f
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: /8/2021
+ms.openlocfilehash: 7091ebff9fae07b1e5eb97f54a33889bc73eda7b
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247100"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009232"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上の GPU (グラフィックス処理装置) 仮想マシン (VM)
 
@@ -26,11 +26,17 @@ ms.locfileid: "99247100"
 - [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
 - [NCasT4_v3](/azure/virtual-machines/nct4-v3-series)
 
+::: moniker range=">=azs-2005"
 > [!IMPORTANT]  
-> Azure Stack Hub での GPU のサポートは、現在パブリック プレビュー段階にあります。 プレビューに参加するには、[aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview) にあるフォームにご記入ください。
+> Azure Stack Hub GPU サポートは、2005 および 2008 の Azure Stack Hub リリースでパブリック プレビュー段階にあります。  
 > このプレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。
 > 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
+::: moniker-end
 
+::: moniker range="<=azs-2002"
+> [!WARNING]  
+> このリリースでは、GPU VM はサポートされていません。 Azure Stack Hub 2005 以降にアップグレードする必要があります。 また、Azure Stack Hub ハードウェアには物理 GPU が必要です。
+::: moniker-end
 ## <a name="ncv3"></a>NCv3
 
 NCv3 シリーズ VM は NVIDIA Tesla V100 GPU を備えています。 貯留層モデリング、DNA シーケンシング、タンパク質解析、モンテ カルロ シミュレーションをはじめとする従来の HPC ワークロードに、これらの最新の GPU を活用することができます。 
@@ -50,6 +56,11 @@ NVv4 シリーズの仮想マシンには [AMD Radeon Instinct MI25](https://www
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
 ## <a name="ncast4_v3"></a>NCasT4_v3
+
+::: moniker range=">=azs-2005"
+> [!IMPORTANT]
+> これらの VM サイズは、ポータルのユーザー インターフェイス (UI) を使用してデプロイすることはできません。 PowerShell、Azure CLI、または Azure Resource Manager テンプレートを使用できます。
+::: moniker-end
 
 | サイズ | vCPU | メモリ:GiB | GPU | GPU メモリ: GiB | 最大データ ディスク数 | 最大 NIC 数 | 
 | --- | --- | --- | --- | --- | --- | --- |

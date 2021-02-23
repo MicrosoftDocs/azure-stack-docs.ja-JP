@@ -3,16 +3,16 @@ title: DIMM の交換
 description: DIMM を交換する方法について説明します
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 3665ac12c42cac7a87ae9c69f4fc450b4f76cf3d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f20cdf77cb5ed3b63bcbd9b57770039efb6d29e5
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867827"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487937"
 ---
 # <a name="replacing-a-dimm"></a>DIMM の交換
 
@@ -26,7 +26,7 @@ DIMM を交換するには、次の手順に従います。
 
 3.  確認
 
-    -   スケール ユニット ノードを使用している場合は、戦術的クラウド アプライアンスでスケール ユニット ノードを使用するために必要な知識
+    -   スケール ユニット ノードを使用している場合は、ラグド クラウド アプライアンスでスケール ユニット ノードを使用するために必要な知識
 
     -   ハードウェア ライフサイクル ホストを使用している場合は、ハードウェア ライフサイクル ホストを使用するために必要な知識
 
@@ -53,7 +53,7 @@ DIMM を交換するには、次の手順に従います。
     
 3.  DIMM を交換します。
 
-    スケール ユニット ノードまたはハードウェア ライフサイクル ホストについては、「[Dell EMC PowerEdge R640 設置およびサービス マニュアル](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4)」に記載されているメモリ モジュール交換プロセスに従ってください。
+    スケール ユニット ノードまたはハードウェア ライフサイクル ホストについては、[メモリ モジュールの交換プロセス](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4)に従います。
     
 4.  ノードの電源を入れます。
 
@@ -61,9 +61,9 @@ DIMM を交換するには、次の手順に従います。
     
 ## <a name="next-steps"></a>次の手順
 
-スケール ユニット ノードを使用している場合は、次のことを行います。
+スケール ユニット ノードを使用している場合:
 
 1.  スケール ユニット ノードの電源オンを完了します。
 
-2.  スケール ユニット ノードの正常性の確認を完了します。 ハードウェア ライフサイクル ホストを使用している場合は、ハードウェア ライフサイクル ホストの正常性を確認します。
+2.  スケール ユニット ノードの正常性の検証を完了します。 ハードウェア ライフサイクル ホストを使用している場合は、ハードウェア ライフサイクル ホストの正常性を確認します。
     

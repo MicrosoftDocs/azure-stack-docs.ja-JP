@@ -1,22 +1,22 @@
 ---
-title: 障害が発生した外部ストレージ ディスクを交換する
-description: 障害が発生した外部ストレージ ディスクを交換する方法について説明します
+title: 障害が発生したデータ ドライブの交換
+description: 障害が発生したデータ ドライブを交換する方法について説明します
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: e53d81e7606c6440ce535726199af31a1dbfd950
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: a5b7796794a0444a434fdb9a628ff04b93adcc03
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910654"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488107"
 ---
-# <a name="replacing-a-failed-external-storage-disk"></a>障害が発生した外部ストレージ ディスクの交換
+# <a name="replacing-a-failed-data-drive"></a>障害が発生したデータ ドライブの交換
 
-障害が発生した外部ディスクを交換するには、次の手順に従います。
+障害が発生したデータ ドライブを交換するには、次の手順に従います。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -26,7 +26,7 @@ ms.locfileid: "97910654"
 
 3.  確認
 
-    -   スケール ユニット ノードを使用している場合は、戦術的クラウド アプライアンスでスケール ユニット ノードを使用するために必要な知識
+    -   スケール ユニット ノードを使用している場合は、ラグド クラウド アプライアンスでスケール ユニット ノードを使用するために必要な知識
 
     -   ハードウェア ライフサイクル ホストを使用している場合は、ハードウェア ライフサイクル ホストを使用するために必要な知識
 
@@ -48,8 +48,7 @@ ms.locfileid: "97910654"
 
 2.  ディスク モデルを確認します。
 
-    新しいディスク モデルが、[Integrated System for Microsoft Azure Stack Hub 14G サポート](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D)
-     [マトリックス](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D)* にサポート対象としてリストされていることを確認します。
+    新しいディスク モデルが[サポート マトリックス](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D)でサポート済みとして記載されていることを確認します。
     ディスクがサポート マトリックスに含まれていない場合は、別の交換用品を要求する必要があります。
     
     > [!CAUTION]
@@ -57,9 +56,9 @@ ms.locfileid: "97910654"
         
     モデルを確認するには、ラベルを見つけて、コンポーネントがサポート マトリックスに含まれていることを確認します。
     
-3.  障害が発生した外部ストレージ ディスクを交換します。
+3.  障害が発生したデータ ドライブを交換します。
 
-    スケール ユニット ノードまたはハードウェア ライフサイクル ホストについては、「[Dell EMC PowerEdge R640 設置およびサービス マニュアル](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4)」に記載されているディスク ドライブ キャリアに従ってください。
+    スケール ユニット ノードまたはハードウェア ライフサイクル ホストについては、[ディスク ドライブ キャリアの交換プロセス](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4)に従います。
     
     また、ディスク ドライブをディスク ドライブ キャリアまたはディスク ドライブ アダプターから取り外したり、取り付けたりする場合の関連セクションも参照する必要があります。
     
@@ -77,9 +76,9 @@ ms.locfileid: "97910654"
         
 ## <a name="next-steps"></a>次の手順
 
-スケール ユニット ノードを使用している場合は、次のことを行います。
+スケール ユニット ノードを使用している場合:
 
-1.  スケール ユニット ノードの正常性の確認を完了します。
+1.  スケール ユニット ノードの正常性の検証を完了します
 
 2.  ハードウェア ライフサイクル ホストを使用している場合は、スケール ユニット ノードのディスク正常性の確認を完了します。
 

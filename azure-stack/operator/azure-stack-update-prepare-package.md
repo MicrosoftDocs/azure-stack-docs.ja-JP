@@ -3,16 +3,16 @@ title: Azure Stack Hub で更新プログラム パッケージを準備する
 description: Azure Stack Hub で更新プログラム パッケージを準備する方法について説明します。
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: e0ad221764e116bb2b5f73601da3ac6917681ff0
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: b3d1f3d76d988be3647a1d26fec0a763a681d4cf
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564787"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850923"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Azure Stack Hub 更新プログラム パッケージを準備する
 
@@ -45,7 +45,7 @@ ms.locfileid: "88564787"
 
 ### <a name="automatic-download-and-preparation-for-update-packages"></a>更新プログラム パッケージの自動ダウンロードと準備
 
-Azure Stack Hub のソフトウェア更新プログラムと修正プログラムは、**Azure Stack Hub 自動更新エンドポイント**  (`https://*.azureedge.net` および `https://aka.ms/azurestackautomaticupdate`) に接続するシステムに対して自動的に準備されます。 **Azure Stack Hub 自動更新エンドポイント**への接続の設定の詳細については、[Azure Stack Hub へのファイアウォールの統合](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound)に関するページで説明されている**修正プログラムと更新**エンドポイントを参照してください。
+Azure Stack Hub のソフトウェア更新プログラムと修正プログラムは、**Azure Stack Hub 自動更新エンドポイント**  (`https://*.azureedge.net` および `https://aka.ms/azurestackautomaticupdate`) に接続するシステムに対して自動的に準備されます。 **Azure Stack Hub 自動更新エンドポイント** への接続の設定の詳細については、[Azure Stack Hub へのファイアウォールの統合](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound)に関するページで説明されている **修正プログラムと更新** エンドポイントを参照してください。
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Azure Stack Hub 更新プログラム パッケージをダウンロードする場所
 
@@ -56,7 +56,7 @@ Azure Stack Hub のソフトウェア更新プログラムと修正プログラ�
 
 ### <a name="where-to-download-azure-stack-hub-hotfix-packages"></a>Azure Stack Hub の修正プログラム パッケージをダウンロードする場所
 
-[Azure Stack Hub 修正プログラム](./azure-stack-updates.md#update-package-types)のパッケージは、Azure Stack Hub 更新プログラムと同じセキュリティで保護された Azure エンドポイントでホストされます。 それらが利用可能になると、接続されたインスタンスを担当する Azure Stack Hub オペレーターには、[管理者ポータルで、Azure Stack Hub の更新プログラムが自動的に表示](#automatic-download-and-preparation-for-update-packages)されます。 それらは、各修正プログラムの KB 記事 ([Azure Stack Hub 修正プログラム 1.1906.11.52](https://support.microsoft.com/help/4515650) など) の埋め込みリンクを使用してダウンロードできます。 修正プログラムへのリンクは、お使いの Azure Stack Hub のバージョンのリリース ノートでも見つかります。
+[Azure Stack Hub 修正プログラム](./azure-stack-updates.md#update-package-types)のパッケージは、Azure Stack Hub 更新プログラムと同じセキュリティで保護された Azure エンドポイントでホストされます。 それらが利用可能になると、接続されたインスタンスを担当する Azure Stack Hub オペレーターには、[管理者ポータルで、Azure Stack Hub の更新プログラムが自動的に表示](#automatic-download-and-preparation-for-update-packages)されます。 各修正プログラムの KB 記事の埋め込みリンクを使用して、それらをダウンロードできます。 修正プログラムの KB 記事へのリンクは、お使いの Azure Stack Hub のバージョンに対応するリリース ノートでも見つかります。
 
 ### <a name="where-to-download-oem-update-packages"></a>OEM 更新プログラム パッケージをダウンロードする場所
 

@@ -4,21 +4,24 @@ description: Windows Admin Center ゲートウェイを Azure に登録する方
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: d98cb4f0531903d27d97d9fb055c7ae2db35a65e
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2021
+ms.openlocfilehash: 0b80a1e607823385d06a5255244373ca3be1af98
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050061"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487886"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>Windows Admin Center を Azure に登録する
 
 > 適用対象: Azure Stack HCI v20H2、Windows Server 2019
 
-Windows Admin Center で Azure サービスを使用するには、まず管理 PC に Windows Admin Center をインストールし、Windows Admin Center ゲートウェイの 1 回限りの登録を完了する必要があります。 これは、クラスターを Azure に登録するための前提条件であり、[クラスター登録](../deploy/register-with-azure.md)プロセスに使用する予定のものと同じ管理 PC で、同じ Azure サブスクリプション ID とテナント ID を使って行う必要があります。
+Windows Admin Center で Azure サービスを使用するには、まず管理 PC に [Windows Admin Center をインストール](/windows-server/manage/windows-admin-center/deploy/install)し、Windows Admin Center ゲートウェイの 1 回限りの登録を完了する必要があります。 これは、Azure に[クラスターを登録](../deploy/register-with-azure.md)するための前提条件です。
 
-## <a name="complete-the-gateway-registration-process-using-windows-admin-center"></a>Windows Admin Center を使用してゲートウェイ登録プロセスを完了する
+   > [!IMPORTANT]
+   > 同じ Azure Active Directory (テナント) ID を使用して、クラスターの登録に使用する予定の同じ管理 PC に Windows 管理センターを登録します。
+
+## <a name="complete-the-registration-process"></a>登録プロセスを完了する
 
 1. Windows Admin Center を起動し、右上にある **[設定]** 歯車アイコンをクリックします。これにより、[アカウント] ページに移動します。 次に、左側の **[ゲートウェイ]** メニューで **[Azure]** を選択し、 **[登録]** をクリックします。
 

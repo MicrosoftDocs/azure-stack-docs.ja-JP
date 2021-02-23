@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2020
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 5d59532308239f9eda95ba9f81599235a8c8f61c
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 02/17/2021
+ms.openlocfilehash: ad0a80f28b26e3c7da71860670feefd7efc15a0f
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255556"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100647795"
 ---
 # <a name="mdc-requirements-overview"></a>MDC の要件の概要
 
@@ -66,7 +66,8 @@ MDC は、標準の 40 フィート金属製出荷コンテナーに収められ
 1. データセンターの電力の計画。
 1. Azure Stack Hub の論理ネットワーク構成の計画。
 1. [データセンターのネットワーク統合](../operator/azure-stack-network.md)の計画。
-1. [ID とセキュリティの統合](/azure/security/fundamentals/identity-management-best-practices)の計画。
+1. [ID](../operator/azure-stack-identity-overview.md) の統合の計画。
+1. [セキュリティ](../operator/azure-stack-security-foundations.md)の統合の計画。
 1. [PKI 証明書](../operator/azure-stack-pki-certs.md)の計画。
 
 ### <a name="preparation-phase"></a>準備フェーズ

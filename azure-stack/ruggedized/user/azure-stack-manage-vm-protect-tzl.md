@@ -11,22 +11,22 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: c57e421140dfea9eac949b5dcf97cc90745ab861
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: a31b5b4498911b008ec471beca24905466efee4b
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910961"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562959"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub---ruggedized"></a>Azure Stack Hub にデプロイされた VM の保護 - ラグド
 
 この記事は、ユーザーが Azure Stack Hub にデプロイする仮想マシン (VM) の保護計画を作成するためのガイドとして使用してください。
 
-データの損失や計画外のダウンタイムから保護するには、Azure Stack Hub 上の VM ベースのアプリケーションにデータ保護とディザスター リカバリーの計画を実装する必要があります。 実装する保護計画は、ビジネス要件やアプリケーションの設計によって異なります。 この計画は、組織の包括的な事業継続とディザスター リカバリー (BC/DR) 戦略によって確立されたフレームワークに従っている必要があります。 Azure Stack Hub の BC/DR で考慮すべき事柄の概略については、「Azure Stack: 事業継続とディザスター リカバリーに関する考慮事項」を参照してください。
+データの損失や計画外のダウンタイムから保護するには、Azure Stack Hub 上の VM ベースのアプリケーションにデータ保護とディザスター リカバリーの計画を実装する必要があります。 実装する保護計画は、ビジネス要件やアプリケーションの設計によって異なります。 この計画は、組織の包括的な事業継続とディザスター リカバリー (BC/DR) 戦略によって確立されたフレームワークに従っている必要があります。 Azure Stack Hub の BC/DR で考慮すべき事柄の概略については、「[Azure Stack:Considerations for business continuity and disaster recovery](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/)」を参照することをお勧めします。
 
 ## <a name="application-recovery-objectives"></a>アプリケーションの回復目標
 
@@ -84,9 +84,9 @@ Important considerations for your Azure Stack deployment: -->
 
 この記事では、Azure Stack にデプロイされたユーザー VM を保護するための一般的なガイドラインについて説明しました。 Azure サービスを使用したユーザー VM の保護については、以下を参照してください。
 
-- [事業継続とディザスター リカバリーへの配慮](https://aka.ms/azurestackbcdrconsiderationswp)
+- [事業継続とディザスター リカバリーへの配慮](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/)
 
 ### <a name="partner-products"></a>パートナー製品
 
-- [Azure Stack データセンター統合のパートナー エコシステムのデータシート](https://aka.ms/azurestackbcdrpartners)
+- [Azure Stack データセンター統合のパートナー エコシステムのデータシート](https://azure.microsoft.com/resources/azure-stack-datacenter-integration-partners/)
 - Azure Stack の VM を保護するパートナー製品の詳細については、[Azure Stack でのアプリとデータの保護](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)に関するページを参照してください。

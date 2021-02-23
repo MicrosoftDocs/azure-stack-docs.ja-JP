@@ -7,16 +7,16 @@ ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: 8cf8f5c42eea1ce1884760c974881712954f1af7
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: f30a8b82a07aafed80fc75329516bd3b3d91df04
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847828"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009045"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>App Service on Azure Stack Hub と Azure Functions の概要
 
-Azure App Service on Azure Stack Hub は、Azure Stack Hub で利用できる Microsoft Azure の、サービスとしてのプラットフォーム (PaaS) サービスです。 このサービスにより、内部または外部の顧客はあらゆるプラットフォームやデバイス用の Web、API、Azure Functions アプリを作成できるようになります。 お客様のアプリとオンプレミスのアプリを統合し、ビジネス プロセスを自動化できます。 Azure Stack Hub クラウドの運用者は、指定した共有仮想マシン (VM) リソースまたは専用 VM を使用して、フル マネージドの VM 上でユーザーのアプリを実行できます。
+Azure App Service on Azure Stack Hub は、Azure Stack Hub で利用できる Microsoft Azure の、サービスとしてのプラットフォーム (PaaS) サービスです。 このサービスにより、内部または外部の顧客はあらゆるプラットフォームやデバイス用の Web および Azure Functions アプリを作成できるようになります。 お客様のアプリとオンプレミスのアプリを統合し、ビジネス プロセスを自動化できます。 Azure Stack Hub クラウドの運用者は、指定した共有仮想マシン (VM) リソースまたは専用 VM を使用して、フル マネージドの VM 上でユーザーのアプリを実行できます。
 
 Azure App Service を使用すると、ビジネス プロセスとホスト クラウド API を自動化できます。 単一の統合サービスである Azure App Service では、さまざまなコンポーネント (Web サイト、REST API、ビジネス プロセスなど) を 1 つのソリューションにまとめることができます。
 
@@ -32,11 +32,10 @@ Azure App Service のいくつかの主要機能を次に示します。
 
 App Service にはアプリの種類が複数用意されており、それぞれ特定のワークロードをホストするよう設計されています。
 
-- [Web Apps](/azure/app-service/overview) - Web サイトと Web アプリをホストするためのアプリの種類。
-- [API Apps](/azure/app-service/overview) - REST API をホストするためのアプリの種類。
+- Web サイト、Web アプリ、および REST API をホストする [Web Apps](/azure/app-service/overview)。
 - イベント ドリブンでサーバーレスのワークロードをホスティングするための [Azure Functions v1](/azure/azure-functions)。
 
-"*アプリ*" とは、ワークロードの実行専用のホスティング リソースを指しています。 *Web アプリ*を例にとると、Web アプリをコンピューティング リソースとアプリ コードの両方の観点から捉えることにおそらく慣れているでしょう。この両者が合わさって、ブラウザーに機能が提供されます。 Azure App Service において、Web アプリとは、アプリ コードをホストするために Azure Stack Hub で提供されるコンピューティング リソースです。
+"*アプリ*" とは、ワークロードの実行専用のホスティング リソースを指しています。 *Web アプリ* を例にとると、Web アプリをコンピューティング リソースとアプリ コードの両方の観点から捉えることにおそらく慣れているでしょう。この両者が合わさって、ブラウザーに機能が提供されます。 Azure App Service において、Web アプリとは、アプリ コードをホストするために Azure Stack Hub で提供されるコンピューティング リソースです。
 
 アプリは、さまざまな種類の複数の App Service アプリで構成できます。 たとえば、アプリが Web フロントエンドと REST API バックエンドで構成されている場合は、次のようなことを実行できます。
 
@@ -47,7 +46,7 @@ App Service にはアプリの種類が複数用意されており、それぞ�
 
 ## <a name="what-is-an-app-service-plan"></a>App Service プランとは
 
-App Service のリソース プロバイダーは、Azure App Service で使用するものと同じコードを使用するので、一部の共通概念を共有します。 App Service では、アプリの価格コンテナーを *App Service プラン*と呼びます。 これは、アプリを保持するために使用される専用の VM のセットを表します。 特定のサブスクリプション内で、複数の App Service プランを利用できます。
+App Service のリソース プロバイダーは、Azure App Service で使用するものと同じコードを使用するので、一部の共通概念を共有します。 App Service では、アプリの価格コンテナーを *App Service プラン* と呼びます。 これは、アプリを保持するために使用される専用の VM のセットを表します。 特定のサブスクリプション内で、複数の App Service プランを利用できます。
 
 Azure には、共有ワーカーと専用ワーカーがあります。 共有ワーカーは高密度のマルチテナント アプリ ホスティングをサポートします。この共有ワーカーは 1 セットしかありません。 専用サーバーは 1 つのテナントでのみ使用され、小、中、大という 3 つのサイズがあります。 オンプレミスの顧客のニーズは、必ずしもこれらの用語を使用して説明されるわけではありません。 Azure App Service on Azure Stack Hub では、リソース プロバイダー管理者が、使用可能にするワーカー層を定義します。 独自のホスティング ニーズに基づき、複数の共有ワーカー セットや、異なる専用ワーカー セットを定義できます。 これらのワーカー層の定義を使用することで、独自の価格 SKU を定義できます。
 

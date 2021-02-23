@@ -3,16 +3,16 @@ title: Azure Stack Hub 上の Azure Kubernetes Service (AKS) エンジンのリ�
 description: Azure Stack Hub 上の AKS エンジンの更新プログラムを使用して実行する必要がある手順について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 2/11/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 9bc1e73213743f1457a16bcce3a9ff4e69d370ef
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 2/11/2021
+ms.openlocfilehash: fd8453c55be6222badd577666293653a45f67273
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247678"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488039"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのリリース ノート
 ::: moniker range=">=azs-2002"
@@ -76,6 +76,7 @@ Azure Stack Hub 用 AKS エンジンのドキュメントで説明されてい�
 
 -   Kubernetes クラスター管理者は、新しい aks-engine バージョン 0.51.0 をダウンロードする必要があります。 「[Azure Stack Hub の Linux に AKS エンジンをインストールする](./azure-stack-kubernetes-aks-engine-deploy-linux.md)」の記事の手順を参照してください。 クラスターを初めてインストールする場合と同じプロセスで実行できます。 この更新により、以前のバイナリが上書きされます。 たとえば、get-akse.sh スクリプトを使用した場合は、この「[接続されている環境へのインストール](./azure-stack-kubernetes-aks-engine-deploy-linux.md#install-in-a-connected-environment)」セクションの説明と同じ手順を実行します。 Windows システムにインストールする場合も、「[Azure Stack Hub の Windows に AKS エンジンをインストールする](./azure-stack-kubernetes-aks-engine-deploy-windows.md)」と同じプロセスが適用されます。
 
+
 ## <a name="aks-engine-and-azure-stack-version-mapping"></a>AKS エンジンと Azure Stack のバージョン マッピング
 
 | Azure Stack Hub のバージョン | AKS エンジンのバージョン |
@@ -94,12 +95,22 @@ Azure Stack Hub 用 AKS エンジンのドキュメントで説明されてい�
 | 1.15.12、1.16.8、1.16.9 | 1.16.14 |
 | 1.16.8、1.16.9、1.16.14 | 1.17.11 |
 
-API モデルの json ファイル内にある `orchestratorProfile` セクションの下にリリースとバージョンの値を指定してください。たとえば、Kubernetes 1.16.14 をデプロイする場合は、次の 2 つの値を設定する必要があります ([kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json) の例を参照してください)。
+API モデルの json ファイル内にある `orchestratorProfile` セクションの下にリリースとバージョンの値を指定してください。たとえば、Kubernetes 1.16.14 をデプロイする場合は、次の 2 つの値を設定する必要があります ([kubernetes-azurestack.json](https://aka.ms/aksengine-json-example-raw) の例を参照してください)。
 
 ```json  
     -   "orchestratorRelease": "1.16",
     -   "orchestratorVersion": "1.16.14"
 ```
+
+## <a name="aks-engine-and-corresponding-image-mapping"></a>AKS エンジンと対応するイメージ マッピング
+
+| AKS Engine | AKS 基本イメージ | Kubernetes のバージョン | Notes |
+|---|---|---|---|
+| v0.43.1 | AKS Base Ubuntu 16.04-LTS イメージ ディストリビューション、2019 年 10 月 (2019.10.24) | 1.15.5、1.15.4、1.14.8、1.14.7 |  |
+| v0.48.0 | AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 3 月 (2020.03.19) | 1.15.10、1.14.7 |  |
+| v0.51.0 | AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 5 月 (2020.05.13)、AKS 基本 Windows イメージ (17763.1217.200513) | 1.15.12、1.16.8、1.16.9 | API モデルのサンプル ([Linux](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-azurestack.json)、[Windows](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-windows.json)) |
+| v0.55.0 | AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 8 月 (2020.08.24)、AKS 基本 Windows イメージ (17763.1397.200820) | 1.15.12、1.16.14、1.17.11 | API モデルのサンプル ([Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json)、[Windows](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json)) |
+| v0.55.4 | AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 9 月 (2020.09.14)、AKS 基本 Windows イメージ (17763.1397.200820) | 1.15.12、1.16.14、1.17.11 | API モデルのサンプル ([Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json)、[Windows](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json)) |
 
 ## <a name="whats-new"></a>新機能
 
@@ -205,7 +216,7 @@ Azure Stack Hub 用 AKS エンジンのドキュメントで説明されてい�
 
 ## <a name="whats-new"></a>新機能 
 
--   Kubernetes バージョン 1.15.10 のサポート ([\#2834](https://github.com/Azure/aks-engine/issues/2834))。 新しいクラスターをデプロイするときは、api モデルの json ファイル (つまり クラスター定義ファイル) でリリース バージョン番号だけでなくマイナー バージョン番号も指定します。 例については [kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json) を参照してください。
+-   Kubernetes バージョン 1.15.10 のサポート ([\#2834](https://github.com/Azure/aks-engine/issues/2834))。 新しいクラスターをデプロイするときは、api モデルの json ファイル (つまり クラスター定義ファイル) でリリース バージョン番号だけでなくマイナー バージョン番号も指定します。 例については [kubernetes-azurestack.json](https://aka.ms/aksengine-json-example-raw) を参照してください。
 
     - `"orchestratorRelease": "1.15`,
 

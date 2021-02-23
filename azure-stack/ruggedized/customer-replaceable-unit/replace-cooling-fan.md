@@ -3,16 +3,16 @@ title: 冷却ファンの交換
 description: 冷却ファンの交換方法について説明します
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 418501e5ee6e2f14536ace5ea61f172d2736a31a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 34437eea94b328d729f838aaf5050c7efee16e7f
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874508"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488090"
 ---
 # <a name="replacing-a-cooling-fan"></a>冷却ファンの交換
 
@@ -26,7 +26,7 @@ ms.locfileid: "97874508"
 
 3.  確認
 
-    -   戦術的クラウド アプライアンスでスケール ユニット ノードを使用するために必要な知識
+    -   Azure Stack Hub ラグド内でスケール ユニット ノードを使用するために必要な知識
 
     -   ハードウェア ライフサイクル ホストを使用している場合は、ハードウェア ライフサイクル ホストを使用するために必要な知識 (5 ページに記載)
 
@@ -53,7 +53,7 @@ ms.locfileid: "97874508"
     
 3.  ファンを交換します。
 
-    スケール ユニット ノードまたはハードウェア ライフサイクル ホストについては、[Dell EMC PowerEdge R640 設置およびサービス マニュアル](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4)に記載されているファンの交換プロセスに従ってください。
+    スケール ユニット ノードまたはハードウェア ライフサイクル ホストについては、[ファンの交換プロセス](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4)に従います。
     
 4.  ノードの電源をオンにします。
 
@@ -61,9 +61,9 @@ ms.locfileid: "97874508"
     
 ## <a name="next-steps"></a>次の手順
 
-スケール ユニット ノードを使用している場合は、次のことを行います。
+スケール ユニット ノードを使用している場合:
 
-1.  スケール ユニット ノードの電源オンを完了します。
+1.  スケール ユニット ノードの電源オンを完了します
 
 2.  スケール ユニット ノードの正常性の検証を完了します。 ハードウェア ライフサイクル ホストを使用している場合は、次のことを行います。
 
