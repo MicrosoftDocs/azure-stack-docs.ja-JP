@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 989a20216fd5613fa1269009e5c6dc7b918b8300
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 23e97f1e91b9ee9a6a76ee6037514bb9c17636b4
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870804"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570618"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>データセンターに Azure Stack Hub サービスを発行する
 
@@ -69,7 +69,7 @@ Azure Stack Hub エンドポイントを外部ネットワークに発行する�
 
 ## <a name="ports-and-urls-outbound"></a>ポートと URL (送信)
 
-Azure Stack Hub では、透過プロキシ サーバーのみがサポートされます。 透過プロキシから従来のプロキシ サーバーへのアップリンクが存在するデプロイ環境では、次の表のポートと URL に外部への通信を許可する必要があります。
+Azure Stack Hub では、透過プロキシ サーバーのみがサポートされます。 透過プロキシから従来のプロキシ サーバーへのアップリンクが存在するデプロイ環境では、次の表のポートと URL に外部への通信を許可する必要があります。 透過プロキシ サーバーの構成の詳細については、「[Azure Stack Hub の透過プロキシ](azure-stack-transparent-proxy.md)」を参照してください。
 
 SSL トラフィックのインターセプトは[サポートされておらず](azure-stack-firewall.md#ssl-interception)、エンドポイントへのアクセスでサービス エラーが発生する可能性があります。 ID に必要なエンドポイントとの通信に対してサポートされる最大タイムアウトは、60 秒です。
 

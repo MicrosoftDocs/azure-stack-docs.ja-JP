@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/21/2021
-ms.openlocfilehash: 2ceace372e3b15851c1fa659532bb2fd4d8f8ee8
-ms.sourcegitcommit: 925351b77490364b3d52746f788c4c1b93343631
+ms.date: 02/04/2021
+ms.openlocfilehash: 7c501650d5c9a4d2d6df66269f689d80ffd3f8e0
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98707018"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570686"
 ---
 # <a name="compare-azure-stack-hci-to-azure-stack-hub"></a>Azure Stack HCI と Azure Stack Hub の比較
 
@@ -42,7 +42,7 @@ ms.locfileid: "98707018"
 | Azure Stack HCI                                                                 | Azure Stack Hub                                                                          |
 | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | Azure Stack HCI では、マルチテナントをネイティブに適用したり、提供したりすることはありません。 | 併置された複数のテナントの強力な分離および正確な使用状況の追跡とチャージバックを実現するセルフサービスのインフラストラクチャとしてのサービス (IaaS) に Azure Stack Hub を使用します。 サービス プロバイダーやエンタープライズ プライベート クラウドに最適です。 テンプレートは Azure Marketplace にあります。 | 
-| Azure Stack HCI の場合、サービスとしてのプラットフォーム (PaaS) サービスはオンプレミスで実行されません。 | オンプレミスで Web Apps、Functions、Event Hubs などの PaaS サービスを利用するアプリを開発して実行するには、Azure Stack Hub を使用します。 これらのサービスは、Azure 内とまったく同じように Azure Stack Hub 上で実行され、一貫性のあるハイブリッドの開発およびランタイム環境を提供します。 |
+| Azure Stack HCI は、オンプレミスでサービスとしてのプラットフォーム (PaaS) サービスを実行するためのものではありませんが、[Azure Kubernetes Service](../../aks-hci/overview.md) をホストする機能は含まれています。 | オンプレミスで Web Apps、Functions、Event Hubs などの PaaS サービスを利用するアプリを開発して実行するには、Azure Stack Hub を使用します。 これらのサービスは、Azure 内とまったく同じように Azure Stack Hub 上で実行され、一貫性のあるハイブリッドの開発およびランタイム環境を提供します。 |
 | Azure Stack HCI には、DevOps ツールがネイティブに含まれていません。 | DevOps プラクティス (コードとしてのインフラストラクチャ、継続的インテグレーションと継続的デプロイ (CI/CD) など) と便利な機能 (Azure と整合性のある VM 拡張機能など) を利用したアプリのデプロイと操作の現代化に Azure Stack Hub を使用します。 開発チームや DevOps チームに最適です。 |
 
 ## <a name="next-steps"></a>次のステップ

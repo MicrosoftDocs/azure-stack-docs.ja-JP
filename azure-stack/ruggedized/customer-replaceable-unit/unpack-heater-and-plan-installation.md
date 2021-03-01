@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 6fc9e5cb22f1153874090bd57d48cbbbcca63482
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d8dd3d2b3cd2bc63f1f15a1cf5c44b82c0ede44e
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867606"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571213"
 ---
 # <a name="unpack-the-heater-and-plan-the-heater-installation"></a>ヒーターを開梱し、ヒーター取り付けを計画する
 
@@ -20,7 +20,7 @@ ms.locfileid: "97867606"
 
 ## <a name="unpacking-and-taking-inventory-of-the-heater"></a>ヒーターの開梱と内容の確認
 
-Tactical 1U Heater – V2 (ヒーター) は、通常、Tactical Cloud Appliance システムに既に取り付けられているサブコンポーネントとして出荷されます。
+ラグド 1U ヒーター -- V2 (ヒーター) は、通常、ラグド クラウド アプライアンス システムに既に取り付けられているサブコンポーネントとして出荷されます。
 個別に出荷される場合、ヒーターは、保護梱包材が詰められた標準的な商用の配送用段ボールで届けられます。
 
 配送用段ボールからヒーターを慎重に取り出します。 配送用段ボールに梱包されている場合は、すべての主要なコンポーネントがヒーターのシャーシに取り付けられています。 通常、ヒーターは輸送ケースの一部であり、輸送ケース内のデバイスのグループ全体に統合されています。 将来、ヒーターを再発送する必要がある場合に備えて、配送用段ボールと梱包材を保管しておいてください。 ヒーターは頑丈ですが、確実にユニットが出荷用に適切に梱包されているようにします。

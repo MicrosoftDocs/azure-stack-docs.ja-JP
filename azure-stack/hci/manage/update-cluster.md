@@ -4,13 +4,13 @@ description: Windows Admin Center と PowerShell を使用して、オペレー�
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/25/2020
-ms.openlocfilehash: 751551b827ef5d3c871f0224bfa60d9f79fc5d45
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.date: 02/05/2021
+ms.openlocfilehash: 2ed1a6c2443f7222a873c412e991b4a39b253309
+ms.sourcegitcommit: ec19e8455b5cb90a071afb03ec1446b0a9aafb99
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98771960"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99588650"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Azure Stack HCI クラスターを更新する
 
@@ -24,6 +24,9 @@ Azure Stack HCI クラスターを更新する場合、その目標は、クラ�
 
 Windows Admin Center を使用すると、簡単なユーザー インターフェイスを使用して、クラスターを更新し、オペレーティング システムとソリューションの更新プログラムを簡単に適用することができます。 Microsoft のハードウェア パートナーから統合システムを購入した場合、適切なパートナーの更新プログラムの拡張機能をインストールすることにより、Windows Admin Center から直接、最新のドライバー、ファームウェア、およびその他の更新プログラムを簡単に入手できます。 統合システムとしてハードウェアを購入しなかった場合、ハードウェア ベンダーの推奨事項に従い、必要に応じてファームウェアとドライバーの更新プログラムを個別に実行します。
 
+   > [!WARNING]
+   > Windows Admin Center を使用して更新プロセスを開始する場合は、更新が完了するまでウィザードを使い続けてください。 Windows Admin Center で更新プロセスを部分的に完了した後に、クラスター対応更新ツールを使用したり、PowerShell を使用してクラスターを更新したりしないでください。 Windows Admin Center ではなく PowerShell を使用して更新を実行する場合は、「[PowerShell を使用してクラスターを更新する](#update-a-cluster-using-powershell)」に進んでください。
+
 更新プログラムをインストールするには、次の手順のようにします。
 
 1. クラスターに接続すると、1 つ以上のサーバーに更新プログラムをインストールする準備ができている場合は、Windows Admin Center ダッシュボードで通知され、すぐに更新するためのリンクが表示されます。 または、左側の **[ツール]** メニューから **[更新プログラム]** を選択することもできます。
@@ -36,6 +39,9 @@ Windows Admin Center を使用すると、簡単なユーザー インターフ�
    > Windows Admin Center のクラスター対応更新ツールを使用するには、Credential Security Service Provider (CredSSP) を有効にし、明示的な資格情報を指定する必要があります。 CredSSP を有効にするかどうかを確認するメッセージが表示される場合は、 **[はい]** をクリックします。 ユーザー名とパスワードを指定して、 **[続行]** をクリックします。
 
 3. クラスターの更新状態が表示されます。クラスター内の各サーバーで利用可能なオペレーティング システムの更新プログラムの一覧を取得するには、 **[更新プログラムの確認]** をクリックします。 場合によっては、管理者の資格情報を入力する必要があります。 利用可能なオペレーティング システムの更新プログラムがない場合は、 **[Next: hardware updates]\(次へ: ハードウェアの更新\)** をクリックして、ステップ 7 に進みます。
+
+   > [!IMPORTANT]
+   > 更新の進行中に [更新] 画面から移動すると、現在の実行が終了するまで [更新] ページの履歴セクションが正しく表示されないなど、予期しない動作が発生する可能性があります。 更新の進行中にアプリケーションを引き続き使用する場合は、新しいブラウザー タブまたはウィンドウで Windows Admin Center を開くことをお勧めします。
 
 4. **Next:Install\(次へ: インストール\)** を選択してオペレーティング システムの更新プログラムのインストールに進むか、**スキップ** をクリックしてそれらを除外します。 
 

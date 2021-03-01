@@ -3,16 +3,16 @@ title: Azure Stack Hub 統合システムの境界接続とネットワーク統
 description: Azure Stack Hub 統合システムでデータセンターの境界ネットワーク接続を計画する方法について学習します。
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 01/14/2021
 ms.author: patricka
 ms.reviewer: wamota
-ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 1377f04a9c746a41ed1965a2798a1dbfd3b0db21
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 01/14/2021
+ms.openlocfilehash: 091b6e5d1ac4c097c39e425cb6b15da4db96a7a1
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871550"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570652"
 ---
 # <a name="border-connectivity"></a>境界接続 
 ネットワーク統合の計画は、Azure Stack Hub 統合システムのデプロイ、運用、管理を正常に行うための重要な前提条件です。 境界接続の計画は、境界ゲートウェイ プロトコル (BGP) による動的ルーティングを使用するかどうかを選択することから始まります。 これには、パブリックまたはプライベートの 16 ビット自律システム番号 (ASN) を割り当てるか、静的ルーティングを使用する必要があります。
@@ -50,17 +50,7 @@ TOR デバイスには、すべてのトラフィックを境界デバイスに�
 
 <sup>\*\*\*</sup> スイッチ管理ネットワークは必須であり、スイッチ インフラストラクチャ ネットワークとは別に追加できます。
 
-## <a name="transparent-proxy"></a>透過プロキシ
-データセンターですべてのトラフィックがプロキシを使用する必要がある場合は、ラックからのすべてのトラフィックをポリシーに従って処理し、ネットワーク上のゾーン間でトラフィックを分離する *透過プロキシ* を構成する必要があります。
-
-> [!IMPORTANT]
-> Azure Stack Hub ソリューションは、通常の Web プロキシをサポートしていません。  
-
-透過プロキシ (インターセプト、インライン、または強制プロキシとも呼ばれます) は、特殊なクライアント構成を必要とすることなく、通常の通信をネットワーク レイヤーでインターセプトします。 クライアントがプロキシの存在を意識する必要はありません。
-
-![透過プロキシ](media/azure-stack-border-connectivity/transparent-proxy.svg)
-
-SSL トラフィックのインターセプトは[サポートされておらず](azure-stack-firewall.md#ssl-interception)、エンドポイントへのアクセスでサービス エラーが発生する可能性があります。 ID に必要なエンドポイントとの通信に対してサポートされる最大タイムアウトは 60 秒で、再試行は 3 回です。
-
 ## <a name="next-steps"></a>次のステップ
-[DNS の統合](azure-stack-integrate-dns.md)
+
+- [DNS の統合](azure-stack-integrate-dns.md)
+- [Azure Stack Hub の透過プロキシ](azure-stack-transparent-proxy.md)
