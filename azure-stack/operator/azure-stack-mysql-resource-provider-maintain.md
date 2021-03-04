@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 7372cea4544a2cdb4b0d0e6ed54d07253d6d782c
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 593ea0ca882b5aa7d57ff5a3267d35519be3b6f2
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103091"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840067"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub での MySQL リソース プロバイダーのメンテナンス操作
 
@@ -51,7 +51,7 @@ Defender の定義を更新するには、次の手順に従います。
 
 ```powershell
 # Set credentials for the local admin on the resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString '<local admin user password>' -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
@@ -252,11 +252,11 @@ Azure Diagnostics 拡張機能は、既定で MySQL リソース プロバイダ
    
    ![診断設定への移動](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. MySQL リソース プロバイダーの操作イベント ログを収集するには、**Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ を追加します。
+4. MySQL リソース プロバイダーの操作イベント ログを収集するために、**Microsoft-AzureStack-DatabaseAdapter/Operational!\*** を追加します。
 
    ![イベント ログの追加](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. IIS ログの収集を有効にするには、_ *[IIS ログ]* * と **[失敗した要求のログ]** をオンにします。
+5. IIS ログの収集を有効にするには、**[IIS ログ]** と **[失敗した要求のログ]** をオンにします。
 
    ![IIS ログの追加](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 
