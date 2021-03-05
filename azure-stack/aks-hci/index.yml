@@ -8,12 +8,12 @@ metadata:
   author: jasongerend
   ms.author: jgerend
   ms.date: 09/22/2020
-  ms.openlocfilehash: 808debaa0953bc19939bc1ffbf02c96688496bca
-  ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+  ms.openlocfilehash: 8e000bd1fe847c9d35b2ed680102a33424c86d6a
+  ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 12/04/2020
-  ms.locfileid: "96612286"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "101840101"
 landingContent:
 - title: Azure Kubernetes Service について
   linkLists:
@@ -47,12 +47,16 @@ landingContent:
     links:
     - text: Linux コンテナーを使用する
       url: deploy-linux-application.md
+    - text: .NET アプリケーションをデプロイする
+      url: deploy-windows-application.md
   - linkListType: how-to-guide
     links:
     - text: 混合 OS の Kubernetes クラスター用にアプリを調整する
       url: adapt-apps-mixed-os-clusters.md
-    - text: Windows アプリケーションをデプロイする
-      url: deploy-windows-application.md
+    - text: Active Directory シングル サインイン資格情報を使用する
+      url: ad-sso.md
+    - text: プロキシ設定の構成
+      url: proxy.md
     - text: Windows ノードの gMSA サポートを準備する
       url: prepare-windows-nodes-gmsa.md
     - text: 永続ボリュームの使用
@@ -63,3 +67,5 @@ landingContent:
     links:
     - text: Azure Arc for Kubernetes に接続する
       url: connect-to-arc.md
+    - text: Azure Stack HCI クラスターでの AKS の監視
+      url: monitor-logging.md
