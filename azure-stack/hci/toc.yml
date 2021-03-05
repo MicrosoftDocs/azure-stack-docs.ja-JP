@@ -72,7 +72,7 @@
           href: manage/create-stretched-volumes.md
         - name: ボリュームの保護
           href: manage/volume-encryption-deduplication.md
-        - name: ボリュームの拡張
+        - name: ボリュームの展開
           href: manage/extend-volumes.md
         - name: ボリュームを削除する
           href: manage/delete-volumes.md
@@ -112,6 +112,8 @@
       items:
         - name: SDN インフラストラクチャの展開
           href: manage/sdn-express.md
+        - name: データセンター ファイアウォールを使用する
+          href: manage/use-datacenter-firewall-windows-admin-center.md
         - name: PowerShell でデータセンター ファイアウォールを使用する
           href: manage/use-datacenter-firewall-powershell.md
         - name: テナントの論理ネットワークを管理する
@@ -160,7 +162,9 @@
           href: concepts/physical-network-requirements.md
         - name: ホスト ネットワークの要件
           href: concepts/host-network-requirements.md
-        - name: ソフトウェア定義ネットワーク (SDN)
+    - name: ソフトウェア定義ネットワーク (SDN)
+      items:
+        - name: SDN の概要
           href: concepts/software-defined-networking.md
         - name: SDN インフラストラクチャを計画する
           href: concepts/plan-software-defined-networking-infrastructure.md
