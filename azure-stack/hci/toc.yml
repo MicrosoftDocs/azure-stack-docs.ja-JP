@@ -13,7 +13,7 @@
     - name: リリース ノート
       href: 'https://support.microsoft.com/help/4595086'
     - name: よく寄せられる質問
-      href: faq.md
+      href: faq.yml
 - name: クイックスタート
   items:
     - name: Windows Admin Center で Azure Stack HCI を使用する
