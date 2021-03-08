@@ -260,6 +260,10 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: サービス アカウント トークンのボリューム予測を有効にする
                       href: kubernetes-aks-engine-service-account.md
+                    - name: コンテナーストレージの追加
+                      href: kubernetes-aks-engine-container-storage-interface.md
+                    - name: 証明書のローテーション
+                      href: kubernetes-aks-engine-rotate-certs.md
                     - name: AKS エンジンのトラブルシューティング
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Azure Monitor for containers を使用する
