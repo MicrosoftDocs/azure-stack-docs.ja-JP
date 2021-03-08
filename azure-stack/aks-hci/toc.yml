@@ -21,24 +21,44 @@
           href: create-kubernetes-cluster-powershell.md
 - name: チュートリアル
   items:
+    - name: .NET アプリケーションをデプロイする
+      href: deploy-windows-application.md
     - name: Linux コンテナーを使用する
       href: deploy-linux-application.md
 - name: 概念
   items:
-    - name: Azure Stack HCI の Azure Kubernetes の概念
+    - name: クラスターとワークロード
       href: kubernetes-concepts.md
     - name: システム要件
       href: system-requirements.md
+    - name: ネットワーク
+      href: concepts-networking.md
 - name: 操作方法ガイド
   items:
+    - name: Azure VM での評価
+      href: 'https://github.com/Azure/aks-hci/blob/main/eval/readme.md'
     - name: Azure Arc for Kubernetes に接続する
       href: connect-to-arc.md
     - name: 混合 OS の Kubernetes クラスター用にアプリを調整する
       href: adapt-apps-mixed-os-clusters.md
+    - name: ネットワークを構成する
+      items:
+        - name: プロキシ設定の構成
+          href: proxy.md
+    - name: セキュリティと認証
+      items:
+        - name: Active Directory シングル サインオンを使用する
+          href: ad-sso.md
+        - name: etcd シークレットの暗号化
+          href: encrypt-secrets.md
+    - name: 監視およびログ記録
+      items:
+        - name: Azure Monitor for containers を使用する
+          href: 'https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview'
+        - name: オンプレミス監視
+          href: monitor-logging.md
     - name: Windows Server コンテナーを使用する
       items:
-        - name: .NET アプリケーションをデプロイする
-          href: deploy-windows-application.md
         - name: グループの管理サービス アカウントをサポートするための Windows ノードの準備
           href: prepare-windows-nodes-gmsa.md
         - name: 永続ボリュームの使用
@@ -59,6 +79,8 @@
   items:
     - name: リリース ノート
       href: 'https://aka.ms/aks-hci-relnotes/'
+    - name: PowerShell
+      href: AksHci.md
     - name: 既知の問題
       href: known-issues.md
     - name: Azure のロードマップ
