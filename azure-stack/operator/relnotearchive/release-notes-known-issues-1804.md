@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5d871458a7af4e9233e750b07404bc151274033a
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: eb55f42161095f9034b6c5cf726240d86366604b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248699"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187080"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 更新プログラム
 
@@ -79,9 +79,9 @@ Azure Stack 1804 更新プログラムのビルド番号は **20180513.1** で�
 
 - **新しい Azure Stack 管理の PowerShell バージョン 1.3.0**。  Azure Stack PowerShell 1.3.0 がインストールに使用できるようになりました。 このバージョンでは、Azure Stack を管理するためにすべての管理リソース プロバイダーにコマンドを提供します。  このリリースにより、Azure Stack ツールの GitHub [リポジトリ](https://github.com/Azure/AzureStack-Tools)から一部のコンテンツが廃止される予定です。 
 
-   インストールの詳細については、Azure Stack Module 1.3.0 の[指示](../azure-stack-powershell-install.md)または[ヘルプ](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0&preserve-view=true) コンテンツに従ってください。 
+   インストールの詳細については、Azure Stack Module 1.3.0 の[指示](../azure-stack-powershell-install.md)または[ヘルプ](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.3.0) コンテンツに従ってください。 
 
-- **Azure Stack API Rest リファレンスの初回リリース**。 [Azure Stack のすべての管理リソース プロバイダーの API リファレンス](https://docs.microsoft.com/rest/api/azure-stack/)が発行されました。 
+- **Azure Stack API Rest リファレンスの初回リリース**。 [Azure Stack のすべての管理リソース プロバイダーの API リファレンス](/rest/api/azure-stack/)が発行されました。 
 
 
 ## <a name="before-you-begin"></a>開始する前に    
@@ -118,7 +118,7 @@ Azure Stack 1804 更新プログラムのビルド番号は **20180513.1** で�
 
 <!-- 1272111 - IS --> 
 -  このバージョンの Azure Stack をインストールまたは更新すると、管理者ポータルで Azure Stack スケール ユニットを表示できなくなることがあります。  
-  回避策: PowerShell を使用し、スケール ユニットに関する情報を表示します。 詳細については、Azure Stack Module 1.3.0 の[ヘルプ](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0&preserve-view=true) コンテンツをご覧ください。 
+  回避策: PowerShell を使用し、スケール ユニットに関する情報を表示します。 詳細については、Azure Stack Module 1.3.0 の[ヘルプ](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.3.0) コンテンツをご覧ください。 
 
 <!-- 2332636 - IS -->  
 -  Azure Stack ID システムに AD FS を使用し、このバージョンの Azure Stack に更新すると、既定のプロバイダー サブスクリプションの既定の所有者は、組み込みの **CloudAdmin** ユーザーにリセットされます。  
@@ -186,13 +186,13 @@ Azure Stack 1804 更新プログラムのビルド番号は **20180513.1** で�
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:**[az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) コマンドを使用して、`--size "Standard_F32s_v2"` と同様に VM サイズをパラメーターとして指定できます。
+  - **Azure CLI:**[az vm create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) コマンドを使用して、`--size "Standard_F32s_v2"` と同様に VM サイズをパラメーターとして指定できます。
 
-  - **PowerShell:** Powershell では、`-VMSize "Standard_F32s_v2"` と同様に VM サイズを指定するパラメーターとともに [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) を使用することができます。
+  - **PowerShell:** Powershell では、`-VMSize "Standard_F32s_v2"` と同様に VM サイズを指定するパラメーターとともに [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) を使用することができます。
 
 
 <!-- TBD - IS ASDK --> 
-- 仮想マシン スケール セットのスケーリング設定は、ポータルで使用できません。 回避策として、[Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) を使用できます。 PowerShell のバージョンの違いにより、`-VMScaleSetName` パラメーターの代わりに `-Name` を使用する必要があります。
+- 仮想マシン スケール セットのスケーリング設定は、ポータルで使用できません。 回避策として、[Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) を使用できます。 PowerShell のバージョンの違いにより、`-VMScaleSetName` パラメーターの代わりに `-Name` を使用する必要があります。
 
 <!-- TBD - IS --> 
 - ポータルで **[新規]**  >  **[コンピューティング]**  >  **[可用性セット]** に移動して可用性セットを作成した場合、障害ドメインと更新ドメインが 1 の可用性セットのみを作成できます。 回避策として、新しい仮想マシンを作成する場合は、PowerShell、CLI、またはポータル内から可用性セットを作成します。

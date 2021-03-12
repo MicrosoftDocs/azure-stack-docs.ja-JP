@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9dd3647f607dc743c6eff5907ae4a47fa097e764
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 6c40a3be7bddf49166979458e755058b5aba47c9
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248678"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515942"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新プログラム
 
@@ -53,9 +53,9 @@ Azure Stack 1807 更新プログラムのビルド番号は **1.1807.0.76** で�
 - **容量を拡張する** には、[新たにスケール ユニット ノードを追加](../azure-stack-add-scale-node.md)します。
 
 <!-- 2753130 |  IS, ASDK   -->  
-- **Azure Resource Manager テンプレートで条件要素がサポートされるようになりました** - 条件を使用して Azure Resource Manger テンプレートでリソースをデプロイできるようになりました。 パラメーター値の有無の評価などの条件に基づいてリソースをデプロイするようにテンプレートを設計することができます。 テンプレートを条件として使用する方法については、Azure ドキュメントの「[リソースを条件付きでデプロイする](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy)」および「[Azure Resource Manager テンプレートの変数セクション](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables)」を参照してください。 
+- **Azure Resource Manager テンプレートで条件要素がサポートされるようになりました** - 条件を使用して Azure Resource Manger テンプレートでリソースをデプロイできるようになりました。 パラメーター値の有無の評価などの条件に基づいてリソースをデプロイするようにテンプレートを設計することができます。 テンプレートを条件として使用する方法については、Azure ドキュメントの「[リソースを条件付きでデプロイする](/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy)」および「[Azure Resource Manager テンプレートの変数セクション](/azure/azure-resource-manager/resource-manager-templates-variables)」を参照してください。 
 
-   テンプレートを使用して、[複数のサブスクリプションまたはリソース グループにリソースをデプロイする](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment)こともできます。  
+   テンプレートを使用して、[複数のサブスクリプションまたはリソース グループにリソースをデプロイする](/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment)こともできます。  
 
 <!--2753073 | IS, ASDK -->  
 - **Microsoft.Network API リソース バージョンのサポートが更新され**、Azure Stack ネットワーク リソースで API バージョン 2015-06-15 から 2017-10-01 がサポートされるようになりました。  リソース バージョン 2017-10-01 から 2015-06-15 までのサポートは、このリリースには含まれていません。  機能の相違点については、「[Azure Stack ネットワークに関する考慮事項](../../user/azure-stack-network-differences.md)」を参照してください。
@@ -64,7 +64,7 @@ Azure Stack 1807 更新プログラムのビルド番号は **1.1807.0.76** で�
 - **Azure Stack に、外部向け Azure Stack インフラストラクチャ エンドポイント (portal、adminportal、management、adminmanagement) に対する DNS 逆引き参照のサポートが追加されました**。 これにより、Azure Stack 外部エンドポイント名を IP アドレスから解決できます。
 
 <!-- 2780899 |  IS, ASDK   --> 
-- **Azure Stack で、既存の VM にネットワーク インターフェイスをさらに追加できるようになりました。**  この機能は、ポータル、PowerShell、CLI を使用して利用できます。 詳細については、Azure ドキュメントの「[仮想マシンのネットワーク インターフェイスの追加と削除](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-vm)」を参照してください。 
+- **Azure Stack で、既存の VM にネットワーク インターフェイスをさらに追加できるようになりました。**  この機能は、ポータル、PowerShell、CLI を使用して利用できます。 詳細については、Azure ドキュメントの「[仮想マシンのネットワーク インターフェイスの追加と削除](/azure/virtual-network/virtual-network-network-interface-vm)」を参照してください。 
 
 <!-- 2222444 | IS, ASDK   -->  
 - **ネットワーク使用量メーターの正確性と回復性が向上しました**。  ネットワーク使用量メーターがより正確になり、中断されたサブスクリプション、停止期間、競合状態が考慮されるようになりました。
@@ -86,7 +86,7 @@ Azure Stack 1807 更新プログラムのビルド番号は **1.1807.0.76** で�
   詳細については、「[Azure Stack の Syslog 転送](../azure-stack-integrate-security.md)」を参照してください。
 
 <!-- ####### | IS, ASDK | --> 
-- **Azure Resource Manager にリージョン名が含まれています。** このリリースでは、Azure Resource Manager から取得したオブジェクトに、リージョンの名前属性が追加されるようになります。 既存の PowerShell スクリプトが別のコマンドレットにオブジェクトを直接渡すと、スクリプトによってエラーが発生し、失敗することがあります。 これは、Azure Resource Manager に準拠した動作であり、呼び出し元のクライアントがリージョン属性を削除する必要があります。 Azure Resource Manager の詳細については、「[Azure Resource Manager のドキュメント](https://docs.microsoft.com/azure/azure-resource-manager/)」を参照してください。 verify 8-10 mdb -->
+- **Azure Resource Manager にリージョン名が含まれています。** このリリースでは、Azure Resource Manager から取得したオブジェクトに、リージョンの名前属性が追加されるようになります。 既存の PowerShell スクリプトが別のコマンドレットにオブジェクトを直接渡すと、スクリプトによってエラーが発生し、失敗することがあります。 これは、Azure Resource Manager に準拠した動作であり、呼び出し元のクライアントがリージョン属性を削除する必要があります。 Azure Resource Manager の詳細については、「[Azure Resource Manager のドキュメント](/azure/azure-resource-manager/)」を参照してください。 verify 8-10 mdb -->
 
 <!-- TBD | IS, ASDK -->  
 - **委任されたプロバイダーの機能の変更。** 1807 から Azure リセラー モデルとの整合性を高めるため、委任されたプロバイダー モデルは単純化されました。委任されたプロバイダーは他の委任されたプロバイダーを作成することができなくなって、本質的にモデルが平坦化され、委任されたプロバイダーの機能を単一レベルで利用できるようになりました。 新しいモデルへの切り替えとサブスクリプションの管理を可能にするために、同じディレクトリ テナントに属する新規または既存の委任されたプロバイダー サブスクリプション間でユーザーサブスクリプションを移動できるようになりました。 また、既定プロバイダー サブスクリプションに属しているユーザーサブスクリプションも、同じディレクトリ テナント内にある委任されたプロバイダー サブスクリプションに移動できます。  詳細については、「[Azure Stack でのプランの委任](../azure-stack-delegated-provider.md)」を参照してください。
@@ -275,13 +275,13 @@ Azure Stack では、Windows Server 2016 の Server Core インストールを�
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:**[az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) コマンドを使用して、`--size "Standard_F32s_v2"` と同様に VM サイズをパラメーターとして指定できます。
+  - **Azure CLI:**[az vm create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) コマンドを使用して、`--size "Standard_F32s_v2"` と同様に VM サイズをパラメーターとして指定できます。
 
-  - **PowerShell:** Powershell では、`-VMSize "Standard_F32s_v2"` と同様に VM サイズを指定するパラメーターとともに [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) を使用することができます。
+  - **PowerShell:** Powershell では、`-VMSize "Standard_F32s_v2"` と同様に VM サイズを指定するパラメーターとともに [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) を使用することができます。
 
 
 <!-- TBD - IS ASDK --> 
-- 仮想マシン スケール セットのスケーリング設定は、ポータルで使用できません。 回避策として、[Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) を使用できます。 PowerShell のバージョンの違いにより、`-VMScaleSetName` パラメーターの代わりに `-Name` を使用する必要があります。
+- 仮想マシン スケール セットのスケーリング設定は、ポータルで使用できません。 回避策として、[Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) を使用できます。 PowerShell のバージョンの違いにより、`-VMScaleSetName` パラメーターの代わりに `-Name` を使用する必要があります。
 
 <!-- TBD - IS --> 
 - ポータルで **[新規]**  >  **[コンピューティング]**  >  **[可用性セット]** に移動して可用性セットを作成した場合、障害ドメインと更新ドメインが 1 の可用性セットのみを作成できます。 回避策として、新しい仮想マシンを作成する場合は、PowerShell、CLI、またはポータル内から可用性セットを作成します。
@@ -367,4 +367,4 @@ Azure Stack 1807 更新プログラム パッケージは、[ここから](https
 - Azure Stack 統合システムのサービス ポリシーについて、およびサポートを受けられる状態にシステムを維持するために必要な作業について確認するには、「[Azure Stack サービス ポリシー](../azure-stack-servicing-policy.md)」を参照してください。  
 - 特権エンドポイント (PEP) を使用して更新プログラムを監視および再開するには、「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](../azure-stack-monitor-update.md)」をご覧ください。  
 - Azure Stack での更新プログラム管理の概要については、「[Azure Stack での更新プログラムの管理概要](../azure-stack-updates.md)」を参照してください。  
-- Azure Stack に更新プログラムを適用する方法については、「[Azure Stack で更新を適用する](../azure-stack-apply-updates.md)」を参照してください。  
+- Azure Stack に更新プログラムを適用する方法については、「[Azure Stack で更新を適用する](../azure-stack-apply-updates.md)」を参照してください。

@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 0bfd97b71774662ec11074951dcc956391d0fc65
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: 28fd04d9fb84f612dca6b241b8935b8f9cbfe049
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487393"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250317"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Azure Stack HCI 用にファイアウォールを構成する
 
@@ -24,7 +24,7 @@ Azure Stack HCI は、定期的に Azure に接続する必要があります。
 - 送信方向
 - ポート 443 (HTTPS)
 
-詳細については、「[Azure Stack HCI の FAQ](../faq.md)」の「Azure Stack HCI の接続」セクションを参照してください
+詳細については、「[Azure Stack HCI の FAQ](../faq.yml)」の「Azure Stack HCI の接続」セクションを参照してください
 
 このトピックでは、許可リストに含まれているものを除くすべての送信先へのすべてのトラフィックをブロックするために、頻繁にロックダウンされるファイアウォールの構成を必要に応じて使用する方法について説明します。
 
@@ -122,4 +122,4 @@ Windows Admin Center で [クラスターの作成] ウィザードを使用し�
 
 ## <a name="next-steps"></a>次のステップ
 詳細については、次のトピックも参照してください。
-- 「[Azure Stack HCI の FAQ](../faq.md)」の接続に関するセクション
+- 「[Azure Stack HCI の FAQ](../faq.yml)」の接続に関するセクション

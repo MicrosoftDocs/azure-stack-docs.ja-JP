@@ -7,12 +7,12 @@ ms.date: 1/11/2021
 ms.author: mabrigg
 ms.reviewer: gara
 ms.lastreviewed: 1/11/2021
-ms.openlocfilehash: 4413070dc3d55a7a879b5c4589d9f453a617e0e0
-ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
+ms.openlocfilehash: 1421917f870d09d61f665a2cee6eb9b617ae75f3
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224793"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187352"
 ---
 # <a name="use-the-azure-login-action-with-azure-cli-and-powershell-on-azure-stack-hub"></a>Azure Stack Hub 上で Azure CLI と PowerShell による Azure ログイン アクションを使用する
 
@@ -136,8 +136,8 @@ GitHub シークレットを使用して、アクションで使用する機密�
 1. セルフホステッド ランナーを作成します。 
 
     次の手順では、Azure の Windows VM としてランナーを作成します。 データセンターでホストされている Azure Stack Hub に接続する必要がある場合は、VPN 接続が必要になることがあります。 接続を有効にする方法については、VPN 接続が必要な[セルフホステッド ランナーへの Azure Stack Hub ツールのインストール](#optional-install-azure-stack-hub-tools-on-your-self-hosted-runner)のセクションを参照してください。
-    - Azure で Windows VM を作成する方法については、「[クイックスタート:Azure portal で Windows 仮想マシンを作成する](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)」を参照してください。 この手順に従う場合は、Windows Server 2016 Core をインストールしてください。
-    - Azure Stack Hub で Windows VM を作成する方法については、「[クイックスタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成します](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)。 この手順に従う場合は、Windows Server 2016 Core をインストールしてください。
+    - Azure で Windows VM を作成する方法については、「[クイックスタート:Azure portal で Windows 仮想マシンを作成する](/azure/virtual-machines/windows/quick-create-portal)」を参照してください。 この手順に従う場合は、Windows Server 2016 Core をインストールしてください。
+    - Azure Stack Hub で Windows VM を作成する方法については、「[クイックスタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成します](./azure-stack-quick-windows-portal.md)。 この手順に従う場合は、Windows Server 2016 Core をインストールしてください。
 1. リモート接続を使用して、サーバーの IP アドレス、ユーザー名およびパスワード (マシンの作成時に定義) を使用して、Windows 2016 サーバーに接続します。
 1. Chocolatey をインストールします。 Chocolatey は、コマンド ラインからの依存関係のインストールと管理に使用できる Windows のパッケージ マネージャーです。 管理者特権の PowerShell プロンプトで、次のように入力します。
     ```powershell
@@ -159,7 +159,7 @@ GitHub シークレットを使用して、アクションで使用する機密�
     Install-AzProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
     ```
-    Azure Stack Hub の Az モジュールの使用の詳細については、「[Azure Stack Hub 用の PowerShell Az モジュールをインストールする](https://docs.microsoft.com/azure-stack/operator/powershell-install-az-module)」を参照してください。
+    Azure Stack Hub の Az モジュールの使用の詳細については、「[Azure Stack Hub 用の PowerShell Az モジュールをインストールする](../operator/powershell-install-az-module.md)」を参照してください。
 7. マシンを再起動します。 管理者特権の PowerShell プロンプトで、次のように入力します。
     ```powershell  
     shutdown /r
@@ -172,7 +172,7 @@ GitHub シークレットを使用して、アクションで使用する機密�
 
 ### <a name="optional-install-azure-stack-hub-tools-on-your-self-hosted-runner"></a>省略可能:セルフホステッド ランナーへの Azure Stack Hub ツールのインストール
 
-この記事の手順では、[Azure Stack Hub ツール](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?&tabs=az)へのアクセスは必要ありませんが、独自のワークフローを開発する際には、ツールの使用が必要になる場合があります。 次の手順は、Windows セルフホステッド ランナーにツールをインストールするのに役立ちます。 Azure Stack Hub ツールの詳細については、「[GitHub からの Azure Stack Hub ツールのダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?&tabs=az)」を参照してください。 この手順では、パッケージ マネージャー Chocolatey がインストールされていることを前提としています。
+この記事の手順では、[Azure Stack Hub ツール](../operator/azure-stack-powershell-download.md?tabs=az)へのアクセスは必要ありませんが、独自のワークフローを開発する際には、ツールの使用が必要になる場合があります。 次の手順は、Windows セルフホステッド ランナーにツールをインストールするのに役立ちます。 Azure Stack Hub ツールの詳細については、「[GitHub からの Azure Stack Hub ツールのダウンロード](../operator/azure-stack-powershell-download.md?tabs=az)」を参照してください。 この手順では、パッケージ マネージャー Chocolatey がインストールされていることを前提としています。
 
 1. GIT をインストールします。
     ```powershell  
@@ -199,7 +199,7 @@ GitHub シークレットを使用して、アクションで使用する機密�
     cd AzureStack-Tools-az
     ```
 
-3. ランナーを Azure Stack Hub インスタンスに接続する必要がある場合は、PowerShell を使用できます。 この手順については、記事「[PowerShell を使用して Azure Stack Hub に接続する](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-configure-admin?&tabs=az1%2Caz2%2Caz3)」を参照してください。
+3. ランナーを Azure Stack Hub インスタンスに接続する必要がある場合は、PowerShell を使用できます。 この手順については、記事「[PowerShell を使用して Azure Stack Hub に接続する](../operator/azure-stack-powershell-configure-admin.md?tabs=az1%2Caz2%2Caz3)」を参照してください。
 
 ## <a name="create-a-self-hosted-runner"></a>セルフホステッド ランナーの作成
 
@@ -295,4 +295,4 @@ GitHub シークレットを使用して、アクションで使用する機密�
 - その他のアクションについては、[GitHub Marketplace](https://github.com/marketplace) を参照してください。
 - 「[Common deployments for Azure Stack Hub 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)」について学習する  
 - 「[Azure Stack Hub で Azure Resource Manager テンプレートを使用する](azure-stack-arm-templates.md)」について学習する  
-- DevOps ハイブリッド クラウド パターン、[DevOps パターン](https://docs.microsoft.com/hybrid/app-solutions/pattern-cicd-pipeline)を確認する
+- DevOps ハイブリッド クラウド パターン、[DevOps パターン](/hybrid/app-solutions/pattern-cicd-pipeline)を確認する

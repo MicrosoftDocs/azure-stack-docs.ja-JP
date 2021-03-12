@@ -16,12 +16,12 @@ ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f15453ce20988929728a9d326ab5f7bf901beca
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 69af9b142f4fb198075dd751274caa3a10a96744
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248703"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187131"
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack 1803 更新プログラム
 
@@ -69,14 +69,14 @@ Azure Stack 1803 更新プログラムのビルド番号は **20180329.1** で�
 - **Marketplace へのアクセス** - Azure portal の場合と同じ方法で、管理者ポータルとユーザー ポータル内から [[+新規]](https://ms.portal.azure.com/#create/hub) オプションを使用して、Azure Stack Marketplace を開けるようになりました。
  
 <!-- 2202621 --> 
-- **Azure Monitor** - Azure Stack では、[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) が管理者ポータルとユーザー ポータルに追加されます。 これには、メトリックおよびアクティビティ ログ用の新しいエクスプローラーが含まれます。 外部ネットワークからこの Azure Monitor にアクセスするには、ファイアウォール構成でポート **13012** を開く必要があります。 Azure Stack で必要なポートの詳細については、「[Azure Stack とデータセンターの統合 - エンドポイントの公開](../azure-stack-integrate-endpoints.md)」を参照してください。
+- **Azure Monitor** - Azure Stack では、[Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) が管理者ポータルとユーザー ポータルに追加されます。 これには、メトリックおよびアクティビティ ログ用の新しいエクスプローラーが含まれます。 外部ネットワークからこの Azure Monitor にアクセスするには、ファイアウォール構成でポート **13012** を開く必要があります。 Azure Stack で必要なポートの詳細については、「[Azure Stack とデータセンターの統合 - エンドポイントの公開](../azure-stack-integrate-endpoints.md)」を参照してください。
 
    この変更の一環として、**[More services]\(その他のサービス\)** 下では、*[監査ログ]* が *[アクティビティ ログ]* と表示されるようになります。 Azure Portal との機能の一貫性が確保できました。 
 
 <!-- 1664791 --> 
 - **スパース ファイル** - Azure Stack に新しいイメージを追加する場合や、マーケットプレース シンジケーションを介してイメージを追加する場合は、イメージがスパース ファイルに変換されます。 Azure Stack バージョン 1803 を使用する前に追加されたイメージを変換することはできません。 この機能を利用するには、代わりにマーケットプレース シンジケーションを使用して、それらのイメージを再送信する必要があります。 
  
-   スパース ファイルは、記憶域スペースの使用を減らして I/O を改善するために使用される、効率的なファイル形式です。 詳細については、Windows Server の「[fsutil sparse](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse)」をご覧ください。 
+   スパース ファイルは、記憶域スペースの使用を減らして I/O を改善するために使用される、効率的なファイル形式です。 詳細については、Windows Server の「[fsutil sparse](/windows-server/administration/windows-commands/fsutil-sparse)」をご覧ください。 
 
 ### <a name="fixed-issues"></a>修正された問題
 
@@ -99,7 +99,7 @@ Azure Stack 1803 更新プログラムのビルド番号は **20180329.1** で�
 -  仮想マシンの利用状況データが、1 時間間隔で分割されるようになりました。 これは Azure と一致しています。 
 
 <!--  2253274 --> 
--  管理者ポータルとユーザー ポータルで、vNet サブネットの [設定] ブレードを読み込めない問題。 回避策として、PowerShell と [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true) コマンドレットを使用して、この情報を表示および管理します。
+-  管理者ポータルとユーザー ポータルで、vNet サブネットの [設定] ブレードを読み込めない問題。 回避策として、PowerShell と [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0) コマンドレットを使用して、この情報を表示および管理します。
 
 - 仮想マシンを作成する際、VM サイズ用のサイズを選択したときのメッセージ "*価格を表示できません*" は表示されなくなりました。
 
@@ -178,7 +178,7 @@ Azure Stack 1803 更新プログラムのビルド番号は **20180329.1** で�
 
 
 #### <a name="compute"></a>Compute
-- 仮想マシン スケール セットのスケーリング設定は、ポータルで使用できません。 回避策として、[Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) を使用できます。 PowerShell のバージョンの違いにより、`-VMScaleSetName` パラメーターの代わりに `-Name` を使用する必要があります。
+- 仮想マシン スケール セットのスケーリング設定は、ポータルで使用できません。 回避策として、[Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) を使用できます。 PowerShell のバージョンの違いにより、`-VMScaleSetName` パラメーターの代わりに `-Name` を使用する必要があります。
 
 - ポータルで **[新規]**  >  **[コンピューティング]**  >  **[可用性セット]** に移動して可用性セットを作成した場合、障害ドメインと更新ドメインが 1 の可用性セットのみを作成できます。 回避策として、新しい仮想マシンを作成する場合は、PowerShell、CLI、またはポータル内から可用性セットを作成します。
 

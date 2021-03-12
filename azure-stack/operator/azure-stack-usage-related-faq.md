@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/14/2021
+ms.date: 02/18/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: dc49218a5abce85c1ca1bcfd7ea5ef2077e8265a
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: a874e4ee0c3183f7f99da70375d5fc8b0e0818ab
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98207997"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840662"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack Hub の使用量に関してよく寄せられる質問
 
@@ -212,15 +212,10 @@ ms.locfileid: "98207997"
 
 ### <a name="event-hubs"></a>Event Hubs
 
-**測定 ID**: d3a257e7-cf59-43bd-82c0-cf29ca8f7da0 (有料メーター)  
-**測定名**:1 コア    
+**測定 ID**: CB6A35C5-FADE-406C-B14D-6DDB7C4CA3D5  
+**測定名**:1 コア  
 **単位**:コア \* 時間  
-**注**:デプロイされた Event Hubs クラスターによって使用されるコアの数。 コア数は 10 の倍数です。
-
-**測定 ID**:29ea0bfc-6780-4711-98fc-2c7db191e1a4 (管理メーター)  
-**測定名**:1 コア管理者   
-**単位**:コア \* 時間  
-**注**:デプロイされた Event Hubs クラスターによって使用されるコアの数。 コア数は 10 の倍数です。
+**注**: 単位は、デプロイされた Event Hubs クラスターによって使用される 1 時間あたりのコア数を表します。 構成済み CU あたり 10 個のコアが使用されるため、コア数は 10 の倍数になります。
 
 ### <a name="key-vault"></a>Key Vault
   

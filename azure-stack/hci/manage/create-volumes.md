@@ -1,38 +1,41 @@
 ---
-title: Azure Stack HCI でボリュームを作成する
-description: Windows Admin Center と PowerShell を使用して Azure Stack HCI でボリュームを作成する方法について説明します。
+title: Azure Stack HCI および Windows Server クラスター内でボリュームを作成する
+description: Windows Admin Center と PowerShell を使用して Azure Stack HCI および Windows Server クラスター内でボリュームを作成する方法について説明します。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 9bb0ff34863f8262d5919e5eae6f735709097bf5
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.date: 02/17/2021
+ms.openlocfilehash: f5c585bd612cb25b32df22c342988bbad17d08ee
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99570737"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839787"
 ---
-# <a name="create-volumes-in-azure-stack-hci"></a>Azure Stack HCI でボリュームを作成する
+# <a name="create-volumes-in-azure-stack-hci-and-windows-server-clusters"></a>Azure Stack HCI および Windows Server クラスター内でボリュームを作成する
 
-> 適用対象:Azure Stack HCI バージョン 20H2
+> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019、Windows Server 2016
 
-このトピックでは、Windows Admin Center と Windows PowerShell を使用して Azure Stack HCI クラスターにボリュームを作成する方法、ボリューム上のファイルを操作する方法、およびボリュームでデータ重複除去と圧縮を有効にする方法について説明します。 ストレッチ クラスター用のボリュームを作成し、レプリケーションを設定する方法を学習するには、[拡張ボリュームの作成](create-stretched-volumes.md)に関する記事を参照してください。
+このトピックでは、Windows Admin Center と Windows PowerShell を使用してクラスター上にボリュームを作成する方法、ボリューム上でファイルを操作する方法、ボリューム上で重複除去と圧縮、整合性チェックサム、BitLocker 暗号化を有効にする方法について説明します。 ストレッチ クラスター用のボリュームを作成し、レプリケーションを設定する方法を学習するには、[拡張ボリュームの作成](create-stretched-volumes.md)に関する記事を参照してください。
 
-## <a name="create-a-three-way-mirror-volume"></a>3 方向ミラー ボリュームを作成する
+> [!TIP]
+> まだ確認していない場合は、まず[ボリュームの計画](../concepts/plan-volumes.md)に関するページをご覧ください。
 
-Windows Admin Center を使用して 3 方向ミラー ボリュームを作成するには、次のようにします。
+## <a name="create-a-two-way-or-three-way-mirror-volume"></a>2 方向または 3 方向ミラー ボリュームを作成する
+
+Windows Admin Center を使用して 2 方向または 3 方向ミラー ボリュームを作成するには:
 
 1. Windows Admin Center で、クラスターに接続し、 **[ツール]** ウィンドウで **[ボリューム]** を選択します。
-2. **[ボリューム]** ページで **[インベントリ]** タブを選択し、 **[ボリュームの作成]** を選択します。
-3. **[ボリュームの作成]** ペインで、ボリュームの名前を入力し、 **[回復性]** を **[Three-way mirror]\(3 方向ミラー\)** のままにします。
-4. **[Size on HDD]\(HDD 上のサイズ\)** で、ボリュームのサイズを指定します。 たとえば、5 TB (テラバイト) のように指定します。
-5. **［作成］** を選択します
+1. **[ボリューム]** ページで **[インベントリ]** タブを選択し、 **[作成]** を選択します。
+1. **[ボリュームの作成]** ペインで、ボリュームの名前を入力します。
+1. **[回復性]** で、クラスター内のサーバーの数に応じて、 **[Two-way mirror]\(2 方向ミラー\)** または **[Three-way mirror]\(3 方向ミラー\)** を選択します。
+1. **[Size on HDD]\(HDD 上のサイズ\)** で、ボリュームのサイズを指定します。 たとえば、5 TB (テラバイト) のように指定します。
+1. **[その他のオプション]** の下のチェックボックスを使用して、重複除去と圧縮、整合性チェックサム、または BitLocker 暗号化を有効にすることができます。
+1. **［作成］** を選択します
 
-サイズによっては、ボリュームの作成に数分かかることがあります。 右上の通知により、ボリュームが作成されたことを知ることができます。 新しいボリュームが [インベントリ] の一覧に表示されます。
+   :::image type="content" source="media/create-volumes/create-mirror-volume.png" alt-text="Windows Admin Center を使用して 2 方向または 3 方向ミラー ボリュームを作成できます" lightbox="media/create-volumes/create-mirror-volume.png":::
 
-3 方向ミラー ボリュームの作成方法に関する簡単な動画をご覧ください。
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/o66etKq70N8]
+サイズによっては、ボリュームの作成に数分かかることがあります。 右上の通知により、ボリュームが作成されたことを知ることができます。 すると、新しいボリュームがインベントリの一覧に表示されます。
 
 ## <a name="create-a-mirror-accelerated-parity-volume"></a>ミラー高速パリティ ボリュームの作成
 
@@ -44,15 +47,12 @@ Windows Admin Center を使用して 3 方向ミラー ボリュームを作成�
 Windows Admin Center でミラー高速パリティを使用するボリュームを作成するには、次のようにします。
 
 1. Windows Admin Center で、クラスターに接続し、 **[ツール]** ウィンドウで **[ボリューム]** を選択します。
-2. [ボリューム] ページで **[インベントリ]** タブを選択し、 **[ボリュームの作成]** を選択します。
-3. **[ボリュームの作成]** ペインで、ボリュームの名前を入力します。
-4. **[回復性]** で、 **[Mirror-accelerated parity]\(ミラー高速パリティ\)** を選択します。
-5. **[Parity percentage]\(パリティの割合\)** で、パリティの割合を選択します。
-6. **［作成］** を選択します
-
-ミラー高速パリティ ボリュームを作成する方法についての簡単な動画をご覧ください。
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/R72QHudqWpE]
+1. [ボリューム] ページで **[インベントリ]** タブを選択し、 **[作成]** を選択します。
+1. **[ボリュームの作成]** ペインで、ボリュームの名前を入力します。
+1. **[回復性]** で、 **[Mirror-accelerated parity]\(ミラー高速パリティ\)** を選択します。
+1. **[Parity percentage]\(パリティの割合\)** で、パリティの割合を選択します。
+1. **[その他のオプション]** の下のチェックボックスを使用して、重複除去と圧縮、整合性チェックサム、または BitLocker 暗号化を有効にすることができます。
+1. **［作成］** を選択します
 
 ## <a name="open-volume-and-add-files"></a>ボリュームを開いてファイルを追加する
 
@@ -68,10 +68,6 @@ Windows Admin Center でボリュームを開き、ボリュームにファイ�
 5. ボリュームのパスに移動します。 ここで、ボリューム内のファイルを参照できます。
 6. **[アップロード]** を選択し、アップロードするファイルを選択します。
 7. ブラウザーの **[戻る]** ボタンを使用して、Windows Admin Center の **[ツール]** ペインに戻ります。
-
-ボリュームを開いてファイルを追加する方法に関する簡単な動画をご覧ください。
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/j59z7ulohs4]
 
 ## <a name="turn-on-deduplication-and-compression"></a>重複除去と圧縮を有効にする
 
@@ -118,9 +114,12 @@ New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 3 種類のドライブを使用したデプロイでは、1 つのボリュームが SSD および HDD 階層にまたがり、それぞれに部分的に存在することができます。 同様に、4 台以上のサーバーを使用したデプロイでは、1 つのボリュームにミラーリングとデュアル パリティを混在させ、両方に部分的に配置できます。
 
-このようなボリュームの作成を支援するために、Azure Stack HCI には、**MirrorOn*MediaType*** および **NestedMirrorOn*MediaType*** (パフォーマンス用) と、**ParityOn*MediaType*** および **NestedParityOn*MediaType*** (容量用) (この *MediaType* は HDD または SSD です) という既定の階層テンプレートが用意されています。 テンプレートは、メディアの種類に基づいてストレージ層を表し、高速な容量のドライブの 3 方向ミラーリング (該当する場合)、および低速な容量のドライブのデュアル パリティ (該当する場合) の定義をカプセル化したものです。
+このようなボリュームの作成を支援するために、Azure Stack HCI および Windows Server 2019 には、**MirrorOn*MediaType*** および **NestedMirrorOn*MediaType*** (パフォーマンス用) と、**ParityOn*MediaType*** および **NestedParityOn*MediaType*** (容量用) (この *MediaType* は HDD または SSD です) という既定の階層テンプレートが用意されています。 テンプレートは、メディアの種類に基づいてストレージ層を表し、高速な容量のドライブの 3 方向ミラーリング (該当する場合)、および低速な容量のドライブのデュアル パリティ (該当する場合) の定義をカプセル化したものです。
 
-これらを確認するには、クラスター内の任意のサーバーで **Get-StorageTier** コマンドレットを実行します。
+   > [!NOTE]
+   > 記憶域スペース ダイレクトが実行されている Windows Server 2016 クラスター上では、既定の層テンプレートは単に **パフォーマンス** および **容量** と呼ばれていました。
+
+ストレージ層を確認するには、クラスター内の任意のサーバーで **Get-StorageTier** コマンドレットを実行します。
 
 ```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
@@ -147,7 +146,7 @@ New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 ### <a name="nested-resiliency-volumes"></a>入れ子の回復性ボリューム
 
-入れ子の回復性は、2 サーバー クラスターにのみ適用されます。クラスターに 3 つ以上のサーバーがある場合、入れ子の回復性を使用することはできません。 入れ子の回復性により、2 サーバー クラスターは、ストレージの可用性を失うことなく同時に複数のハードウェア障害に耐えられます。また、ユーザー、アプリ、および仮想マシンを中断することなく継続して実行することができます。 詳細については、「[ボリュームの計画: 回復性の種類の選択](../concepts/plan-volumes.md#choosing-the-resiliency-type)」を参照してください。
+入れ子の回復性は、Azure Stack HCI または Windows Server 2019 が実行されている 2 サーバー クラスターにのみ適用されます。お使いのクラスターに 3 台以上のサーバーがある場合、または、そのクラスターによって実行されているのが Windows Server 2016 の場合、入れ子の回復性を使用することはできません。 入れ子の回復性により、2 サーバー クラスターは、ストレージの可用性を失うことなく同時に複数のハードウェア障害に耐えられます。また、ユーザー、アプリ、および仮想マシンを中断することなく継続して実行することができます。 詳細については、「[ボリュームの計画: 回復性の種類の選択](../concepts/plan-volumes.md#choosing-the-resiliency-type)」を参照してください。
 
 #### <a name="create-nested-storage-tiers"></a>入れ子になったストレージ層を作成する
 
@@ -179,7 +178,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName MyParityNestedVolume -Sto
 
 ### <a name="storage-tier-summary-table"></a>ストレージ層の概要テーブル
 
-次の表は、Azure Stack HCI で作成される、または作成できるストレージ層をまとめたものです。
+次の表は、Azure Stack HCI または Windows Server 2019 内で作成される、または作成できるストレージ層をまとめたものです。
 
 **NumberOfNodes: 2**
 
@@ -219,6 +218,5 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName MyParityNestedVolume -Sto
 関連トピックおよびその他のストレージ管理タスクについては、次のトピックも参照してください。
 
 - [記憶域スペース ダイレクトの概要](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [ボリュームの計画](../concepts/plan-volumes.md)
 - [ボリュームの拡張](extend-volumes.md)
 - [ボリュームの削除](delete-volumes.md)

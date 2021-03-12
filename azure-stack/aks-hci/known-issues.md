@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 5865c7cfea0231c811199ff4abbc05011e4d0a66
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840050"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Azure Stack HCI 上の Azure Kubernetes Service のパブリック プレビューに関する既知の問題
 この記事では、Azure Stack HCI 上の Azure Kubernetes Service のパブリック プレビュー リリースに関する既知の問題について説明します。
@@ -85,3 +85,6 @@ az connectedk8s delete
 
 ## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>Windows Admin Center を使用して Azure Kubernetes Service ホストを設定するときに、エクスプローラーが開いていると設定が失敗する可能性があります
 "確認と作成" 手順に達したときに、エクスプローラーが開いていて、**C:\Program Files\AksHci** ディレクトリにいる場合、作成は "プロセスでファイル 'C:\Program Files\AksHci\wssdcloudagent.exe' にアクセスできませんでした" というエラーで失敗する可能性があります。 これは、それが別のプロセスによって使用されているためです。 このエラーを回避するには、この手順に進む前に、エクスプローラーを閉じるか、別のディレクトリに移動します。 
+
+## <a name="cannot-connect-windows-admin-center-to-azure-as-create-new-azure-app-id-fails"></a>新規 Azure アプリ ID の作成に失敗したため、Windows Admin Center を Azure に接続できません
+ゲートウェイ上で Azure アプリ ID を自動的に作成して使用できないことが原因で、Windows Admin Center を Azure に接続できない場合は、Azure アプリ ID を作成し、ポータル上で適切なアクセス許可を割り当てます。 次に、 **[Use existing in the gateway]\(ゲートウェイで既存のものを使用\)** を選択します。 詳細については、[Azure へのゲートウェイの接続](/windows-server/manage/windows-admin-center/azure/azure-integration)に関するページをご覧ください。

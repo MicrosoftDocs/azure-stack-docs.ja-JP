@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/0102020
-ms.openlocfilehash: 0322d72f3cd28a8e499b2a900d57e4e9d2e9bce4
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9969447ab737c6913576c73b2e53453a6cb8e1f6
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246726"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231763"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub の AKS エンジンのサポート ポリシー
 
@@ -85,7 +85,6 @@ Microsoft は、以下に関するテクニカル サポートを提供します
 -  Kubernetes 構成の変更は、Kubernetes 構成ストアの etcd の外部で保持されます。 たとえば、クラスターのノードで実行されている静的ポッドなどです。
 -  Kubernetes の使用方法に関する質問。 たとえば、Microsoft サポートでは、カスタムのイングレス コント ローラーの作成方法、アプリケーションのワークロードの使用方法、サード パーティまたはオープン ソースのソフトウェア パッケージやツールの適用方法に対するアドバイスは提供していません。
 -  AKS エンジンによってデプロイされた Kubernetes クラスターの一部として提供されない、サードパーティのオープンソース プロジェクト。 これらのプロジェクトには、Kubeadm、Kubespray、Native、Istio、Helm、Envoy などが含まれる場合があります。
--  「[AKS エンジンでサポートされるシナリオ](azure-stack-kubernetes-aks-engine-overview.md#supported-scenarios-with-the-aks-engine)」で指定されていないユースケース シナリオでの AKS エンジンの使用。
 -  サードパーティ製ソフトウェア。 このソフトウェアには、セキュリティ スキャン ツール、およびネットワーク デバイスまたはソフトウェアが含まれる場合があります。
 -  マルチクラウドまたはマルチベンダーの構築に関する問題。 たとえば、Microsoft では、フェデレーション マルチパブリック クラウド ベンダーのソリューションの実行に関連する問題はサポートしていません。
 -  「[AKS エンジンのサポートされている領域](#aks-engine-supported-areas)」に記載されている以外のネットワークのカスタマイズ。

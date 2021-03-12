@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
 ms.lastreviewed: 12/07/2020
-ms.openlocfilehash: 0d123679c0394d740876df2fcc78f7347049c61c
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: e66bdd376a5055e78c261bed5980ee4772f078fb
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737838"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840339"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への MySQL リソース プロバイダーのデプロイ
 
@@ -118,7 +118,7 @@ _統合システムのインストールのみを対象_。 [Azure Stack Hub の
 MySQL リソース プロバイダーをデプロイするには、管理者特権で **新しい** PowerShell ウィンドウ (PowerShell ISE ではない) を開き、MySQL リソース プロバイダーのバイナリ ファイルを抽出したディレクトリに変更します。 
 
 > [!IMPORTANT]
-> 更新スクリプトを実行する前に、**Clear-AzureRmContext -Scope CurrentUser** および **Clear-AzureRmContext -Scope Process** を使用してキャッシュをクリアすることを強くお勧めします。
+> デプロイまたは更新スクリプトを実行する前に、**Clear-AzureRmContext -Scope CurrentUser** および **Clear-AzureRmContext -Scope Process** を使用してキャッシュをクリアすることを強くお勧めします。
 
 **DeployMySqlProvider.ps1** スクリプトを実行して次のタスクを完了します。
 

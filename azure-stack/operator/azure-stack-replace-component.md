@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 5111857dbf154c3669e3971b16af686eb0facc44
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: ba038ecf7bbadd5f92d4a4ad97583082905861a2
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869408"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515602"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Azure Stack Hub スケール ユニット ノードのハードウェア コンポーネントを交換する
 
@@ -31,7 +31,7 @@ ms.locfileid: "97869408"
 |  | EU | [Fujitsu MySupport (アカウントとサインインが必要)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
 | HPE | All | [HPE ProLiant for Microsoft Azure Stack Hub](http://www.hpe.com/info/MASupdates) |
 | Lenovo | All | [ThinkAgile SXM Best Recipes](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [OEM/ファームウェア パッケージ](https://aka.ms/AA6z600)<br>[terra Azure Stack Hub ドキュメント (FRU を含む)](https://aka.ms/aa6zktc)
+| Wortmann |  | [OEM/ファームウェア パッケージ](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/)<br>[terra Azure Stack Hub ドキュメント (FRU を含む)](https://aka.ms/aa6zktc)
 
 ホットスワップが可能でないコンポーネントには、次の項目が含まれます。
 

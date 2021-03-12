@@ -4,13 +4,13 @@ description: Azure Stack HCI で Azure Kubernetes Service を開始する前に
 ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
-ms.date: 12/02/2020
-ms.openlocfilehash: 71c842cf44963988da7926003646b246bf80f802
-ms.sourcegitcommit: 8776cbe4edca5b63537eb10bcd83be4b984c374a
+ms.date: 02/02/2021
+ms.openlocfilehash: 16d4e7b1de239ee1b08aa696696796fa6f12dff7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98175738"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839744"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI での Azure Kubernetes Service のシステム要件
 
@@ -44,7 +44,7 @@ Active Directory 環境で、Azure Stack HCI または Windows Server 2019 Datac
 
  - このプレビュー リリースでは、EN-US リージョンと言語の選択を使用して、クラスター内の各サーバーに Azure Stack HCI オペレーティング システムをインストールする必要があります。現時点では、インストール後に変更しても十分ではありません。
 
-## <a name="network-requirements"></a>ネットワークの要件 
+## <a name="general-network-requirements"></a>一般的なネットワークの要件 
 
 Azure Stack HCI クラスターと Windows Server 2019 Datacenter クラスターには、次の要件が適用されます。 
 
@@ -53,52 +53,44 @@ Azure Stack HCI クラスターと Windows Server 2019 Datacenter クラスタ�
  - すべてのネットワーク アダプターで IPv6 が無効になっていることを確認します。 
 
  - デプロイを成功させるには、Azure Stack HCI クラスター ノードと Kubernetes クラスター VM に外部インターネット接続が必要です。
+ 
+ - クラスターに対して定義したすべてのサブネットが相互にルーティング可能であること、およびインターネットにルーティングされていることを確認します。
   
  - Azure Stack HCI ホストとテナント VM の間にネットワーク接続が存在することを確認します。
 
- - すべてのノードが相互に通信できるようにするには、DNS 名前解決が必要です。 Kubernetes の外部名前解決には、IP アドレスが取得されたときに DHCP サーバーによって指定される DNS サーバーを使用します。 Kubernetes の内部名前解決には、Kubernetes の既定の、DNS ベースのコア ソリューションが使用されます。 
+ - すべてのノードが相互に通信できるようにするには、DNS 名前解決が必要です。 
 
- - このプレビュー リリースでは、デプロイ全体に対して 1 つの VLAN サポートのみが提供されています。 
+## <a name="ip-address-assignment"></a>IP アドレスの割り当て  
 
- - このプレビュー リリースでは、PowerShell を使用して作成される Kubernetes クラスターに対するプロキシ サポートは限定的です。 
- 
-### <a name="ip-address-assignment"></a>IP アドレスの割り当て  
- 
-Azure Stack HCI での AKS のデプロイを成功させるため、DHCP サーバーで仮想 IP プールの範囲を構成することをお勧めします。 すべてのワークロード クラスターに対して、3 から 5 個の高可用性コントロール プレーン ノードを構成することもお勧めします。 
+AKS on Azure Stack HCI 内では、仮想ネットワークを使用して、IP アドレスが、そのアドレスを必要とする上記の Kubernetes リソースに割り当てられます。 必要な AKS on Azure Stack HCI ネットワーク アーキテクチャに応じて、2 つのネットワーク モデルから選択できます。 
 
 > [!NOTE]
-> 静的 IP アドレスの割り当てのみを使用することはサポートされていません。 このプレビュー リリースの一環として、DHCP サーバーを構成する必要があります。
+ > ここで AKS on Azure Stack HCI デプロイに対して定義した仮想ネットワーク アーキテクチャは、データセンター内の基礎となる物理ネットワーク アーキテクチャとは異なります。
 
-#### <a name="dhcp"></a>[DHCP]
-DHCP を使用してクラスター全体に IP アドレスを割り当てるときは、次の要件に従ってください。  
+- 静的 IP ネットワーク - 仮想ネットワークによって、静的 IP アドレスが、Kubernetes クラスター API サーバー、Kubernetes ノード、基礎となる VM、ロードバランサー、およびお使いのクラスター上で実行するすべての Kubernetes サービスに割り当てられます。
 
- - VM と VM ホストに TCP/IP アドレスを提供するため、ネットワークに使用可能な DHCP サーバーがある必要があります。 DHCP サーバーには、ネットワーク タイム プロトコル (NTP) と DNS ホストの情報も含まれている必要があります。
- 
- - Azure Stack HCI クラスターからアクセスできる専用の IPv4 アドレス スコープを持つ DHCP サーバー。
- 
- - DHCP サーバーによって提供される IPv4 アドレスはルーティング可能であり、VM の更新や再プロビジョニングの場合に IP 接続が失われないようにするために 30 日間のリースの有効期限が設定されている必要があります。  
+- DHCP ネットワーク - 仮想ネットワークによって、動的 IP アドレスが、DHCP サーバーを使用して、Kubernetes ノード、基礎となる VM、およびロード バランサーに割り当てられます。 Kubernetes クラスター API サーバーと、お使いのクラスター上で実行するすべての Kubernetes サービスには、まだ静的 IP アドレスが割り当てられています。
 
-少なくとも、次の数の DHCP アドレスを予約する必要があります。
+### <a name="minimum-ip-address-reservation"></a>最小 IP アドレス予約
 
-| クラスターの種類  | コントロール プレーン ノード | ワーカー ノード | 更新 | Load Balancer  |
+少なくとも、次の数の IP アドレスをご自身のデプロイに対して予約する必要があります。
+
+| クラスターの種類  | コントロール プレーン ノード | ワーカー ノード | 更新操作 | Load Balancer  |
 | ------------- | ------------------ | ---------- | ----------| -------------|
-| AKS ホスト |  1  |  0  |  2  |  0  |
-| ワークロード クラスター  |  ノードあたり 1  | ノードあたり 1 |  5  |  1  |
+| AKS ホスト |  1 IP |  NA  |  2 IP |  NA  |
+| ワークロード クラスター  |  ノードあたり 1 IP  | ノードあたり 1 IP |  5 IP  |  1 IP |
 
-ご覧のように、ご使用の環境におけるワークロード クラスター、コントロール プレーン、およびワーカー ノードの数に応じて、必要な IP アドレスの数は異なります。 DHCP IP プールでは、256 の IP アドレス (/24 サブネット) を予約することをお勧めします。
-  
-    
-#### <a name="vip-pool-range"></a>VIP プールの範囲
+さらに、次の数の IP アドレスをご自身の VIP プールに対して予約する必要があります。
 
-仮想 IP (VIP) プールは Azure Stack HCI デプロイの AKS に強くお勧めします。 VIP プールとは、デプロイおよびアプリケーションのワークロードに常に到達可能であることを保証するために、長期間のデプロイに使用される予約済みの静的 IP アドレスの範囲です。 現時点では、IPv4 アドレスしかサポートされていないため、すべてのネットワーク アダプターで IPv6 が無効となっていることを確認する必要があります。 また、仮想 IP アドレスが DHCP IP 予約に含まれていないことを確認します。
+| リソースの種類  | IP アドレスの数 
+| ------------- | ------------------
+| クラスター API サーバー |  クラスターあたり 1 
+| Kubernetes サービス  |  サービスあたり 1  
 
-少なくとも、クラスター (ワークロードと AKS ホスト) ごとに 1 つの IP アドレスを予約し、Kubernetes サービスごとに 1 つの IP アドレスを予約する必要があります。 ご使用の環境におけるワークロード クラスターと Kubernetes サービスの数に応じて、VIP プールの範囲内の必要な IP アドレスの数は異なります。 AKS HCI のデプロイには、16 個の静的 IP アドレスを予約することをお勧めします。 
+ご覧のように、必要な IP アドレスの数は、AKS on Azure Stack HCI アーキテクチャと Kubernetes クラスター上で実行するサービスの数によって異なります。 お使いのデプロイに対して合計 256 IP アドレス (/24 サブネット) を予約することをお勧めします。
 
-AKS ホストを設定するとき、`Set-AksHciConfig` の `-vipPoolStartIp` パラメーターと `-vipPoolEndIp` パラメーターを使用して、VIP プールを作成します。
+ネットワーク要件の詳細については、[AKS on Azure Stack HCI のネットワークの概念](./concepts-networking.md)に関するページをご覧ください。
 
-#### <a name="mac-pool-range"></a>MAC プールの範囲
-各クラスターで複数のコントロール プレーン ノードを使用できるようにするには、範囲内で 16 個以上の MAC アドレスを設定することをお勧めします。 AKS ホストを設定するとき、`Set-AksHciConfig` の `-macPoolStart` および `-macPoolEnd` パラメーターを使用して、Kubernetes サービスに DHCP MAC プールの MAC アドレスを予約します。
-  
 ### <a name="network-port-and-url-requirements"></a>ネットワーク ポートと URL の要件 
 
 Azure Stack HCI 上に Azure Kubernetes クラスターを作成すると、クラスター内の各サーバーで、以下のファイアウォール ポートが自動的に開かれます。 
@@ -153,9 +145,8 @@ Windows Admin Center は、Azure Stack HCI 上の Azure Kubernetes Service を�
 
 Windows Admin Center ゲートウェイを実行するマシンには、次の要件があります。 
 
- - Windows 10 または Windows Server マシン (現時点では、Azure Stack HCI または Windows Server 2019 Datacenter クラスターでの Windows Admin Center の実行はサポートされていません)
- - 60 GB の空き領域
- - Azure に登録済み
+ - Windows 10 または Windows Server マシン
+ - [Azure に登録済み](/windows-server/manage/windows-admin-center/azure/azure-integration)
  - Azure Stack HCI または Windows Server 2019 Datacenter クラスターと同じドメイン内
 
 ## <a name="next-steps"></a>次のステップ 

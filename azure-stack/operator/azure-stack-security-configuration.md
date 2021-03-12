@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub のセキュリティ コントロールを構成する
 description: Azure Stack Hub のセキュリティ コントロールを構成する方法について説明します。
-author: PatAltimore
+author: BryanLa
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: 2ba13915c572c4b71cd5261ddb08cb876dd137a5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 300584eba787cf90e459c4faccf5dddf97d37ceb
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869255"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231185"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>Azure Stack Hub セキュリティ コントロールを構成する
 

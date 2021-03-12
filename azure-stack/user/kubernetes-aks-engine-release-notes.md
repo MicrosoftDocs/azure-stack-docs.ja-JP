@@ -3,16 +3,16 @@ title: Azure Stack Hub 上の Azure Kubernetes Service (AKS) エンジンのリ�
 description: Azure Stack Hub 上の AKS エンジンの更新プログラムを使用して実行する必要がある手順について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/11/2021
+ms.date: 02/23/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/11/2021
-ms.openlocfilehash: fd8453c55be6222badd577666293653a45f67273
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.lastreviewed: 02/23/2021
+ms.openlocfilehash: a9f1217777fbdf5a6efd752388a15b4573d2d851
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100488039"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840815"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのリリース ノート
 ::: moniker range=">=azs-2002"
@@ -132,7 +132,7 @@ API モデルの json ファイル内にある `orchestratorProfile` セクシ�
 -   aks-engine ツールは、Azure と Azure Stack Hub 全体の共有ソース コード リポジトリであるためです。 多くのリリース ノートと pull request を調べると、このツールは前述以外のバージョンの Kubernetes と OS プラットフォームをサポートしていることがわかります。これらを無視して、この更新プログラムの公式ガイドとして、前述のバージョン一覧を使用してください。
 
 > [!NOTE]  
-> Windows コンテナーと Azure CNI のサポートは、プライベート プレビューで利用できます。 プレビューへの参加を希望される場合は、[https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni) でアクセス権をリクエストできます。
+> Windows コンテナーと Azure CNI のサポートは、パブリック プレビューで利用できます。 プレビューへの参加を希望される場合は、[https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni) でアクセス権をリクエストできます。
 
 ## <a name="reference"></a>リファレンス
 

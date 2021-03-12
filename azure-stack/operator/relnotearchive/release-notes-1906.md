@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d62407d1ebca7924466d5cb5e38bb48c79c8ddf
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9a51d7c7b1470e95fd9c8b6905c2ac31f59bf7b9
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248773"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187250"
 ---
 # <a name="azure-stack-updates-1906-release-notes"></a>Azure Stack の更新プログラム: 1906 リリース ノート
 
@@ -44,7 +44,7 @@ ms.locfileid: "99248773"
 - [セキュリティ更新プログラム](../release-notes-security-updates.md)
 - [更新プログラム適用前後のアクティビティのチェックリスト](../release-notes-checklist.md)
 
-更新プログラムのトラブルシューティングと更新プロセスの詳細については、[Azure Stack の修正プログラムと更新プログラムに関する問題のトラブルシューティング](../azure-stack-updates-troubleshoot.md)に関するページをご確認ください。
+更新プログラムのトラブルシューティングと更新プロセスの詳細については、[Azure Stack の修正プログラムと更新プログラムに関する問題のトラブルシューティング](../azure-stack-troubleshooting.md)に関するページをご確認ください。
 
 ## <a name="1906-build-reference"></a>1906 ビルドのリファレンス
 

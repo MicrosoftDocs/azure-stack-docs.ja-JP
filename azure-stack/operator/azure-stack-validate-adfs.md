@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 0b032929496646de763336a630f22782bd03091c
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: cdbd069fee0584f78a4a62b7910428f47e8966d1
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545683"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840254"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Azure Stack Hub の AD FS 統合を検証する
 
@@ -23,8 +23,8 @@ Azure Stack Hub 適合性チェッカー ツール (AzsReadinessChecker) を使�
 
 適合性チェッカーは以下を検証します。
 
-* " *フェデレーション メタデータ* " にフェデレーションに有効な XML 要素が含まれている。
-* *AD FS SSL 証明書* を取得し、信頼チェーンを構築できる。 スタンプでは、AD FS で SSL 証明書チェーンを信頼する必要があります。 証明書は、Azure Stack Hub デプロイ証明書に使用される同じ " *証明機関* " か、信頼されたルート証明機関パートナーによって署名されている必要があります。 信頼されたルート証明機関パートナーの完全な一覧については、[TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca) を参照してください。
+* "*フェデレーション メタデータ*" にフェデレーションに有効な XML 要素が含まれている。
+* *AD FS SSL 証明書* を取得し、信頼チェーンを構築できる。 スタンプでは、AD FS で SSL 証明書チェーンを信頼する必要があります。 証明書は、Azure Stack Hub デプロイ証明書に使用される同じ "*証明機関*" か、信頼されたルート証明機関パートナーによって署名されている必要があります。 信頼されたルート証明機関パートナーの完全な一覧については、「[参加者の一覧 - Microsoft の信頼されたルート プログラム](/security/trusted-root/participants-list)」をご覧ください。
 * *AD FS 署名証明書* が信頼され、有効期限が迫っていない。
 
 Azure Stack Hub とデータ センターの統合の詳細については、「[Azure Stack Hub とデータセンターの統合 - ID](azure-stack-integrate-identity.md)」を参照してください。
@@ -40,7 +40,7 @@ Azure Stack Hub とデータ センターの統合の詳細については、「
 **ツールを実行するコンピューター:**
 
 * ドメインに接続された Windows 10 または Windows Server 2016。
-* PowerShell 5.1 以降。 お使いのバージョンを確認するには、次の PowerShell コマンドを実行し、" *メジャー* " バージョンと " *マイナー* " バージョンを確かめます。  
+* PowerShell 5.1 以降。 お使いのバージョンを確認するには、次の PowerShell コマンドを実行し、"*メジャー*" バージョンと "*マイナー*" バージョンを確かめます。  
     ```powershell
     $PSVersionTable.PSVersion
     ```
@@ -51,7 +51,7 @@ Azure Stack Hub とデータ センターの統合の詳細については、「
 少なくとも次のいずれかの形式のメタデータが必要です。
 
 - AD FS フェデレーション メタデータの URL。 (例: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`)。
-* フェデレーション メタデータ XML ファイル。 次に例を示します。FederationMetadata.xml。
+* フェデレーション メタデータ XML ファイル。 (例: FederationMetadata.xml)。
 
 ## <a name="validate-ad-fs-integration"></a>AD FS 統合の検証
 
@@ -61,7 +61,7 @@ Azure Stack Hub とデータ センターの統合の詳細については、「
     Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
-1. PowerShell プロンプトから次のコマンドを実行して、検証を開始します。 フェデレーション メタデータの URI として、 **-CustomADFSFederationMetadataEndpointUri** の値を指定します。
+1. PowerShell プロンプトから次のコマンドを実行して、検証を開始します。 フェデレーション メタデータの URI として、**-CustomADFSFederationMetadataEndpointUri** の値を指定します。
 
      ```powershell
      Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
@@ -102,12 +102,12 @@ Azure Stack Hub とデータ センターの統合の詳細については、「
 
 次のコマンドを使用します。
 
-* `-OutputPath`:別のレポートの場所を指定するには、実行コマンドの末尾に *path* パラメーターを使用します。
-* `-CleanReport`:前のレポート情報から AzsReadinessCheckerReport.json をクリアするために、実行コマンドの末尾に付けるパラメーターです。 詳細については、「[Azure Stack Hub 検証レポート](azure-stack-validation-report.md)」を参照してください。
+* `-OutputPath`: 別のレポートの場所を指定するために、実行コマンドの末尾に付ける *path* パラメーターです。
+* `-CleanReport`: 前のレポート情報から AzsReadinessCheckerReport.json をクリアするために、実行コマンドの末尾に付けるパラメーターです。 詳細については、「[Azure Stack Hub 検証レポート](azure-stack-validation-report.md)」を参照してください。
 
 ## <a name="validation-failures"></a>検証エラー
 
-検証チェックに失敗した場合は、エラーの詳細が PowerShell ウィンドウに表示されます。 また、ツールによって、 *AzsReadinessChecker.log* にログ情報が記録されます。
+検証チェックに失敗した場合は、エラーの詳細が PowerShell ウィンドウに表示されます。 また、ツールによって、*AzsReadinessChecker.log* にログ情報が記録されます。
 
 次の例は、一般的な検証エラーに関するガイダンスです。
 
@@ -117,9 +117,9 @@ Azure Stack Hub とデータ センターの統合の詳細については、「
 Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 ```
 
-**原因** :PowerShell Autoload で、適合性チェッカー モジュールを正しく読み込めませんでした。
+**原因**: PowerShell Autoload で、適合性チェッカー モジュールを正しく読み込めませんでした。
 
-**解決方法** :適合性チェッカー モジュールを明示的にインポートします。 次のコードをコピーして PowerShell に貼り付け、`<version>` を現在インストールされているバージョンの番号に更新します。
+**解決方法**: 適合性チェッカー モジュールを明示的にインポートします。 次のコードをコピーして PowerShell に貼り付け、`<version>` を現在インストールされているバージョンの番号に更新します。
 
 ```powershell
 Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force

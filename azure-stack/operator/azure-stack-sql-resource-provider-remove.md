@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2019
-ms.openlocfilehash: b232bf2efb690ddc0a351d762e6866a75ced4a81
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 67c6331111e18ec04f3084b4c34a971120733569
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011367"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839982"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL リソース プロバイダーの削除
 
@@ -35,13 +35,17 @@ SQL リソース プロバイダーを削除すると、オペレーターが管
 
 3. 新しい管理者特権の PowerShell コンソール ウィンドウを開き、SQL リソース プロバイダーのインストール ファイルを抽出したディレクトリに変更します。
 
+> [!IMPORTANT]
+> スクリプトを実行する前に、**Clear-AzureRmContext -Scope CurrentUser** および **Clear-AzureRmContext -Scope Process** を使用してキャッシュをクリアすることを強くお勧めします。
+
+
 4. 次のパラメーターを使用して、DeploySqlProvider.ps1 スクリプトを実行します。
 
-    * **Uninstall**:リソース プロバイダーと関連付けられているすべてのリソースを削除します。
-    * **PrivilegedEndpoint**:特権エンドポイントの IP アドレスまたは DNS 名。
-    * **AzureEnvironment**:Azure Stack Hub のデプロイに使用する Azure 環境。 Azure AD のデプロイでのみ必須です。
-    * **CloudAdminCredential**:特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。
-    * **AzCredential**:Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。 AzCredential で使用するアカウントが多要素認証 (MFA) を必要とする場合、スクリプトは失敗します。
+    * **Uninstall**: リソース プロバイダーと関連付けられているすべてのリソースを削除します。
+    * **PrivilegedEndpoint**: 特権エンドポイントの IP アドレスまたは DNS 名。
+    * **AzureEnvironment**: Azure Stack Hub のデプロイに使用される Azure 環境。 Azure AD のデプロイでのみ必須です。
+    * **CloudAdminCredential**: 特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。
+    * **AzCredential**: Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。 AzCredential で使用するアカウントが多要素認証 (MFA) を必要とする場合、スクリプトは失敗します。
 
 ## <a name="next-steps"></a>次のステップ
 

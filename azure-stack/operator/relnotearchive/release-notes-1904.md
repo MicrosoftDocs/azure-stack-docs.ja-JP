@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9222315f9a055ddc2b49ed470b0f22b653197473
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9ca014878021d0fbe02a8997e1436910557e93f5
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248776"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515925"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新プログラム
 
@@ -71,7 +71,7 @@ Azure Stack 1904 更新プログラムのビルドの種類は **高速** です
 - 不要なイベントを除外し、転送されるメッセージに目的の重大度を選択する構成パラメーターを用意することで、syslog メッセージの量を改良しました。 重大度の構成方法の詳細については、「[Azure Stack datacenter integration - syslog forwarding](../azure-stack-integrate-security.md)」(Azure Stack データセンターの統合 - syslog 転送) を参照してください。
 
 <!--this applied to Bug 1473487 -->
-- 追加のパラメーター `-OutputSASUri` を組み込むことで、**Get-AzureStackLog** コマンドレットに新しい機能を追加しました。 これで、環境から Azure Stack ログを収集し、指定した Azure Storage Blob コンテナーに保存できるようになりました。 詳細については、「[Azure Stack の診断](../azure-stack-configure-on-demand-diagnostic-log-collection.md#examples)」を参照してください。
+- 追加のパラメーター `-OutputSASUri` を組み込むことで、**Get-AzureStackLog** コマンドレットに新しい機能を追加しました。 これで、環境から Azure Stack ログを収集し、指定した Azure Storage Blob コンテナーに保存できるようになりました。 詳細については、「[Azure Stack の診断](/azure-stack/operator/diagnostic-log-collection)」を参照してください。
 
 - **Test-AzureStack** `UpdateReadiness` グループに新しいメモリ チェックを追加しました。これは、更新プログラムを正常に完了できる十分なメモリがスタック上にあるかどうかを確認する機能です。
 
@@ -88,7 +88,7 @@ Azure Stack 1904 更新プログラムのビルドの種類は **高速** です
 - インフラストラクチャのバックアップ アクション プランのべき等性の改良。
 
 <!--Bug/Task 3139609 -->
-- Azure Stack のログ収集の機能強化。 これらの機能強化により、一連のログの取得にかかる時間が短縮されます。 また、[Get-AzureStackLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) コマンドレットから OEM ロールの既定のログが生成されなくなりました。 OEM ログを取得するロールを指定して、[Invoke-AzureStackOnDemandLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#invoke-azurestackondemandlog) コマンドレットを実行する必要があります。 詳細については、「[Azure Stack の診断](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」を参照してください。
+- Azure Stack のログ収集の機能強化。 これらの機能強化により、一連のログの取得にかかる時間が短縮されます。 また、[Get-AzureStackLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) コマンドレットから OEM ロールの既定のログが生成されなくなりました。 OEM ログを取得するロールを指定して、[Invoke-AzureStackOnDemandLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#invoke-azurestackondemandlog) コマンドレットを実行する必要があります。 詳細については、「[Azure Stack の診断](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」を参照してください。
 
 - Azure Stack では、データセンターと ADFS の統合のために提供されているフェデレーション データ URL が監視されるようになりました。 これにより、お客様の ADFS インスタンスまたはファームのシークレット ローテーション中の信頼性が向上します。
 
@@ -205,5 +205,4 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 - Azure Stack での更新プログラム管理の概要については、「[Azure Stack での更新プログラムの管理概要](../azure-stack-updates.md)」を参照してください。  
 - Azure Stack に更新プログラムを適用する方法については、「[Azure Stack で更新を適用する](../azure-stack-apply-updates.md)」を参照してください。
 - Azure Stack 統合システムのサービス ポリシーについて、およびサポートを受けられる状態にシステムを維持するために必要な作業について確認するには、「[Azure Stack サービス ポリシー](../azure-stack-servicing-policy.md)」を参照してください。  
-- 特権エンドポイント (PEP) を使用して更新プログラムを監視および再開するには、「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](../azure-stack-monitor-update.md)」をご覧ください。  
-
+- 特権エンドポイント (PEP) を使用して更新プログラムを監視および再開するには、「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](../azure-stack-monitor-update.md)」をご覧ください。

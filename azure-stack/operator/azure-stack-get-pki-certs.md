@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub への証明書署名要求を生成する
 description: Azure Stack Hub 統合システムにおいて Azure Stack Hub PKI 証明書への証明書署名要求を生成する方法について学習します。
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 10/19/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: b03766efe531683310b81dbf2d03de8e990deec0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4303e2894deaaa05aa5ff1954cf34f12375c6693
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870445"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231712"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Azure Stack Hub への証明書署名要求を生成する
 

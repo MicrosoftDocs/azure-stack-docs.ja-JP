@@ -16,12 +16,12 @@ ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3574c55568db86c96d22d43fdf1bb08ac79c061e
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: 16606cd9155f4b0225e07462172fe6b132fe2a68
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009198"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187046"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新プログラム
 
@@ -247,7 +247,7 @@ Azure Stack 1808 更新プログラムのビルド番号は **1.1808.0.97** で�
       2. [この記事](../azure-stack-enable-multitenancy.md#register-a-guest-directory)にある手順に従って、各ゲスト ディレクトリを構成します。
 
 <!-- 2869209 IS, ASDK --> 
-- [**Add-AzsPlatformImage** コマンドレット](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true)を使用する場合は、ディスクのアップロード先のストレージ アカウント URI として **-OsUri** パラメーターを使用する必要があります。 ディスクのローカル パスを使用した場合、次のエラーが出てコマンドレットが失敗します。*長時間実行処理が状態 "失敗" で失敗しました*。 
+- [**Add-AzsPlatformImage** コマンドレット](/powershell/module/azs.compute.admin/add-azsplatformimage?preserve-view=true&view=azurestackps-1.4.0)を使用する場合は、ディスクのアップロード先のストレージ アカウント URI として **-OsUri** パラメーターを使用する必要があります。 ディスクのローカル パスを使用した場合、次のエラーが出てコマンドレットが失敗します。*長時間実行処理が状態 "失敗" で失敗しました*。 
 
 <!--  2966665 IS, ASDK --> 
 - SSD データ ディスクをプレミアム サイズのマネージド ディスク仮想マシン (DS、DSv2、Fs、Fs_V2) にアタッチすると、次のエラーで失敗します:*仮想マシン vmname のディスクを更新できませんでした。エラー: ストレージ アカウントの種類 Premium_LRS は VM サイズ (Standard_DS/Ds_V2/FS/Fs_v2) でサポートされていないため、要求された操作は実行できません*
@@ -332,4 +332,4 @@ Azure Stack 1808 更新プログラム パッケージは、[ここから](https
 - Azure Stack 統合システムのサービス ポリシーについて、およびサポートを受けられる状態にシステムを維持するために必要な作業について確認するには、「[Azure Stack サービス ポリシー](../azure-stack-servicing-policy.md)」を参照してください。  
 - 特権エンドポイント (PEP) を使用して更新プログラムを監視および再開するには、「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](../azure-stack-monitor-update.md)」をご覧ください。  
 - Azure Stack での更新プログラム管理の概要については、「[Azure Stack での更新プログラムの管理概要](../azure-stack-updates.md)」を参照してください。  
-- Azure Stack に更新プログラムを適用する方法については、「[Azure Stack で更新を適用する](../azure-stack-apply-updates.md)」を参照してください。  
+- Azure Stack に更新プログラムを適用する方法については、「[Azure Stack で更新を適用する](../azure-stack-apply-updates.md)」を参照してください。

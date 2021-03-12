@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 1f29698d1bae0b38a41f19f3c9eb75f76bffc59e
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 42ccc5c8858bf113b7308e4375ee3261a0a96a1f
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246862"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231491"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub の AKS エンジンとは
 
@@ -27,14 +27,6 @@ AKS エンジンのコマンド ライン ツールを使用して、Azure お�
 Azure Stack Hub で AKS エンジンを使用する前に、Azure Stack Hub と Azure の違いを理解しておくことが重要です。 このセクションでは、Azure Stack Hub と AKS エンジンを使用して Kubernetes クラスターを管理する際のさまざまな機能と主な考慮事項について確認します。
 
 Azure Stack Hub の AKS エンジンの詳細と Azure に関する違いの詳細については、[Azure Stack Hub の AKS エンジン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)に関する記事を参照してください。
-
-## <a name="supported-scenarios-with-the-aks-engine"></a>AKS エンジンでサポートされるシナリオ
-
-Azure Stack Hub サポート チームによって、次のシナリオがサポートされています。
-
-1.  AKS エンジンでは、このドキュメントのガイドラインに従って、[次のテンプレート](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack)を使用して、すべてのクラスター成果物がデプロイされます。
-2.  AKS エンジンにより、既存の VNET にクラスターがデプロイされます。 詳細については、「[Using a custom virtual network with AKS engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/custom-vnet.md)」 (AKS エンジンでのカスタム仮想ネットワークの使用) を参照してください。
-3.  [アップグレード](azure-stack-kubernetes-aks-engine-upgrade.md)と[スケール](azure-stack-kubernetes-aks-engine-scale.md)操作。
 
 AKS エンジンと Azure Stack Hub の詳細については、「[Azure Stack Hub の AKS エンジンのサポート ポリシー](azure-stack-kubernetes-aks-engine-support.md)」を参照してください。
 

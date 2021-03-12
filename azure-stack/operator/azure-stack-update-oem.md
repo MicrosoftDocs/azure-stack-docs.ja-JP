@@ -7,12 +7,12 @@ ms.date: 10/15/2019
 ms.author: patricka
 ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
-ms.openlocfilehash: 8b8c3a39f61693cad9904b99bd1f82b175d53a7b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 1f8b08a83e3597165b8d641b735fd8da070d8b4e
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868865"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515738"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack Hub に OEM (相手先ブランド供給) の更新プログラムを適用する
 
@@ -40,7 +40,7 @@ OEM パッケージ更新通知が確実に組織に届くようにする具体�
 |  | ヨーロッパ、中東、アフリカ、および米国 | [Fujitsu サポート: IT 製品およびシステム](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) (英語) |
 | HPE | All | [HPE ProLiant for Microsoft Azure Stack Hub](http://www.hpe.com/info/MASupdates) |
 | Lenovo | All | [ThinkAgile SXM Best Recipes](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [OEM/ファームウェア パッケージ](https://aka.ms/AA6z600)<br>[terra Azure Stack Hub ドキュメント (FRU を含む)](https://aka.ms/aa6zktc)
+| Wortmann |  | [OEM/ファームウェア パッケージ](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/)<br>[terra Azure Stack Hub ドキュメント (FRU を含む)](https://aka.ms/aa6zktc)
 
 ## <a name="apply-oem-updates"></a>OEM の更新プログラムを適用する
 

@@ -8,12 +8,12 @@ ms.date: 12/07/2020
 ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 9a88620fa333bd55a99796f4de292555f6cfd159
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 7f3813d241b01e46f4a0eac639e3e6c78d74e50f
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737863"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840322"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への SQL Server リソース プロバイダーのデプロイ
 
@@ -115,7 +115,7 @@ _統合システムのインストールのみを対象_。 [Azure Stack Hub の
 SQL リソース プロバイダーをデプロイするには、管理者特権で **新しい** PowerShell ウィンドウ (PowerShell ISE ではない) を開き、SQL リソース プロバイダーのバイナリ ファイルを抽出したディレクトリに変更します。 
 
 > [!IMPORTANT]
-> 更新スクリプトを実行する前に、**Clear-AzureRmContext -Scope CurrentUser** および **Clear-AzureRmContext -Scope Process** を使用してキャッシュをクリアすることを強くお勧めします。
+> デプロイまたは更新スクリプトを実行する前に、**Clear-AzureRmContext -Scope CurrentUser** および **Clear-AzureRmContext -Scope Process** を使用してキャッシュをクリアすることを強くお勧めします。
 
 DeploySqlProvider.ps1 スクリプトを実行すると、次のタスクが完了します。
 

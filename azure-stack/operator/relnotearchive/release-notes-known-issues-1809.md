@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1548ee295eddd2b386f637301abef208918c21ad
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: f98f0f28037cfc1de648f36cce20dd1c5334f93b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009215"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186944"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新プログラム
 
@@ -51,7 +51,7 @@ Azure Stack 1809 更新プログラムのビルド番号は **1.1809.0.90** で�
 
 - 再登録しなくても、リソース グループ間で Azure 上の[登録リソースを移動](../azure-stack-registration.md#move-a-registration-resource)できるようになりました。 また、クラウド ソリューション プロバイダー (CSP) でも、新しいサブスクリプションと古いサブスクリプションが両方とも同じ CSP パートナー ID にマッピングされている限り、サブスクリプション間で登録リソースを移動することができます。 これは、既存の顧客テナントのマッピングには影響しません。 
 
-- ネットワーク インターフェイスごとに複数の IP アドレスを割り当てられるようになりました。  詳しくは、「[PowerShell を使用して仮想マシンに複数の IP アドレスを割り当てる](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell)」をご覧ください。
+- ネットワーク インターフェイスごとに複数の IP アドレスを割り当てられるようになりました。  詳しくは、「[PowerShell を使用して仮想マシンに複数の IP アドレスを割り当てる](/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell)」をご覧ください。
 
 ### <a name="fixed-issues"></a>修正された問題
 
@@ -78,7 +78,7 @@ Azure Stack 1809 更新プログラムのビルド番号は **1.1809.0.90** で�
 ### <a name="changes"></a>[変更点]
 
 <!-- 2635202 - IS, ASDK -->
-- インフラストラクチャ バックアップ サービスは、[パブリック インフラストラクチャ ネットワーク](https://docs.microsoft.com/azure/azure-stack/azure-stack-network)から[パブリック VIP ネットワーク](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network)に移動します。 お客様は、サービスがパブリック VIP ネットワークからバックアップ ストレージの場所にアクセスできることを確認する必要があります。  
+- インフラストラクチャ バックアップ サービスは、[パブリック インフラストラクチャ ネットワーク](/azure/azure-stack/azure-stack-network)から[パブリック VIP ネットワーク](/azure/azure-stack/azure-stack-network#public-vip-network)に移動します。 お客様は、サービスがパブリック VIP ネットワークからバックアップ ストレージの場所にアクセスできることを確認する必要があります。  
 
 > [!IMPORTANT]  
 > パブリック VIP ネットワークからファイル サーバーへの接続を許可しないファイアウォールがある場合、この変更は、インフラストラクチャのバックアップが "エラー 53 ネットワーク パスが見つかりませんでした" で失敗する原因となります。 これは、妥当な回避策がない破壊的変更です。 お客様からのフィードバックに基づき、マイクロソフトでは、修正プログラム内でこの変更を元に戻します。 1809 に使用できる修正プログラムについて詳しくは、[「更新後の手順」セクション](#post-update-steps)をご覧ください。 修正プログラムが利用可能になったら、パブリック VIP ネットワークによるインフラストラクチャ リソースへのアクセスがネットワーク ポリシーによって許可されない場合にのみ、1809 への更新後に修正プログラムを適用してください。 1811 では、この変更はすべてのシステムに適用されます。 1809 に修正プログラムを適用した場合、他に必要な操作はありません。  
@@ -265,7 +265,7 @@ Azure Stack 1809 更新プログラムのビルド番号は **1.1809.0.90** で�
 - Azure Stack ポータルを使用して新しい仮想マシン (VM) を作成し、VM サイズを選択するときに、[米国ドル/月] 列に **[利用不可]** のメッセージが表示されます。 VM 価格の列の表示は、Azure Stack ではサポートされておらず、この列は表示されるべきではありません。
 
 <!-- 2869209 - IS, ASDK --> 
-- [**Add-AzsPlatformImage** コマンドレット](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true)を使用する場合は、ディスクのアップロード先のストレージ アカウント URI として **-OsUri** パラメーターを使用する必要があります。 ディスクのローカル パスを使用した場合、次のエラーが出てコマンドレットが失敗します。*長時間実行処理が状態 "失敗" で失敗しました*。 
+- [**Add-AzsPlatformImage** コマンドレット](/powershell/module/azs.compute.admin/add-azsplatformimage?preserve-view=true&view=azurestackps-1.4.0)を使用する場合は、ディスクのアップロード先のストレージ アカウント URI として **-OsUri** パラメーターを使用する必要があります。 ディスクのローカル パスを使用した場合、次のエラーが出てコマンドレットが失敗します。*長時間実行処理が状態 "失敗" で失敗しました*。 
 
 <!--  2795678 - IS, ASDK --> 
 - ポータルを使用して Premium VM サイズ (DS、Ds_v2、FS、FSv2) の仮想マシン (VM) を作成すると、VM は Standard ストレージ アカウントで作成されます。 Standard ストレージ アカウントで作成しても、機能、IOPS、課金に影響はありません。 
@@ -352,4 +352,4 @@ Azure Stack 1809 更新プログラム パッケージは、[ここから](https
 - Azure Stack 統合システムのサービス ポリシーについて、およびサポートを受けられる状態にシステムを維持するために必要な作業について確認するには、「[Azure Stack サービス ポリシー](../azure-stack-servicing-policy.md)」を参照してください。  
 - 特権エンドポイント (PEP) を使用して更新プログラムを監視および再開するには、「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](../azure-stack-monitor-update.md)」をご覧ください。  
 - Azure Stack での更新プログラム管理の概要については、「[Azure Stack での更新プログラムの管理概要](../azure-stack-updates.md)」を参照してください。  
-- Azure Stack に更新プログラムを適用する方法については、「[Azure Stack で更新を適用する](../azure-stack-apply-updates.md)」を参照してください。  
+- Azure Stack に更新プログラムを適用する方法については、「[Azure Stack で更新を適用する](../azure-stack-apply-updates.md)」を参照してください。

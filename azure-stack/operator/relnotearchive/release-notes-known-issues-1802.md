@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9334a3079a767f723240946af8091508204b8ae
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 63a42e4b3cab1273c84c52367178c00442bf2cf2
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248765"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187233"
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新プログラム
 
@@ -129,7 +129,7 @@ Azure Stack 1802 更新プログラムのビルド番号は **20180302.1** で�
     このアラートは無視してかまいません。 
 
 <!-- 2253274 --> 
-- 管理者ポータルとユーザー ポータルで、vNet サブネットの [設定] ブレードを読み込めません。 回避策として、PowerShell と [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true) コマンドレットを使用して、この情報を表示および管理します。
+- 管理者ポータルとユーザー ポータルで、vNet サブネットの [設定] ブレードを読み込めません。 回避策として、PowerShell と [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0) コマンドレットを使用して、この情報を表示および管理します。
 
 - 管理ポータルとユーザー ポータルの両方で、古い API バージョン (2015-06-15 など) で作成されたストレージ アカウントの [概要] ブレードを選択した場合、[概要] ブレードの読み込みに失敗します。 これには、パッチと更新プログラムの実行時に使用される **updateadminaccount** などのシステム ストレージ アカウントが含まれます。 
 
@@ -161,7 +161,7 @@ Azure Stack 1802 更新プログラムのビルド番号は **20180302.1** で�
 - ユーザーはサブスクリプションなしですべてのマーケットプレースを参照し、プランやオファーなどの管理アイテムを表示できます。 ユーザーはこれらのアイテムを使用できません。
 
 #### <a name="compute"></a>Compute
-- 仮想マシン スケール セットのスケーリング設定は、ポータルで使用できません。 回避策として、[Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) を使用できます。 PowerShell のバージョンの違いにより、`-VMScaleSetName` パラメーターの代わりに `-Name` を使用する必要があります。
+- 仮想マシン スケール セットのスケーリング設定は、ポータルで使用できません。 回避策として、[Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) を使用できます。 PowerShell のバージョンの違いにより、`-VMScaleSetName` パラメーターの代わりに `-Name` を使用する必要があります。
 
 <!-- 2290877  --> 
 - バージョン 1802 より前の Azure Stack を使用しているときに作成された仮想マシン スケールセット (VMSS) をスケールアップすることはできません。 これは、仮想マシン スケールセットでの可用性セットの使用のサポートが変更されたことが原因です。 このサポートはバージョン 1802 で追加されました。  このサポートが追加される前に作成された VMSS をスケーリングするために、追加インスタンスを追加しようとすると、アクションは失敗し、"*プロビジョニング状態失敗*" という メッセージが表示されます。 
@@ -314,7 +314,7 @@ Azure Stack 1802 更新プログラム パッケージは、[ここで](https://
 ## <a name="more-information"></a>説明
 Microsoft は、更新プログラム 1710 でインストールされる特権エンドポイント (PEP) を使用して、更新プログラムを監視および再開するための方法を提供しています。
 
-- 「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update)」をご覧ください。
+- 「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](/azure/azure-stack/azure-stack-monitor-update)」をご覧ください。
 
 ## <a name="see-also"></a>関連項目
 

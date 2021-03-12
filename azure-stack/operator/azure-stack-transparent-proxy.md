@@ -3,16 +3,16 @@ title: Azure Stack Hub 統合システムの透過プロキシ
 description: Azure Stack Hub 統合システムの透過プロパティの概要。
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 02/24/2021
 ms.author: patricka
 ms.reviewer: sranthar
 ms.lastreviewed: 01/25/2021
-ms.openlocfilehash: 974f40364b4eed13bd7440b35596597312c98624
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: a7fc47edf63a83e1ee05c46b03d8533787b1983c
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577373"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840696"
 ---
 # <a name="transparent-proxy-for-azure-stack-hub"></a>Azure Stack Hub の透過プロキシ
 
@@ -42,10 +42,11 @@ Microsoft は、業界の主要なプロキシ ベンダーと提携し、透過
 
 境界構成のサンプルについては、この記事の「[境界構成の例](#example-border-configuration)」セクションを参照してください。
 
-Azure Stack Hub で検証された透過プロキシ構成については、次のドキュメントを参照してください。 
+Azure Stack Hub で検証された透過プロキシ構成については、次のドキュメントをご覧ください。
 
 - [Check Point Security Gateway の透過プロキシを構成する](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk171559)
 - [Sophos XG ファイアウォールの透過プロキシを構成する](https://community.sophos.com/xg-firewall/f/recommended-reads/124106/xg-firewall-integration-with-azure-stack-hub)
+- [Citrix ADC、Citrix Secure Web Gateway と、Azure Stack Hub との統合](https://www.citrix.com/blogs/2021/02/19/integrating-citrix-adc-citrix-secure-web-gateway-with-azure-stack-hub/)
 
 Azure Stack Hub からの送信トラフィックが明示的なプロキシを経由する必要があるシナリオの場合、Sophos および Checkpoint デバイスにはデュアル モード機能が用意されています。これにより、特定の範囲のトラフィックには透過モードを使用し、他の範囲には明示モードを使用するように構成できます。 この機能を使用すると、インフラストラクチャ トラフィックのみを透過プロキシを経由して送信し、すべてのテナント トラフィックを明示モードを使用して送信するようにこれらのプロキシ デバイスを構成できます。
 
@@ -56,7 +57,7 @@ Azure Stack Hub からの送信トラフィックが明示的なプロキシを�
 
 このソリューションは、アクセス制御リスト (ACL) によって実装された管理者定義の一連の条件を使用するポリシー ベース ルーティング (PBR) に基づいています。 ACL により、宛先 IP アドレスのみに基づく通常のルーティングではなく、ルートマップに実装されたプロキシ デバイスの次ホップ IP に送信されたトラフィックが分類されます。 ポート 80 および 443 の特定のインフラストラクチャ ネットワーク トラフィックは、境界デバイスから透過プロキシ展開にルーティングされます。 透過プロキシにより URL フィルター処理が実行され、"*許可されていない*" トラフィックはドロップされます。
 
-Cisco Nexus 9508 シャーシ用の構成サンプルを次に示します。 
+Cisco Nexus 9508 シャーシ用の構成サンプルを次に示します。
 
 このシナリオの場合、インターネットへのアクセスを必要とするソース インフラストラクチャ ネットワークは次のとおりです。
 

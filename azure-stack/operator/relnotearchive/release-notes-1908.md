@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6716b31431106e0af43785177376e4980b864f81
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 0137ec7491d84394b049095b1830c22ddcc7d922
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248772"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187199"
 ---
 # <a name="azure-stack-updates-1908-release-notes"></a>Azure Stack の更新プログラム: 1908 リリース ノート
 
@@ -46,7 +46,7 @@ ms.locfileid: "99248772"
 - [セキュリティ更新プログラム](../release-notes-security-updates.md)
 - [更新プログラム適用前後のアクティビティのチェックリスト](../release-notes-checklist.md)
 
-更新プログラムのトラブルシューティングと更新プロセスの詳細については、[Azure Stack の修正プログラムと更新プログラムに関する問題のトラブルシューティング](../azure-stack-updates-troubleshoot.md)に関するページをご確認ください。
+更新プログラムのトラブルシューティングと更新プロセスの詳細については、[Azure Stack の修正プログラムと更新プログラムに関する問題のトラブルシューティング](../azure-stack-troubleshooting.md)に関するページをご確認ください。
 
 ## <a name="1908-build-reference"></a>1908 ビルドのリファレンス
 

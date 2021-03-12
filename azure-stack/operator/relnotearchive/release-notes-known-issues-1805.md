@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16e11fcbc46065f512cc6b887b9c7159f6b0ac65
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9f68e3f1dc3c789ec0b3b4f247037d49e43f8a42
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248675"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187097"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 更新プログラム
 
@@ -105,12 +105,12 @@ Azure Stack 1805 更新プログラムのビルド番号は **1.1805.1.47** で�
 <!-- 2551834 - IS, ASDK --> 
 -  管理ポータルまたはユーザー ポータルでストレージ アカウントの **[概要]** を選択すると、*[基本]* ウィンドウの情報が表示されません。  [基本] ウィンドウには、*リソース グループ*、*リージョン*、*サブスクリプション ID* などのアカウントに関する情報が表示されます。  [概要] のその他のオプションにアクセスできます。たとえば、*[サービス]*、*[監視]*、*[Explorer で開く]*、*[ストレージ アカウントの削除]* のオプションです。 
 
-  利用不可の情報を表示するには、[Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0&preserve-view=true) PowerShell コマンドレットを使用します。 
+  利用不可の情報を表示するには、[Get-azureRMstorageaccount](/powershell/module/azurerm.storage/get-azurermstorageaccount?preserve-view=true&view=azurermps-6.2.0) PowerShell コマンドレットを使用します。 
 
 <!-- 2551834 - IS, ASDK --> 
 -  管理ポータルまたはユーザー ポータルでストレージ アカウントに **[タグ]** を選択すると、情報は読み込まれず、表示されません。  
 
-  利用不可の情報を表示するには、[Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0&preserve-view=true) PowerShell コマンドレットを使用します。
+  利用不可の情報を表示するには、[Get-AzureRmTag](/powershell/module/azurerm.tags/get-azurermtag?preserve-view=true&view=azurermps-6.2.0) PowerShell コマンドレットを使用します。
 
 
 <!-- 2332636 - IS -->  
@@ -183,13 +183,13 @@ Azure Stack 1805 更新プログラムのビルド番号は **1.1805.1.47** で�
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:**[az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) コマンドを使用して、`--size "Standard_F32s_v2"` と同様に VM サイズをパラメーターとして指定できます。
+  - **Azure CLI:**[az vm create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) コマンドを使用して、`--size "Standard_F32s_v2"` と同様に VM サイズをパラメーターとして指定できます。
 
-  - **PowerShell:** Powershell では、`-VMSize "Standard_F32s_v2"` と同様に VM サイズを指定するパラメーターとともに [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) を使用することができます。
+  - **PowerShell:** Powershell では、`-VMSize "Standard_F32s_v2"` と同様に VM サイズを指定するパラメーターとともに [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) を使用することができます。
 
 
 <!-- TBD - IS ASDK --> 
-- 仮想マシン スケール セットのスケーリング設定は、ポータルで使用できません。 回避策として、[Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) を使用できます。 PowerShell のバージョンの違いにより、`-VMScaleSetName` パラメーターの代わりに `-Name` を使用する必要があります。
+- 仮想マシン スケール セットのスケーリング設定は、ポータルで使用できません。 回避策として、[Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set) を使用できます。 PowerShell のバージョンの違いにより、`-VMScaleSetName` パラメーターの代わりに `-Name` を使用する必要があります。
 
 <!-- TBD - IS --> 
 - ポータルで **[新規]**  >  **[コンピューティング]**  >  **[可用性セット]** に移動して可用性セットを作成した場合、障害ドメインと更新ドメインが 1 の可用性セットのみを作成できます。 回避策として、新しい仮想マシンを作成する場合は、PowerShell、CLI、またはポータル内から可用性セットを作成します。
@@ -213,7 +213,7 @@ Azure Stack 1805 更新プログラムのビルド番号は **1.1805.1.47** で�
 
 ### <a name="networking"></a>ネットワーク
 <!-- TBD - IS ASDK --> 
-- 管理ポータルまたはユーザー ポータルで、ユーザー定義のルートを作成できません。 回避策として、[Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell) を使用します。
+- 管理ポータルまたはユーザー ポータルで、ユーザー定義のルートを作成できません。 回避策として、[Azure PowerShell](/azure/virtual-network/tutorial-create-route-table-powershell) を使用します。
 
 <!-- 1766332 - IS ASDK --> 
 - **[ネットワーク]** で、**[Create VPN Gateway]\(VPN ゲートウェイの作成\)** をクリックして VPN 接続を設定する場合、VPN の種類として **[ポリシー ベース]** が表示されます。 このオプションを選択しないでください。 Azure Stack では **[ルート ベース]** オプションのみがサポートされています。

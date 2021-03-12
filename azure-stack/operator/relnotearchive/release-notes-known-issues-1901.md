@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: d3225284c8352771042742f8c8d94e4ae01abe2c
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: a062fa6f2d4242f1831233f672e0a8dc3dff20f7
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009249"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186927"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新プログラム
 
@@ -107,7 +107,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
    * **Azs.Storage.Admin モジュール**  
          バグの修正 - 新しい Storage クォータでは、値が未指定の場合に既定値が使用されます。
 
-更新されたモジュールのリファレンスを確認する場合、[Azure Stack モジュール リファレンス](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0&preserve-view=true)に関するページを参照してください。
+更新されたモジュールのリファレンスを確認する場合、[Azure Stack モジュール リファレンス](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0)に関するページを参照してください。
 
 ## <a name="fixed-issues"></a>修正された問題
 
@@ -334,4 +334,4 @@ Azure Stack デプロイでは、接続されたシナリオに限り、セキ�
 - Azure Stack での更新プログラム管理の概要については、「[Azure Stack での更新プログラムの管理概要](../azure-stack-updates.md)」を参照してください。  
 - Azure Stack に更新プログラムを適用する方法については、「[Azure Stack で更新を適用する](../azure-stack-apply-updates.md)」を参照してください。
 - Azure Stack 統合システムのサービス ポリシーについて、およびサポートを受けられる状態にシステムを維持するために必要な作業について確認するには、「[Azure Stack サービス ポリシー](../azure-stack-servicing-policy.md)」を参照してください。  
-- 特権エンドポイント (PEP) を使用して更新プログラムを監視および再開するには、「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](../azure-stack-monitor-update.md)」をご覧ください。  
+- 特権エンドポイント (PEP) を使用して更新プログラムを監視および再開するには、「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](../azure-stack-monitor-update.md)」をご覧ください。

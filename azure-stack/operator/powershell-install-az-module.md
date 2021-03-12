@@ -3,16 +3,16 @@ title: Azure Stack Hub 用の PowerShell Az モジュールをインストール
 description: PowerShell for Azure Stack Hub をインストールする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 02/18/2021
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 9a5e00c873e348046c10e5a8e7dd5ccc9ea915f2
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.lastreviewed: 02/18/2021
+ms.openlocfilehash: 031a1695f8ba11db5a8787ef1b38c40763614b88
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069837"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840866"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell Az モジュールをインストールする
 
@@ -33,7 +33,7 @@ Azure Stack Hub と互換性のある PowerShell Az モジュールは、イン�
 
 ## <a name="1-verify-your-prerequisites"></a>1.前提条件を確認する
 
-Az モジュールは、更新プログラム 2002 以降および現在の修正プログラムがインストールされている Azure Stack Hub でサポートされています。 詳細については、「[Azure Stack Hub のリリース ノート](release-notes.md)」を参照してください。
+Az モジュールは、更新プログラム 2002 以降および現在の修正プログラムがインストールされている Azure Stack Hub でサポートされています。 詳細については、「[Azure Stack Hub のリリース ノート](release-notes.md)」をご覧ください。
 
 Azure PowerShell の Az モジュールは、Windows 上の PowerShell 5.1 以降、またはすべてのプラットフォーム上の PowerShell Core 6.x 以降で動作します。 お使いのオペレーティング システムで利用できる[最新バージョンの PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) をインストールする必要があります。 PowerShell Core 上で実行する場合、Azure PowerShell にその他の要件はありません。
 
@@ -72,15 +72,23 @@ PowerShell Core 6.x 以降のバージョンが必要です。 手順につい�
 
 Azure Stack Az モジュールは、Azure Stack Hub 2002 以降で動作します。 さらに、Azure Stack Az モジュールは、Windows マシン上では PowerShell 5.1 以上、Linux または macOS プラットフォームでは PowerShell 6.x 以上で動作します。 推奨されるインストール方法は、PowerShellGet コマンドレットを使用することです。 この方法は、サポートされているプラットフォームでも同様に機能します。
 
-PowerShell セッションから次のコマンドを実行します。
+1. PowerShell セッションから次のコマンドを実行して、PowerShellGet をバージョン 2.2.3 以上に更新します
 
-```powershell  
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    ```powershell  
+    Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force
+    ```
 
-Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
-Install-AzProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
-```
+2. PowerShell セッションを閉じてから、更新を有効プログラムをできるように新しい PowerShell セッションを開きます。
+
+3. PowerShell セッションから次のコマンドを実行します。
+
+    ```powershell  
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    
+    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
+    Install-AzProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
+    ```
 
 > [!Note]  
 > Azure Stack Hub モジュール バージョン 2.0.0 は破壊的変更を伴うリリースです。 詳細については、「[Azure Stack Hub での AzureRM から Azure PowerShell Az への移行](migrate-azurerm-az.md)」を参照してください。

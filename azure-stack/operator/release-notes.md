@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 441e764231e9ce85de69d7cd4020325883fde7ec
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: 0d1b3f65f36e3aae5095fc3535f5df6290cb51f7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100648084"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840832"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -136,7 +136,7 @@ Azure Stack Hub の修正プログラムは累積されるため、ベスト プ
 
 2008 のインストール後に、2008 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2008.25.114](hotfix-1-2008-25-114.md)
+- [Azure Stack Hub 修正プログラム 1.2008.26.116](hotfix-1-2008-26-116.md)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -228,7 +228,7 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 
 Azure Stack Hub の 2005 リリースは、次の修正プログラムが適用された 2002 リリースに適用する必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [Azure Stack Hub 修正プログラム 1.2002.66.173](hotfix-1-2002-66-173.md)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>2005 更新プログラムが正常に適用された後
 
@@ -236,7 +236,7 @@ Azure Stack Hub の 2005 リリースは、次の修正プログラムが適用�
 
 2005 のインストール後に、2005 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2005.29.100](hotfix-1-2005-29-100.md)
+- [Azure Stack Hub 修正プログラム 1.2005.30.102](hotfix-1-2005-30-102.md)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -336,7 +336,7 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は **完全** �
 - RETAIL チャネルからの Windows VM イメージが、AVMA によってライセンス認証を行うことができない問題を修正しました。
 - VM によって要求された仮想コアの数がノードの物理コアと等しい場合に VM が作成されないという問題を修正しました。 VM の仮想コアがノードの物理コアの数以下でも許可されるようになりました。
 - ライセンスの種類を "null" に設定して、従量課金制イメージを BYOL に切り替えることができない問題を修正しました。
-- VM スケール セットに拡張機能を追加できるようにするために問題を修正しました。
+- 仮想マシン スケール セットに拡張機能を追加できるようにするために問題を修正しました。
 
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 
@@ -365,7 +365,7 @@ Azure Stack Hub の 2002 リリースは、以下の修正プログラムが適�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [Azure Stack Hub 修正プログラム 1.2002.66.173](hotfix-1-2002-66-173.md)
 ::: moniker-end
 
 <!------------------------------------------------------------>

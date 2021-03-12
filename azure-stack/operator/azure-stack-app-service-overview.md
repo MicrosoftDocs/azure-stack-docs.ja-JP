@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: f30a8b82a07aafed80fc75329516bd3b3d91df04
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: 78573a16d9fc376d7903badfd28bda9366ca1ddb
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009045"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116990"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>App Service on Azure Stack Hub と Azure Functions の概要
 
@@ -33,7 +33,7 @@ Azure App Service のいくつかの主要機能を次に示します。
 App Service にはアプリの種類が複数用意されており、それぞれ特定のワークロードをホストするよう設計されています。
 
 - Web サイト、Web アプリ、および REST API をホストする [Web Apps](/azure/app-service/overview)。
-- イベント ドリブンでサーバーレスのワークロードをホスティングするための [Azure Functions v1](/azure/azure-functions)。
+- イベント ドリブンでサーバーレスのワークロードをホスティングするための [Azure Functions v1](/azure/azure-functions/functions-versions)。
 
 "*アプリ*" とは、ワークロードの実行専用のホスティング リソースを指しています。 *Web アプリ* を例にとると、Web アプリをコンピューティング リソースとアプリ コードの両方の観点から捉えることにおそらく慣れているでしょう。この両者が合わさって、ブラウザーに機能が提供されます。 Azure App Service において、Web アプリとは、アプリ コードをホストするために Azure Stack Hub で提供されるコンピューティング リソースです。
 

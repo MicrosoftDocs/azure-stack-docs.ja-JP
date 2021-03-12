@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e7a407e587918a6ee9648c51c2c218ab51e7132f
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 96e1996cbf22e354b960b1a46a8848543942b0cc
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612354"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839863"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>Azure Stack HCI クラスター上の Azure Kubernetes Service を Azure Arc for Kubernetes に接続する
 
@@ -33,7 +33,7 @@ Azure Arc 対応 Kubernetes では、転送中のデータをセキュリティ�
 
 * Arc 対応の Kubernetes エージェントをデプロイするには、クラスターとクラスター上のクラスター管理者ロールにアクセスするための kubeconfig ファイルが必要です。
 * Azure Stack HCI 上の Azure Kubernetes Service 用の PowerShell モジュールがインストールされている。
-* Azure Arc 対応 Kubernetes CLI 拡張機能をインストールするには、Azure CLI バージョン2.3 以降が必要です。 [Azure CLI のインストール](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。 Azure CLI バージョン 2.3 以降を確実に用意するために、最新バージョンに更新することもできます。
+* Azure Arc 対応 Kubernetes CLI 拡張機能をインストールするには、Azure CLI バージョン 2.3 以降が必要です。 [Azure CLI のインストール](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。 Azure CLI バージョン 2.3 以降を確実に用意するために、最新バージョンに更新することもできます。
 * あなたが所有者または共同作成者となっている Azure サブスクリプション。 
 * PowerShell 管理ウィンドウでこのドキュメントのコマンドを実行します。
 
@@ -141,20 +141,20 @@ echo $tenant
 新しく作成されたサービス プリンシパルを参照し、Aks-Hci PowerShell モジュールで使用可能な `Install-AksHciArcOnboarding` コマンドを実行します。
 
 ```PowerShell
-Install-AksHciArcOnboarding -clusterName $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
+Install-AksHciArcOnboarding -name $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
 ```
 ## <a name="verify-connected-cluster"></a>接続されたクラスターを検証する
 
 [Azure portal](https://portal.azure.com/) で Kubernetes クラスター リソースを表示できます。 ブラウザーでポータルを開いたら、先ほど `Install-AksHciArcOnboarding` PowerShell コマンドで使用したリソース名とリソース グループ名の入力に基づいて、リソース グループと Azure Arc 対応の Kubernetes リソースに移動します。
 
 > [!NOTE]
-> クラスターをオンボードした後、Azure portal の Azure Arc 対応の Kubernetes リソースの概要ページで、クラスターのメタデータ (クラスターのバージョン、エージェントのバージョン、ノードの数) が画面に表示されるまでに約 5～10 分かかります。
+> クラスターをオンボードした後、Azure portal の Azure Arc 対応の Kubernetes リソースの概要ページで、クラスターのメタデータ (クラスターのバージョン、エージェントのバージョン、ノードの数) が画面に表示されるまでに約 5 分から 10 分かかります。
 
 クラスターを削除したり、クラスターが送信プロキシ サーバーの背後にある場合にクラスターを接続したりするには、[Azure Arc 対応 Kubernetes クラスターの接続](/azure/azure-arc/kubernetes/connect-cluster)に関するページを参照してください。
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Kubernetes 用 Azure Arc エージェント
 
-Azure Arc 対応の Kubernetes では、`azure-arc` 名前空間にいくつかのオペレーターがデプロイされます。 これらのデプロイとポッドを次のようにして表示できます。
+Azure Arc 対応の Kubernetes では、`azure-arc` 名前空間にいくつかのオペレーターがデプロイされます。 これらのデプロイとポッドを表示するには、以下のように `kubectl` を使用します。 
 
 ```console
 kubectl -n azure-arc get deployments,pods
@@ -167,7 +167,7 @@ Azure Arc 対応の Kubernetes は、`azure-arc` 名前空間にデプロイさ�
 * `deployment.apps/metrics-agent`: 他の Arc エージェントのメトリックを収集し、これらのエージェントのパフォーマンスが最適であることを確認します
 * `deployment.apps/cluster-metadata-operator`: クラスターのメタデータを収集します (クラスターのバージョン、ノード数、Azure Arc エージェントのバージョン)
 * `deployment.apps/resource-sync-agent`: 前述のクラスター メタデータを Azure に同期します
-* `deployment.apps/clusteridentityoperator`:Azure Arc 対応 Kubernetes では、現在、システムによって割り当てられた ID がサポートされています。 clusteridentityoperator では、他のエージェントが Azure との通信に使用する管理サービス ID (MSI) 証明書が保持されます。
+* `deployment.apps/clusteridentityoperator`: Azure Arc 対応 Kubernetes では、現在、システムによって割り当てられた ID がサポートされています。 clusteridentityoperator では、他のエージェントが Azure との通信に使用する管理サービス ID (MSI) 証明書が保持されます。
 * `deployment.apps/flux-logs-agent`: ソース管理構成の一部としてデプロイされる Flux オペレーターからログを収集します
 
 ## <a name="next-steps"></a>次のステップ

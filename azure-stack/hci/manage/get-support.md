@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 12/11/2020
-ms.openlocfilehash: f5dc475cde9baeb053fbaec1144d1ff65cc4e2ba
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: a77e9b2510a8cc035f54033c3e886c8cf9dfca31
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254383"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250278"
 ---
 # <a name="get-support-for-azure-stack-hci"></a>Azure Stack HCI のサポートを受ける
 
@@ -36,4 +36,4 @@ Azure で使用できるその他の Azure Stack HCI サポート リソース�
 
 ## <a name="next-steps"></a>次のステップ
 関連情報については、以下もご覧ください。
-- [Azure Stack HCI の FAQ](../faq.md)
+- [Azure Stack HCI の FAQ](../faq.yml)

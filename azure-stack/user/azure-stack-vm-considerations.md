@@ -3,16 +3,16 @@ title: Azure Stack Hub VM の機能
 description: Azure Stack Hub で VM を操作する際のさまざまな機能と考慮事項について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/22/2020
+ms.date: 03/02/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 0eb0c763b8ebd144576ac9ac773d17f191e30dc9
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: be51e93a54ed39ca53edd6d776100f5ca512e060
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778140"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840849"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 
@@ -36,7 +36,7 @@ Azure Stack Hub 仮想マシン (VM) では、オンデマンドのスケーラ�
 | 仮想マシン スケール セット|自動スケーリングがサポートされます。|自動スケーリングはサポートされません。<br><br>ポータル、Resource Manager テンプレート、または PowerShell を使用してスケール セットにより多くのインスタンスを追加します。 |
 | クラウド監視 | Azure Stack Hub で使用できるストレージ アカウントのプロパティからエンドポイントを選択します。 | [クラウド監視](/windows-server/failover-clustering/deploy-cloud-witness)はフェールオーバー クラスター クォーラム監視の一種であり、Microsoft Azure を使用してクラスター クォーラムで投票を提供します。<br>グローバル Azure のエンドポイントと Azure Stack Hub の比較は次のようになります。<br>グローバル Azure の場合:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack Hub の場合:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | 仮想マシンの診断 | Linux VM の診断がサポートされます。 | Linux VM の診断は、Azure Stack Hub でサポートされません。 VM 診断を有効にして Linux VM を展開すると、展開が失敗します。 診断設定で Linux VM の基本メトリックを有効にした場合も、展開が失敗します。 |
-| 入れ子になった仮想化 VM のサイズ | サポートされています | サポートされていません |
+| 入れ子になった仮想化 VM のサイズ | サポートされています | リリース 2102 以降でサポートされています。 |
 
 ## <a name="vm-sizes"></a>VM サイズ
 
@@ -148,6 +148,10 @@ Azure Stack Hub のインフラストラクチャは既に障害に対する回�
 |-------------------|-------------|
 | **障害ドメイン** | 可用性セットに配置された VM は、複数の障害ドメイン (Azure Stack Hub ノード) にできる限り均等に分散させることによって、互いに物理的に分離されます。 ハードウェア障害が発生した場合、障害が発生した障害ドメインの VM は、他の障害ドメインで再起動されます。 これらは、他の VM とは別の障害ドメインに、ただし可能な場合、同じ可用性セットに保持されます。 ハードウェアがオンラインに戻ると、高可用性を維持するために VM の再配置が行われます。 |
 | **更新ドメイン**| 更新ドメインも、Azure によって可用性セットに高可用性が提供される方法です。 更新ドメインは、メンテナンスを同時に実行できる、基盤となるハードウェアの論理グループです。 同じ更新ドメイン内の VM は、計画済みメンテナンス中に同時に再起動されます。 テナントが可用性セット内に VM を作成すると、Azure プラットフォームは、これらの更新ドメインに VM を自動的に分散します。 <br>Azure Stack Hub では、VM のホストが更新される前に、クラスター内の他のオンライン ホストに VM がライブ マイグレーションされます。 ホスト更新の際にテナントのダウンタイムは発生しないため、Azure Stack Hub の更新ドメイン機能は、Azure とテンプレートの互換性を保つためにのみ存在します。 可用性セット内の VM では、ポータル上でその更新ドメイン番号として 0 が表示されます。 |
+
+## <a name="arc-on-azure-stack-hub-vms"></a>Azure Stack Hub VM 上の Arc
+
+Arc 対応サーバーは、Azure VM として既にモデル化されているため、Azure 内で実行されている仮想マシン、または Azure Stack Hub または Azure Stack Edge 上で実行されている仮想マシンへの、接続済みマシン エージェントのインストールをサポートしていません。
 
 ## <a name="next-steps"></a>次のステップ
 

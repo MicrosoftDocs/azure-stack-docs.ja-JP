@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9d5aeb68190f8e2b13ec2a49c3237b59ee33bfff
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 5ac273ef07747ffa0f5f32e681afd25ecc60bad6
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248768"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187216"
 ---
 # <a name="azure-stack-updates-1907-release-notes"></a>Azure Stack の更新プログラム: 1907 リリース ノート
 
@@ -44,7 +44,7 @@ ms.locfileid: "99248768"
 - [セキュリティ更新プログラム](../release-notes-security-updates.md)
 - [更新プログラム適用前後のアクティビティのチェックリスト](../release-notes-checklist.md)
 
-更新プログラムのトラブルシューティングと更新プロセスの詳細については、[Azure Stack の修正プログラムと更新プログラムに関する問題のトラブルシューティング](../azure-stack-updates-troubleshoot.md)に関するページをご確認ください。
+更新プログラムのトラブルシューティングと更新プロセスの詳細については、[Azure Stack の修正プログラムと更新プログラムに関する問題のトラブルシューティング](../azure-stack-troubleshooting.md)に関するページをご確認ください。
 
 ## <a name="1907-build-reference"></a>1907 ビルドのリファレンス
 
@@ -66,7 +66,7 @@ Azure Stack 1907 更新プログラムのビルドの種類は **高速** です
 
 <!-- What's new, also net new experiences and features. -->
 
-- 診断ログの収集を容易にし、改善するための Azure Stack 診断ログ収集サービスの一般公開リリース。 Azure Stack 診断ログ収集サービスは、診断ログを収集して、Microsoft カスタマー サポート サービス (CSS) と共有するための簡単な方法を提供します。 この診断ログ収集サービスは、Azure Stack 管理者ポータルでの新しいユーザー エクスペリエンスを提供します。これにより、オペレーターは、特定の重要なアラートが発生したときに、ストレージ BLOB への診断ログの自動アップロードを設定したり、オンデマンドで同じ操作を実行したりすることができます。 詳細については、[診断ログの収集](../azure-stack-diagnostic-log-collection-overview.md)に関する記事を参照してください。
+- 診断ログの収集を容易にし、改善するための Azure Stack 診断ログ収集サービスの一般公開リリース。 Azure Stack 診断ログ収集サービスは、診断ログを収集して、Microsoft カスタマー サポート サービス (CSS) と共有するための簡単な方法を提供します。 この診断ログ収集サービスは、Azure Stack 管理者ポータルでの新しいユーザー エクスペリエンスを提供します。これにより、オペレーターは、特定の重要なアラートが発生したときに、ストレージ BLOB への診断ログの自動アップロードを設定したり、オンデマンドで同じ操作を実行したりすることができます。 詳細については、[診断ログの収集](../diagnostic-log-collection.md)に関する記事を参照してください。
 
 - Azure Stack 検証ツール **Test-AzureStack** の一部としての Azure Stack ネットワーク インフラストラクチャ検証の一般公開リリース。 Azure Stack ネットワーク インフラストラクチャは、**Test-AzureStack** の一部になり、Azure Stack のネットワーク インフラストラクチャで障害が発生したかどうかを特定します。 テストでは、Azure Stack ソフトウェアで定義されたネットワークをバイパスすることによって、ネットワーク インフラストラクチャの接続が確認されます。 パブリック VIP から構成済みの DNS フォワーダー、NTP サーバー、および ID エンドポイントへの接続が示されます。 さらに、ID プロバイダーとして Azure AD を使用する場合に Azure への、または ADFS を使用する場合にフェデレーション サーバーへの接続が確認されます。 詳細については、[Azure Stack 検証ツール](../azure-stack-diagnostic-test.md)に関する記事を参照してください。
 

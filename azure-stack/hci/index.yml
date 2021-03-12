@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 12/10/2020
-  ms.openlocfilehash: 4be55308fade55861f57597f0b6d2c5f731f1834
-  ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+  ms.date: 03/10/2021
+  ms.openlocfilehash: 077347c7dce862517dfaaef5b2daaa15c5333a93
+  ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98771948"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102606331"
 landingContent:
 - title: Azure Stack HCI について
   linkLists:
@@ -51,7 +51,7 @@ landingContent:
       url: manage/create-stretched-volumes.md
     - text: ボリュームの保護
       url: manage/volume-encryption-deduplication.md
-    - text: ボリュームの拡張
+    - text: ボリュームの展開
       url: manage/extend-volumes.md
     - text: ボリュームを削除する
       url: manage/delete-volumes.md
