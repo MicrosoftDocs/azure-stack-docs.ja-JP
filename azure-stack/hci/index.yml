@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 03/10/2021
-  ms.openlocfilehash: 077347c7dce862517dfaaef5b2daaa15c5333a93
-  ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
+  ms.date: 03/16/2021
+  ms.openlocfilehash: cee53c8e8883cea73cd62f39190d5ca227880140
+  ms.sourcegitcommit: 62dc0cee35b5080418864006eb75e16b344343f7
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102606331"
+  ms.lasthandoff: 03/16/2021
+  ms.locfileid: "103566165"
 landingContent:
 - title: Azure Stack HCI について
   linkLists:
@@ -147,3 +147,7 @@ landingContent:
       url: concepts/gateway-overview.md
     - text: ルート リフレクターの概要
       url: concepts/route-reflector-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: SDN インフラストラクチャの展開
+      url: manage/sdn-express.md
