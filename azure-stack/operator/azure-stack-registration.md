@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 統合システムを Azure に登録することで、Azure Marketplace 項目をダウンロードしてデータ レポートを設定できるようにする方法について説明します。
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 02/26/2021
 ms.author: patricka
 ms.reviewer: avishwan
 ms.lastreviewed: 11/19/2020
 ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 97a730d61d5ba67124771185deb3fd51c269938a
-ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
+ms.openlocfilehash: 53dd1a8b168f5c0e2285878f811a3e055cfd1929
+ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99534149"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102606365"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 
@@ -286,6 +286,9 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
    ```
+
+    容量 SKU ライセンスを購入したときの "*EA 契約番号*" を使用します。
+
    > [!Note]  
    > **Set-AzsRegistration** コマンドレットの UsageReportingEnabled パラメーターを false に設定することで、使用状況レポートを無効にすることができます。 
    
@@ -329,6 +332,9 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
    ```
+
+    容量 SKU ライセンスを購入したときの "*EA 契約番号*" を使用します。
+
    > [!Note]  
    > **Set-AzsRegistration** コマンドレットの UsageReportingEnabled パラメーターを false に設定することで、使用状況レポートを無効にすることができます。 
    
@@ -357,6 +363,9 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
    $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
+
+   容量 SKU ライセンスを購入したときの "*EA 契約番号*" を使用します。
+
    Get-AzsRegistrationToken コマンドレットの詳細については、「[登録に関するリファレンス](#registration-reference)」を参照してください。
 
    > [!Tip]  
@@ -609,6 +618,8 @@ Azure Stack Hub のアクティブ化リソースを削除するには、Azure S
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
+
+    容量 SKU ライセンスを購入したときの "*EA 契約番号*" を使用します。
 
    > [!Tip]  
    > 登録トークンは、 *$FilePathForRegistrationToken* に指定されたファイルに保存されます。 ファイル パスまたはファイル名は任意に変更できます。

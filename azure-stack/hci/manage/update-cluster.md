@@ -4,13 +4,13 @@ description: Windows Admin Center と PowerShell を使用して、オペレー�
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/05/2021
-ms.openlocfilehash: 2ed1a6c2443f7222a873c412e991b4a39b253309
-ms.sourcegitcommit: ec19e8455b5cb90a071afb03ec1446b0a9aafb99
+ms.date: 03/04/2021
+ms.openlocfilehash: 971ca61e27a97f04319a1c6500f743ad8207954f
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99588650"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186893"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Azure Stack HCI クラスターを更新する
 
@@ -47,7 +47,7 @@ Windows Admin Center を使用すると、簡単なユーザー インターフ�
 
    :::image type="content" source="media/update-cluster/operating-system-updates.png" alt-text="[Next: Install]\(次へ: インストール\) を選択してオペレーティング システムの更新プログラムのインストールに進むか、[スキップ] をクリックしてそれらを除外する" lightbox="media/update-cluster/operating-system-updates.png":::
 
-5. クラスター内の各サーバーにオペレーティング システムの更新プログラムをインストールするには、 **[インストール]** を選択します。 更新の状態が "更新プログラムをインストールしています" に変わります。 いずれかの更新プログラムで再起動が必要な場合は、一度に 1 つずつサーバーが再起動され、ダウンタイムを防ぐために、仮想マシンなどのクラスターの役割がサーバー間で移動されます。
+5. **[インストール]** を選択して、オペレーティング システムの更新プログラムをインストールします。 各サーバーで 1 つずつ更新プログラムをダウンロードして適用します。 更新の状態が "更新プログラムをインストールしています" に変わります。 いずれかの更新プログラムで再起動が必要な場合は、一度に 1 つずつサーバーが再起動され、ダウンタイムを防ぐために、仮想マシンなどのクラスターの役割がサーバー間で移動されます。 インストールされている更新プログラムによっては、更新の実行を完了するまでに数分から数時間かかることがあります。
 
    :::image type="content" source="media/update-cluster/install-os-updates.png" alt-text="クラスター内の各サーバーにオペレーティング システムの更新プログラムをインストールするには、[インストール] をクリックする" lightbox="media/update-cluster/install-os-updates.png":::
 

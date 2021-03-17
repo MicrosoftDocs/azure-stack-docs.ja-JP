@@ -1,42 +1,40 @@
 ---
-title: Azure Stack HCI のボリュームを削除する
-description: Windows Admin Center と PowerShell を使用して Azure Stack HCI でボリュームを削除する方法について説明します。
+title: Azure Stack HCI および Windows Server のボリュームを削除する
+description: Windows Admin Center と PowerShell を使用して Azure Stack HCI および Windows Server のボリュームを削除する方法について説明します。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: 7a90948cccb75bb8bb1578101d530c46852e99d6
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 03/09/2021
+ms.openlocfilehash: fdc7fd4ae102871d534d846dd653af077a75d49a
+ms.sourcegitcommit: 02a4c34fb829e053016912a4fffcc51e32685425
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866524"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102532488"
 ---
-# <a name="deleting-volumes-in-azure-stack-hci"></a>Azure Stack HCI のボリュームの削除
+# <a name="deleting-volumes-in-azure-stack-hci-and-windows-server"></a>Azure Stack HCI および Windows Server のボリュームを削除する
 
 > 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
-このトピックでは、Windows Admin Center を使用して Azure Stack HCI クラスターのボリュームを削除する手順について説明します。
+このトピックでは、Windows Admin Center または PowerShell のいずれかを使用してボリュームを削除する手順について説明します。
 
-Windows Admin Center を使用したボリュームの削除方法を説明する短いビデオをご覧ください。
+## <a name="delete-volumes-with-windows-admin-center"></a>Windows Admin Center を使用してボリュームを削除する
 
-> [!VIDEO https://www.youtube-nocookie.com/embed/DbjF8r2F6Jo]
-
-## <a name="use-windows-admin-center-to-delete-a-volume"></a>Windows Admin Center を使用してボリュームを削除する
-
-1. Windows Admin Center で、記憶域スペース ダイレクト クラスターに接続し、 **[ツール]** ペインで **[ボリューム]** を選択します。
+1. Windows Admin Center で、クラスターに接続し、左側の **[ツール]** ウィンドウで **[ボリューム]** を選択します。
 2. **[ボリューム]** ページで **[インベントリ]** タブを選択し、削除するボリュームを選択します。
 3. ボリュームの詳細ページの上部で、 **[削除]** を選択します。
 4. 確認のダイアログで、ボリュームの削除を確認するチェック ボックスをオンにして、 **[削除]** を選択します。
 
-## <a name="delete-volumes-using-powershell"></a>PowerShell を使用してボリュームを削除する
+   :::image type="content" source="media/delete-volumes/delete-volume.png" alt-text="削除するボリュームを選択し、[削除] を選択し、ボリューム上のすべてのデータを消去することを確認します。" lightbox="media/delete-volumes/delete-volume.png":::
 
-記憶域スペース ダイレクト内のボリュームを削除するには、**Remove-VirtualDisk** コマンドレットを使用します。 このコマンドレットは、**VirtualDisk** オブジェクトを削除し、使用した領域を、**VirtualDisk** オブジェクトを公開する記憶域プールに返します。
+## <a name="delete-volumes-with-powershell"></a>PowerShell を使用してボリュームを削除する
 
-まず、管理 PC で PowerShell を起動し、**Get-VirtualDisk** コマンドレットを **CimSession** パラメーターを指定して実行します。このパラメーターは、記憶域スペース ダイレクト クラスターまたはサーバー ノードの名前で、たとえば *clustername.microsoft.com* となります。
+**VirtualDisk** オブジェクトを削除し、それが使用していた領域を、**VirtualDisk** オブジェクトを公開する記憶域プールに返すには、**Remove-VirtualDisk** コマンドレットを使用します。
+
+まず、管理 PC で PowerShell を起動し、**Get-VirtualDisk** コマンドレットを **CimSession** パラメーターを指定して実行します。このパラメーターは、クラスターまたはサーバー ノードの名前 (例: *clustername.contoso.com*) です。
 
 ```PowerShell
-Get-VirtualDisk -CimSession clustername.microsoft.com
+Get-VirtualDisk -CimSession clustername.contoso.com
 ```
 
 これにより、クラスター上のボリューム名に対応する、 **-FriendlyName** パラメーターに使用可能な値の一覧が返されます。

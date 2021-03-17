@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: v-susbo
 ms.reviewer: ''
-ms.openlocfilehash: 728f23954d99f6e8cd9373467ed8d104a457e636
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 7bed9a767728525ae1e40ce4f0e607cc6f034055
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101874539"
+ms.locfileid: "102116803"
 ---
 # <a name="monitor-aks-on-azure-stack-hci-clusters"></a>AKS on Azure Stack HCI クラスター を監視する
 
@@ -19,16 +19,12 @@ AKS on Azure Stack HCI で使用できる監視およびログ ソリューシ�
 
 | 解決策  | Azure 接続  | サポートとサービス  | コスト | デプロイ |
 | ------- |  ------------  | ---------  | --------------  | ---------------- |
-| Azure Monitor | Azure Arc for Kubernetes を使用して AKS on Azure Stack HCI クラスターを Azure に接続する必要がある | Microsoft による完全なサポートと保守 | Azure Monitor サービスへのサインアップが必要 |  [クラスターの監視](#monitor-clusters-using-azure-monitor)に Azure Arc を使用 |
-| オンプレミスの監視とログ | Azure 接続は不要 | Microsoft (サポート契約または SLA なし)、コミュニティおよび外部ベンダーがオープンソース ソフトウェアとしてサポート  | ベンダー依存 | 顧客のニーズに基づく。[オンプレミスの監視を使用したクラスター監視](#monitor-clusters-using-on-premises-monitoring)に関するトピックをご覧ください |
+| Azure Monitor | Azure Arc for Kubernetes を使用して AKS on Azure Stack HCI クラスターを Azure に接続する必要がある | Microsoft による完全なサポートと保守 | Azure Monitor サービスへのサインアップが必要 |  [クラスターの監視](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview)に Azure Arc を使用 |
+| オンプレミスの監視とログ | Azure 接続は不要 | Microsoft (サポート契約または SLA なし)、コミュニティおよび外部ベンダーがオープンソース ソフトウェアとしてサポート  | ベンダー依存 | 顧客のニーズに基づく。[オンプレミスの監視を使用したクラスター監視](#use-on-premises-monitoring)に関するトピックをご覧ください |
 
-## <a name="monitor-clusters-using-azure-monitor"></a>Azure Monitor を使用してクラスターを監視する
-AKS on Azure Stack HCI クラスターと共に Azure Monitor を使用するには、以下の 2 つのトピックの手順に従います。 
+Azure Stack HCI クラスターで AKS と共に Azure Monitor を使用するには、[Azure Monitor の概要](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview)に関するページを参照してください。 
 
-- [Azure Arc for Kubernetes を使用してお使いのクラスターを Azure に接続する](./connect-to-arc.md)  
-- [Azure Arc 対応 Kubernetes クラスターで Azure Monitor を有効にする](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters) 
-
-## <a name="monitor-clusters-using-on-premises-monitoring"></a>オンプレミス監視を使用してクラスターを監視する
+## <a name="use-on-premises-monitoring"></a>オンプレミス監視を使用する
 
 運用環境でアプリを実行する場合、クラスター上で、コントロール プレーン ノードとワークロードの正常性、パフォーマンス、およびリソースの利用状況を監視することが非常に重要です。 オンプレミス監視ソリューションを設定する方法については、[Prometheus と Grafana のインストール](https://github.com/microsoft/AKS-HCI-Apps/tree/main/Monitoring)に関するページをご覧ください。 この監視ソリューションには、次の 2 つのツールが含まれています。 
 

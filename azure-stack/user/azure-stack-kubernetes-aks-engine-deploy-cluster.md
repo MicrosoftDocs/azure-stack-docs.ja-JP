@@ -3,16 +3,16 @@ title: AKS エンジンを使用して Azure Stack Hub に Kubernetes クラス�
 description: AKS エンジンを実行しているクライアント VM から Azure Stack Hub に Kubernetes クラスターをデプロイする方法。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/5/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/5/2021
-ms.openlocfilehash: 3343dc1a4fddbac0e01d0b63fcc8f434084237f0
-ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: fac8ea63e3a8359fa6d1455a9ffe5eb86725530f
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99850850"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231576"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -26,12 +26,16 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
 
 このセクションでは、クラスターの API モデルの作成について説明します。
 
-1.  まず、[Linux](https://aka.ms/aksengine-json-example-raw) 用または [Windows](https://aka.ms/aksengine-json-example-raw-win) 用の Azure Stack Hub API モデル ファイルを使用して、デプロイ用のローカル コピーを作成します。 AKS エンジンをインストールしたマシンから、次を実行します。
+1.  Linux 用または Windows 用の Azure Stack Hub API モデル ファイルを使用して開始します。
 
-    ```bash
-    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/v0.55.4/examples/azure-stack/kubernetes-azurestack.json
-    ```
-
+    1. [**Linux** の場合は、](https://aka.ms/aksengine-json-example-raw) をダウンロードして、AKS エンジンをインストールしたマシンから次を実行します。
+        ```bash
+        curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-azurestack.json
+        ```
+    1. [**Windows** の場合は、](https://aka.ms/aksengine-json-example-raw-win) をダウンロードして、デプロイ用のローカル コピーを作成します。 次に、AKS エンジンをインストールしたマシンから、次を実行します。
+        ```bash
+        curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json
+        ```
     > [!NOTE]  
     > 切断されている場合は、ファイルをダウンロードして、編集する予定の切断されたマシンに手動でコピーすることができます。 [PuTTY や WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html) などのツールを使用して、ファイルを Linux マシンにコピーできます。
 
@@ -44,7 +48,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     > [!NOTE]  
     > nano がインストールされていない場合は、Ubuntu で nano をインストールできます: `sudo apt-get install nano`。
 
-3.  kubernetes-azurestack.json ファイルで、orchestratorRelease と orchestratorVersion を見つけます。 サポートされている Kubernetes バージョンのいずれかを選択します。 たとえば、`orchestratorRelease` には 1.14 または 1.15 を使用し、`orchestratorVersion` にはそれぞれ 1.14.7 または 1.15.10 を使用します。 `orchestratorRelease` を x.xx、orchestratorVersion を x.xx.x と指定します。 最新バージョンの一覧については、「[サポートされている AKS エンジンのバージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)」を参照してください
+3.  kubernetes-azurestack.json ファイルで、orchestratorRelease と orchestratorVersion を見つけます。 サポートされている Kubernetes バージョンのいずれかを選択します。[バージョン テーブルは、リリース ノートで確認できます](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)。 `orchestratorRelease` を x.xx、orchestratorVersion を x.xx.x と指定します。 最新バージョンの一覧については、「[サポートされている AKS エンジンのバージョン](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)」を参照してください
 
 4.  `customCloudProfile` を見つけ、テナント ポータルへの URL を指定します。 たとえば、「 `https://portal.local.azurestack.external` 」のように入力します。 
 
@@ -69,7 +73,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     | dnsPrefix | VM のホスト名を識別するために使用される一意の文字列を入力します。 たとえば、リソース グループ名に基づいて名前を指定します。 |
     | count |  デプロイに必要なマスターの数を入力します。 HA デプロイの最小値は 3 ですが、非 HA デプロイでは 1 が許可されます。 |
     | vmSize |  [Azure Stack Hub でサポートされているサイズ](./azure-stack-vm-sizes.md) (例: `Standard_D2_v2`) を入力します。 |
-    | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
+    | ディストリビューション | `aks-ubuntu-16.04` または `aks-ubuntu-18.04` を入力します。 |
 
 8.  `agentPoolProfiles` で、以下を更新します。
 
@@ -77,10 +81,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     | --- | --- |
     | count | デプロイに必要なエージェントの数を入力します。 サブスクリプションごとに使用するノードの最大数は 50 です。 サブスクリプションごとに複数のクラスターをデプロイする場合は、エージェントの合計数が 50 を超えないようにしてください。 [API モデルの JSON ファイルのサンプル](https://aka.ms/aksengine-json-example-raw)で指定されている構成アイテムを使用してください。  |
     | vmSize | [Azure Stack Hub でサポートされているサイズ](./azure-stack-vm-sizes.md) (例: `Standard_D2_v2`) を入力します。 |
-    | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
-
-
-
+    | ディストリビューション | `aks-ubuntu-16.04`、`aks-ubuntu-18.04`、または `Windows` を入力します。<br>Windows で実行されるエージェントには `Windows` を使用します。 例については、[kubernetes-windows.json](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json) を参照してください。 |
 
 9.  `linuxProfile` で、以下を更新します。
 
@@ -93,6 +94,16 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
 
     > [!NOTE]  
     > Azure Stack Hub 用の AKS エンジンでは、クラスターを作成するための独自の証明書の提供は許可されません。
+
+10. Windows を使用している場合は、`windowsProfile` で `adminUsername:` と `adminPassword` の値を更新します。
+
+    ```json
+    "windowsProfile": {
+    "adminUsername": "azureuser",
+    "adminPassword": "",
+    "sshEnabled": true
+    }
+    ```
 
 ### <a name="more-information-about-the-api-model"></a>API モデルに関する詳細情報
 

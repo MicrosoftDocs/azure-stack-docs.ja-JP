@@ -3,15 +3,15 @@ title: SDN Express を使用して SDN インフラストラクチャをデプ�
 description: SDN Express を使用して SDN インフラストラクチャをデプロイする方法を説明します
 author: v-dasis
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 03/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e367602252207a673316caf3482d7805bff02ba8
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: d42647faa9b45b696323ca4f3157ce6dea709272
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100647812"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186791"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>SDN Express を使用して SDN インフラストラクチャをデプロイする
 
@@ -84,7 +84,7 @@ PowerShell `MultiNodeSampleConfig.psd1` 構成データ ファイルには、さ
 
 ### <a name="general-settings-and-parameters"></a>全般設定とパラメーター
 
-この設定とパラメーターは、SDN によってすべてのデプロイで一般的に使用されます。
+この設定とパラメーターは、SDN によってすべてのデプロイで一般的に使用されます。 具体的な推奨事項については、「[SDN インフラストラクチャの VM ロールの要件](../concepts/plan-software-defined-networking-infrastructure.md#sdn-infrastructure-vm-role-requirements)」を参照してください。
 
 - **VHDPath** -すべての SDN インフラストラクチャ VM (NC、SLB、GW) によって使用される VHD ファイル パス
 - **VHDFile** -すべての SDN インフラストラクチャ VM (NC、SLB、GW) によって使用される VHD ファイル名
@@ -119,6 +119,8 @@ PowerShell `MultiNodeSampleConfig.psd1` 構成データ ファイルには、さ
 
 ### <a name="network-controller-vm-section"></a>ネットワーク コントローラー VM セクション
 
+SDN には、少なくとも 3 つのネットワーク コントローラー VM が推奨されています。
+
 `NCs = @()` セクションは、ネットワーク コントローラー VM に使用されます。 各 NC VM の MAC アドレスが、全般設定で指定されている `SDNMACPool` の範囲の外側にあることを確認します。
 
 - **ComputerName** - NC VM の名前
@@ -127,6 +129,8 @@ PowerShell `MultiNodeSampleConfig.psd1` 構成データ ファイルには、さ
 - **MACAddress** - NC VM の MAC アドレス
 
 ### <a name="software-load-balancer-vm-section"></a>ソフトウェア ロード バランサー VM セクション
+
+SDN には、少なくとも 3 つのソフトウェア ロード バランサー VM が推奨されています。
 
 `Muxes = @()` セクションは、SLB VM に使用されます。 各 SLB VM の MAC アドレスが、全般設定で指定されている `SDNMACPool` の範囲の外側にあることを確認します。 SLB コンポーネントをデプロイしない場合は、このセクションを空のままにします (`Muxes = @()`)。
 
@@ -138,6 +142,8 @@ PowerShell `MultiNodeSampleConfig.psd1` 構成データ ファイルには、さ
 - **PAMACAddress** - SLB VM のプロバイダー ネットワーク IP アドレス (PA)
 
 ### <a name="gateway-vm-section"></a>ゲートウェイ VM セクション
+
+SDN には、少なくとも 3 つのゲートウェイ VM (アクティブが 2 つと冗長が 1 つ) が推奨されています。
 
 `Gateways = @()` セクションは、ゲートウェイ VM に使用されます。 各ゲートウェイ VM の MAC アドレスが、全般設定で指定されている `SDNMACPool` の範囲の外側にあることを確認します。 ゲートウェイ コンポーネントをデプロイしない場合は、このセクションを空のままにします (`Gateways = @()`)。
 

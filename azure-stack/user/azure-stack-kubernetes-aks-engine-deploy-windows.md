@@ -3,16 +3,16 @@ title: Azure Stack Hub の Windows に AKS エンジンをデプロイする
 description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack Hub の Windows マシンを使用して AKS エンジンをホストする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: ed9f54ee2089baecc852b10a35df5719247d24b2
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: a8525cb770bb833d338887e010a365bb411e8721
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246913"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231474"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Azure Stack Hub の Windows に AKS エンジンをインストールする
 
@@ -36,11 +36,13 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 3. [PowerShell の手順に従って Chocolatey をインストールします](https://chocolatey.org/install#install-with-powershellexe)。 
 
     Chocolatey の Web サイトによると:Chocolatey は、Windows のパッケージ マネージャーです。例えば、Windows 用の apt-get や yum などです。 必要なアプリケーションとツールを迅速にインストールするための分散型フレームワークとして設計されています。 現在 PowerShell を使用している NuGet インフラストラクチャ上に構築されており、ディストリビューションからドア、err、コンピューターへのパッケージの配信に重点を置いています。
-4. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)の表で、その AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.48.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
+4. [AKS エンジンと Azure Stack のバージョン マッピング](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping) テーブルで、AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.xx.x` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
+    > [!NOTE]  
+    > Azure Stack Hub と AKS エンジンのバージョン番号のマッピングについては、[AKS エンジンのリリース ノート](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)をご覧ください。
 5. 管理者特権でのプロンプトで次のコマンドを実行し、バージョン番号を含めます。
 
     ```PowerShell  
-        choco install aks-engine --version 0.55.4 -y
+        choco install aks-engine --version 0.xx.x -y
     ```
 
 > [!NOTE]  
@@ -50,7 +52,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 インターネットから切断されている Azure Stack Hub 上のお使いの Kubernetes クラスターは、クライアント VM をインストールして管理できます。
 
-1.  インターネットにアクセスできるコンピューターから、GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest) に移動します。 `aks-engine-v0.38.8-windows-amd64.tar.gz` など、Windows マシンのアーカイブ (*.tar.gz) をダウンロードします。
+1.  インターネットにアクセスできるコンピューターから、GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest) に移動します。 `aks-engine-v0.xx.x-windows-amd64.tar.gz` など、Windows マシンのアーカイブ (*.tar.gz) をダウンロードします。 [サポート対象の Kubernetes バージョンの表](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)で、その AKS エンジンのバージョンを確認します。
 
 2.  お使いの Azure Stack Hub インスタンスにストレージ アカウントを作成し、AKS エンジン バイナリを使用してアーカイブ ファイル (*.tar.gz) をアップロードします。 Azure Storage Explorer の使用方法については、[Azure Stack Hub と Azure Storage Explorer](./azure-stack-storage-connect-se.md) に関するページを参照してください。
 
@@ -65,7 +67,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 7.  管理者特権でのプロンプトで、次のコマンドを実行します。 適切なバージョン番号を含めます。
 
     ```PowerShell  
-        choco install aks-engine --version 0.55.4 -y
+        choco install aks-engine --version 0.xx.x -y
     ```
 
 ## <a name="verify-the-installation"></a>インストールの確認

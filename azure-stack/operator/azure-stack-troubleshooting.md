@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: VM、ストレージ、App Service に関する問題を含む、Azure Stack Hub のトラブルシューティング方法について学習します。
 author: PatAltimore
 ms.topic: article
-ms.date: 01/20/2021
+ms.date: 02/12/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 1706f028aff293f85ea5a0c1fb882a5d332d7196
-ms.sourcegitcommit: dd34ae1c6207aafb5218c31658123e913f51bf7c
+ms.openlocfilehash: b16582d6f4dad324d1c748034dad902907e669b4
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98672879"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515721"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack Hub の問題のトラブルシューティングを行う
 
@@ -218,6 +218,14 @@ Azure Stack Hub の修正プログラムと更新プログラムのプロセス�
 **対応策**: **[今すぐインストール]** をもう一度クリックすることで、この問題を回避できます。 問題が解決しない場合は、[更新プログラムのインストール](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)に関するセクションに従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
 
 **発生頻度**: 共通
+
+### <a name="update-failed-check-and-enforce-external-key-protectors-on-csvs"></a>更新に失敗しました: CSV で外部キー プロテクターを確認して適用する
+
+**適用先**: この問題は、サポートされているすべてのリリースに適用されます。
+
+**原因**: ベースボード管理コントローラー (BMC) のパスワードが正しく設定されていません。
+
+**修復**: [BMC 資格情報を更新](/azure-stack/operator/azure-stack-rotate-secrets#update-the-bmc-credential)し、更新を再開します。
 
 ### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>更新の進行中に報告される警告とエラー
 

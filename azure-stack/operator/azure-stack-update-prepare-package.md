@@ -3,16 +3,16 @@ title: Azure Stack Hub で更新プログラム パッケージを準備する
 description: Azure Stack Hub で更新プログラム パッケージを準備する方法について説明します。
 author: sethmanheim
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 03/08/2021
 ms.author: sethm
-ms.lastreviewed: 09/10/2019
+ms.lastreviewed: 03/10/2021
 ms.reviewer: sranthar
-ms.openlocfilehash: b3d1f3d76d988be3647a1d26fec0a763a681d4cf
-ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
+ms.openlocfilehash: cdc0968519dc5ac50153fb5a14faaafd3b048843
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99850923"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515824"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Azure Stack Hub 更新プログラム パッケージを準備する
 
@@ -69,29 +69,29 @@ Azure Stack Hub のソフトウェア更新プログラムと修正プログラ�
 > [!IMPORTANT]  
 > メンテナンス操作についてユーザーに通知し、通常のメンテナンス期間をできるだけ勤務時間外にスケジュールします。 メンテナンス操作は、ユーザーのワークロードとポータル操作の両方に影響を及ぼす可能性があります。
 
-1. 管理者ポータルで、 **[すべてのサービス]** を選択します。 次に、 **[DATA + STORAGE]\(データ + ストレージ\)** カテゴリで、 **[ストレージ アカウント]** を選択します または、フィルター ボックスで「**ストレージ アカウント**」の入力を開始して選択します。
+1. 管理者ポータルで、 **[すべてのサービス]** を選択します。 次に、 **[ストレージ]** カテゴリで、 **[ストレージ アカウント]** を選択します。 または、フィルター ボックスで「**ストレージ アカウント**」の入力を開始して選択します。
 
-    ![Azure Stack Hub の更新プログラム](./media/azure-stack-update-prepare-package/image1.png)
+    [![Azure Stack Hub の更新プログラム](./media/azure-stack-update-prepare-package/select-storage-small.png)](./media/azure-stack-update-prepare-package/select-storage.png#lightbox)
 
 2. フィルター ボックスに「**更新**」と入力し、**updateadminaccount** ストレージ アカウントを選択します。
 
-3. ストレージ アカウントの詳細で、 **[サービス]** の **[BLOB]** を選択します。
+3. **[すべてのサービス]** の **[Essentials]** または **[Blob service]** で、 **[コンテナー]** を選択します。
 
-    ![Azure Stack Hub の更新プログラム ‐ BLOB](./media/azure-stack-update-prepare-package/image2.png)
+    [![Azure Stack Hub の更新プログラム ‐ BLOB](./media/azure-stack-update-prepare-package/select-containers-small.png)](./media/azure-stack-update-prepare-package/select-containers.png#lightbox)
 
-4. **[Blob service]** で、 **[+ コンテナー]** を選択してコンテナーを作成します。 名前 (例: **update-1811**) を入力し、 **[OK]** を選択します。
+4. **[コンテナー]** で、 **[+ コンテナー]** を選択し、コンテナーを作成します。 名前 (例: **update-2102**) を入力し、 **[作成]** を選択します。
 
-    ![Azure Stack Hub の更新プログラム - コンテナー](./media/azure-stack-update-prepare-package/image3.png)
+    [![Azure Stack Hub の更新プログラム - コンテナー](./media/azure-stack-update-prepare-package/new-container-small.png)](./media/azure-stack-update-prepare-package/new-container.png#lightbox)
 
 5. コンテナーが作成されたら、コンテナー名を選択した後、 **[アップロード]** を選択してパッケージ ファイルをコンテナーにアップロードします。
 
-    ![Azure Stack Hub の更新プログラム ‐ アップロード](./media/azure-stack-update-prepare-package/image4.png)
+    [![Azure Stack Hub の更新プログラム ‐ アップロード](./media/azure-stack-update-prepare-package/upload-package-small.png)](./media/azure-stack-update-prepare-package/upload-package.png#lightbox)
 
 6. **[BLOB のアップロード]** で、フォルダー アイコンを選択し、更新プログラム パッケージの .zip ファイルを参照して、エクスプローラー ウィンドウで **[開く]** を選択します。
 
 7. **[BLOB のアップロード]** で、 **[アップロード]** を選択します。
 
-    ![Azure Stack Hub の更新プログラム - BLOB のアップロード](./media/azure-stack-update-prepare-package/image5.png)
+    ![Azure Stack Hub の更新プログラム - BLOB のアップロード](./media/azure-stack-update-prepare-package/upload-blob.png)
 
 8. 更新プログラム パッケージの **Metadata.xml** ファイルおよび追加の .zip ファイルに対して、ステップ 6 と 7 を繰り返します。 **Supplemental Notice.txt** ファイルが含まれている場合、そのファイルはインポートしないでください。
 
@@ -99,11 +99,11 @@ Azure Stack Hub のソフトウェア更新プログラムと修正プログラ�
 
 10. ダッシュボードの **[更新]** ブレードに戻ります。 ブレードに更新プログラムが使用可能であることが示されているはずです。 これは、更新が正常に準備されたことを示します。 新しく追加された更新プログラム パッケージを確認するには、ブレードを選択します。
 
-11. 更新プログラムをインストールするには、 **[準備完了]** とマークされているパッケージを選択し、パッケージを右クリックして **[今すぐ更新]** を選択するか、上部にある **[今すぐ更新]** アクションを選択します。
+11. 更新プログラムをインストールするには、 **[準備完了]** とマークされているパッケージを選択し、 **[今すぐ更新]** を選択します。
 
 12. 更新プログラム パッケージのインストールを選択したら、 **[Update run details]\(更新実行の詳細\)** 領域でその状態を確認できます。 ここから **[Download summary]\(サマリーのダウンロード\)** を選択して、ログ ファイルをダウンロードすることもできます。 更新実行のログは、試行が終了してから 6 か月間は利用できます。
 
-13. 更新プログラムが完了すると、更新された Azure Stack Hub のバージョンが [更新] ブレードに表示されます。
+13. 更新プログラムが完了すると、更新された Azure Stack Hub のバージョンが **[更新]** ブレードに表示されます。
 
 更新プログラムは Azure Stack Hub にインストール後、手動でストレージ アカウントから削除できます。 Azure Stack Hub は古い更新プログラム パッケージを定期的にチェックし、それらをストレージから削除します。 Azure Stack Hub では古いパッケージの削除に最大で 2 週間かかる場合があります。
 

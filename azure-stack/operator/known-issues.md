@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/28/2021
+ms.date: 03/05/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 220569fd3763654f69809cc8316aca2a54e3f7ef
-ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
+ms.openlocfilehash: f094fbba546821378a804e081ace7460ba651f73
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99554141"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250349"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -99,6 +99,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因:フローティング IP が有効になっている場合は、負荷分散規則でフロントエンド ポートとバックエンド ポートの両方が同じである必要があります。 これは仕様です。
 - 発生頻度: 共通
 
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>VM の停止、割り当て解除を行うと、MTU 構成になる
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: VM で **停止、割り当て解除** を実行すると、VM の MTU 構成が削除されます。 この動作は Azure と矛盾しています。
+- 発生頻度: 共通
+
 <!-- ## Compute -->
 
 <!-- ## Storage -->
@@ -174,6 +180,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: ロード バランサーに関連付けられているパブリック IP の **IdleTimeoutInMinutes** 値は変更できません。 この操作により、パブリック IP は失敗状態になります。
 - 修復: パブリック IP を正常な状態に戻すには、パブリック IP を参照するロード バランサー規則の **IdleTimeoutInMinutes** 値を元の値に戻します (既定値は 4 分です)。
+- 発生頻度: 共通
+
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>VM の停止、割り当て解除を行うと、MTU 構成になる
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: VM で **停止、割り当て解除** を実行すると、VM の MTU 構成が削除されます。 この動作は Azure と矛盾しています。
 - 発生頻度: 共通
 
 ## <a name="compute"></a>Compute
@@ -364,6 +376,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
   - [Azure Stack Hub での BGP の構成](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute 回線](azure-stack-connect-expressroute.md)
   - [カスタムの IPsec/IKE ポリシーの指定](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+  
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>VM の停止、割り当て解除を行うと、MTU 構成になる
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: VM で **停止、割り当て解除** を実行すると、VM の MTU 構成が削除されます。 この動作は Azure と矛盾しています。
+- 発生頻度: 共通
 
 ## <a name="compute"></a>Compute
 
@@ -531,5 +549,5 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ::: moniker-end
 
 ::: moniker range="<azs-2002"
-以前のバージョンの Azure Stack Hub の既知の問題には、左側の目次の [ **[リソース] > [リリース ノートのアーカイブ]** ](./relnotearchive/known-issues-1910.md) からアクセスできます。 これらのアーカイブされた記事は、参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 Azure Stack のサポートについては、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
+以前のバージョンの Azure Stack Hub の既知の問題には、左側の目次の [ **[リソース] > [リリース ノートのアーカイブ]**](./relnotearchive/known-issues-1910.md) からアクセスできます。 これらのアーカイブされた記事は、参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 Azure Stack のサポートについては、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
 ::: moniker-end

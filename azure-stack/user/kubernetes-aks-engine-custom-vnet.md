@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: bc1aee737743656d200bc51c431bfac64af5edf3
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 2b958dad58b04d27037f7110e2350e73ad6cd880
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247054"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231508"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Azure Stack Hub のカスタム仮想ネットワークに Kubernetes クラスターをデプロイする 
 
@@ -101,7 +101,7 @@ AKS エンジンからカスタム仮想ネットワークにクラスターを�
 
 | フィールド | 例 | 説明 |
 | --- | --- | --- |
-| clusterSubnet | `172.16.244.0/24` | クラスター サブネット (POD ネットワーク) には、定義したカスタム VNET IP 範囲の空間内の IP 範囲を使用する必要があります。 |
+| clusterSubnet | `10.244.0.0/16` | ポッド ネットワーク インターフェイスに IP アドレスを割り当てるために使用される IP サブネット。 サブネットは、VNET アドレス空間にある必要があります。 Azure CNI が有効になっている場合、既定値は 10.240.0.0/12 です。 Azure CNI を使用しない場合、既定値は 10.244.0.0/16 です。  クラスター サブネット (ポッド ネットワーク) ネットワークで、VNET と同じ IP 空間を使用することはできません。 /24 ではなく /16 サブネットを使用します。 /24 を使用する場合、このサブネットは 1 つのノードにのみ割り当てられます。 IP 空間が不足するため、他のノードにポッド ネットワークが割り当てられません。そのため、これらをクラスターで準備することができなくなります。 |
 
 次に例を示します。
 
@@ -123,7 +123,7 @@ AKS エンジンからカスタム仮想ネットワークにクラスターを�
 "kubernetesConfig": [
   {
     ...
-    "clusterSubnet": "172.16.244.0/24",
+    "clusterSubnet": "172.16.244.0/16",
     ...
   },
 

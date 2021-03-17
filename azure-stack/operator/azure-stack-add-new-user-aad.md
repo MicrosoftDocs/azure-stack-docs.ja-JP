@@ -1,18 +1,18 @@
 ---
 title: 新しい Azure Stack Hub ユーザー アカウントを Azure Active Directory に追加する
 description: ユーザー ポータルを調べることができるように、Azure Active Directory でユーザー アカウントを作成する方法について説明します。
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: dcd2779bf1166b6418a0ecbec3b025e889ca048a
-ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
+ms.openlocfilehash: 57b79c62de98380c97050f6c484cd5ba1b6323fd
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99495569"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231372"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>新しい Azure Stack Hub ユーザー アカウントを Azure Active Directory に追加する (Azure AD)
 
@@ -32,10 +32,10 @@ Azure ポータルを使用するには Azure サブスクリプションが必�
 
     ![新しいユーザーの追加 (ユーザー情報が入力された [ユーザー] ページ)](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-   - **名前 (必須)** :新しいユーザーの氏名です。 たとえば、Mary Parker などです。
-   - **ユーザー名 (必須)** :新しいユーザーのユーザー名です。 たとえば、「 mary@contoso.com 」のように入力します。
+   - **名前 (必須)** : 新しいユーザーの姓と名。 たとえば、Mary Parker などです。
+   - **ユーザー名 (必須)** : 新しいユーザーのユーザー名。 たとえば、「 mary@contoso.com 」のように入力します。
        ユーザー名のドメイン部分には、既定の初期ドメイン名の <_yourdomainname_>.onmicrosoft.com、またはカスタム ドメイン名 (contoso.com など) のいずれかを使用する必要があります。 カスタム ドメイン名の作成方法の詳細については、[Azure Active Directory にカスタム ドメイン名を追加する方法](/azure/active-directory/fundamentals/add-custom-domain)に関するページを参照してください。
-   - **プロファイル**:オプションで、ユーザーに関する詳細情報を追加することができます。 後でユーザー情報を追加することもできます。 ユーザー情報の追加方法の詳細については、[ユーザー プロファイル情報を追加または変更する方法](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal)に関するページを参照してください。
+   - **プロファイル**: (省略可能) ユーザーに関する詳細情報を追加することができます。 後でユーザー情報を追加することもできます。 ユーザー情報の追加方法の詳細については、[ユーザー プロファイル情報を追加または変更する方法](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal)に関するページを参照してください。
    - **ディレクトリ ロール**: **[ユーザー]** を選択します。
 
 5. **[パスワードの表示]** チェックボックスを選択し、 **[パスワード]** ボックスに表示される自動生成されたパスワードをコピーします。 このパスワードは、最初のサインイン プロセスで必要になります。

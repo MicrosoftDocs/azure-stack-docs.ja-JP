@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub でシークレットをローテーションする方法について説明します。
 author: BryanLa
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/09/2021
 ms.reviewer: fiseraci
 ms.author: bryanla
 ms.lastreviewed: 01/19/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: d7c75bc9864e564736b03477a3c37140e752d850
-ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
+ms.openlocfilehash: d473301265c8b7c1c3b48386cfbc8f4986283a8e
+ms.sourcegitcommit: e7d6f953e7014900b4e7d710340cfa98d253fce9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98571350"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102637597"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Azure Stack Hub でシークレットをローテーションする
 
@@ -46,7 +46,7 @@ Azure Stack Hub はシークレットを使用して、インフラストラク�
 
 ## <a name="prerequisites"></a>前提条件
 
-1. 最初に Azure Stack Hub インスタンスを[最新バージョン](release-notes.md)に更新することを強くお勧めします。
+1. Azure Stack Hub のサポートされているバージョンを実行することを強くお勧めします。また、インスタンスが実行されている Azure Stack Hub バージョンに使用可能な最新の修正プログラムが適用されていることを確認してください。 たとえば、2008 を実行している場合は、2008 で使用可能な最新の修正プログラムがインストールされていることを確認します。
 
     ::: moniker range="<azs-1811"  
     >[!IMPORTANT]

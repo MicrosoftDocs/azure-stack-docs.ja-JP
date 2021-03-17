@@ -3,16 +3,16 @@ title: Azure Stack Hub の Linux に AKS エンジンをインストールする
 description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack Hub の Linux マシンを使用して AKS エンジンをホストする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/1/2020
-ms.openlocfilehash: f11264d54c7a391ee493cdc88bf3a39243e9b268
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: 949a1ede3d2fc217217219c59f055b5311322576
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99245706"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231525"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Azure Stack Hub の Linux に AKS エンジンをインストールする
 
@@ -33,14 +33,19 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 1. お使いの Azure Stack Hub に Linux VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Linux サーバー VM を作成します](./azure-stack-quick-linux-portal.md)。
 2. お使いの VM に接続します。
-3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)の表で、その AKS エンジンのバージョンを確認します。 AKS ベースのイメージは、ご自身の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.55.4` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされます。最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
-4. 次のコマンドを実行します。
+3. [AKS エンジンと Azure Stack のバージョン マッピング](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping) テーブルで、AKS エンジンのバージョンを確認します。 AKS ベースのイメージは、ご自身の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.xx.x` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされます。最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
+    > [!NOTE]  
+    > Azure Stack Hub と AKS エンジンのバージョン番号のマッピングについては、[AKS エンジンのリリース ノート](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)をご覧ください。
+1. 次のコマンドを実行します。
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.55.4
+        ./get-akse.sh --version v0.xx.x
     ```
+
+    > [!NOTE]  
+    > Azure Stack Hub と AKS エンジンのバージョン番号のマッピングについては、[AKS エンジンのリリース ノート](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)をご覧ください。
 
     > [!NOTE]  
     > インストール方法が失敗する場合は、[切断されている環境](#install-in-a-disconnected-environment)の手順を試すか、別のパッケージ マネージャーである [GoFish ](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish)を試してください。
@@ -49,7 +54,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 インターネットから切断されている Azure Stack Hub 上のお使いの Kubernetes クラスターは、クライアント VM をインストールして管理できます。
 
-1.  インターネットにアクセスできるコンピューターから、GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest) に移動します。 `aks-engine-v0.xx.x-linux-amd64.tar.gz` など、Linux コンピューターのアーカイブ (*.tar.gz) をダウンロードします。
+1.  インターネットにアクセスできるコンピューターから、GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest) に移動します。 `aks-engine-v0.xx.x-linux-amd64.tar.gz` など、Linux コンピューターのアーカイブ (*.tar.gz) をダウンロードします。 [サポート対象の Kubernetes バージョンの表](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)で、その AKS エンジンのバージョンを確認します。
 
 2.  お使いの Azure Stack Hub インスタンスにストレージ アカウントを作成し、AKS エンジン バイナリを使用してアーカイブ ファイル (*.tar.gz) をアップロードします。 Azure Storage Explorer の使用方法については、[Azure Stack Hub と Azure Storage Explorer](./azure-stack-storage-connect-se.md) に関するページを参照してください。
 

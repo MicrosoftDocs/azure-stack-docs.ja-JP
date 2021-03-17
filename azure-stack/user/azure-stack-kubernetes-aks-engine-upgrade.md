@@ -3,22 +3,21 @@ title: Azure Stack Hub で Kubernetes クラスターをアップグレードす
 description: Azure Stack Hub で Kubernetes クラスターをアップグレードする方法を学習します。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 5c360b4196a128073817b1b9525787e2be0d1310
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: 0db454750b56e9c4dbb765092c48643b1df15470
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247253"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231559"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをアップグレードする
 
-## <a name="upgrade-a-cluster"></a>クラスターのアップグレード
-
 AKS エンジンでは、ツールを使用して最初にデプロイされたクラスターをアップグレードすることができます。 AKS エンジンを使用してクラスターを維持できます。 メンテナンス タスクは、任意の IaaS システムと同様です。 新しい更新プログラムが利用可能かどうかを認識し、AKS エンジンを使用してそれらを適用します。
+## <a name="upgrade-a-cluster"></a>クラスターのアップグレード
 
 アップグレード コマンドを実行すると、Kubernetes のバージョンと OS の基本イメージが更新されます。 アップグレード コマンドを実行するたびに、AKS エンジンでは、クラスターのすべてのノードに対して、使用中の **aks-engine** のバージョンに関連付けられた AKS 基本イメージを使用して新しい VM が作成されます。 `aks-engine upgrade` コマンドを使用すると、クラスター内のすべてのマスター ノードとエージェント ノードの現行の状態を維持できます。 
 
@@ -45,17 +44,15 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 > [!NOTE]  
 > さらに新しいバージョンの aks-engine を使用していて、マーケットプレースでイメージを入手できる場合は、AKS 基本イメージもアップグレードされます。
 
-次の手順では、最小限の手順でアップグレードを実行します。 詳細については、「[Kubernetes クラスターのアップグレード](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md)」の記事 を参照してください。
+次の手順では、最小限の手順でアップグレードを実行します。 詳細については、「[Kubernetes クラスターのアップグレード](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)」の記事を参照してください。
 
-1. まず、アップグレードの対象となるバージョンを特定する必要があります。 このバージョンは現在お持ちになっているバージョンによって異なります。そのバージョン値を使用してアップグレードを実行します。 最新の更新プログラムでサポートされている Kubernetes のバージョンは、1.14.7 と 1.15.10 です。 使用可能なアップグレードについては、次の表を参照してください。
-
-| 現在のバージョン | 使用可能なアップグレード |
-| ------------------------- | ----------------------- |
-| 1.15.10 | 1.15.12 |
-| 1.15.12、1.16.8、1.16.9 | 1.16.14 |
-| 1.16.8、1.16.9、1.16.14 | 1.17.11 |
-
-AKS エンジン、AKS Base Image、および Kubernetes の各バージョンの完全なマッピングについては、「[サポートされている AKS エンジンのバージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)」を参照してください。
+1. まず、アップグレードの対象となるバージョンを特定する必要があります。 このバージョンは現在お持ちになっているバージョンによって異なります。そのバージョン値を使用してアップグレードを実行します。 ご使用の AKS エンジンでサポートされている Kubernetes のバージョンを一覧表示するには、次のコマンドを実行します。
+    
+    ```bash
+    aks-engine get-versions --azure-env AzureStackCloud
+    ```
+    
+    AKS エンジン、AKS Base Image、および Kubernetes の各バージョンの完全なマッピングについては、「[サポートされている AKS エンジンのバージョン](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)」を参照してください。
 
 2. `upgrade` コマンドを実行するために必要な情報を収集します。 アップグレードでは、次のパラメーターが使用されます。
 
@@ -79,7 +76,7 @@ AKS エンジン、AKS Base Image、および Kubernetes の各バージョン�
     --resource-group kube-rg \
     --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --api-model kube-rg/apimodel.json \
-    --upgrade-version 1.13.5 \
+    --upgrade-version 1.18.15 \
     --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --identity-system adfs # required if using AD FS
@@ -89,11 +86,19 @@ AKS エンジン、AKS Base Image、および Kubernetes の各バージョン�
 
 ## <a name="steps-to-only-upgrade-the-os-image"></a>OS イメージのみをアップグレードする手順
 
-1. [サポートされている Kubernetes バージョン情報の一覧](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)を確認し、アップグレードを計画している aks-engine と AKS 基本イメージのバージョンがあるかどうかを判断します。 aks-engine のバージョンを表示するには、`aks-engine version` を実行します。
+1. [サポートされている Kubernetes バージョン情報の一覧](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)を確認し、アップグレードを計画している aks-engine と AKS 基本イメージのバージョンがあるかどうかを判断します。 aks-engine のバージョンを表示するには、`aks-engine version` を実行します。
 2. 必要に応じて、aks-engine をインストールしたマシンで `./get-akse.sh --version vx.xx.x` を実行して AKS エンジンをアップグレードします。**x.xx.x** は、対象のバージョン情報に置き換えます。
 3. 使用する予定の Azure Stack Hub Marketplace で必要な AKS 基本イメージのバージョンを追加するには、社内の Azure Stack Hub オペレーターに依頼します。
 4. 既に使用しているものと同じバージョンの Kubernetes を使用し、`--force` を追加して `aks-engine upgrade` コマンドを実行します。 例については、「[アップグレードの強制](#forcing-an-upgrade)」を参照してください。
 
+
+## <a name="steps-to-update-cluster-to-os-version-ubuntu-1804"></a>クラスターを OS バージョン Ubuntu 18.04 に更新する手順
+
+AKS エンジン バージョン 0.60.1 以降では、クラスター VM を Ubuntu 16.04 から 18.04 にアップグレードできます。 次の手順に従います。
+
+1. デプロイ中に生成された `api-model.json` ファイルを探して編集します。 これは、`aks-engine` でのアップグレードまたはスケーリング操作に使用されるのと同じファイルである必要があります。
+2. `masterProfile` と `agentPoolProfiles` のセクションを見つけ、これらのセクション内で `distro` の値を `aks-ubuntu-18.04` に変更します。
+2. [新しい Kubernetes バージョンにアップグレードする手順](#steps-to-upgrade-to-a-newer-kubernetes-version)で行う場合と同様に、`api-model.json` ファイルを保存し、` aks-engin upgrade` コマンドで `api-model.json` ファイルを使用します。
 
 ## <a name="forcing-an-upgrade"></a>アップグレードの強制
 
@@ -106,7 +111,7 @@ aks-engine upgrade \
 --resource-group kube-rg \
 --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 --api-model kube-rg/apimodel.json \
---upgrade-version 1.13.5 \
+--upgrade-version 1.18.15 \
 --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 --force

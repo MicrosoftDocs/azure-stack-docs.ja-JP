@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/28/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: b9281e6d29dc83ba7d26df2135ca70e725bed690
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 82c97abf81226c22e2878bb6e6947d53f79cba77
+ms.sourcegitcommit: 02a4c34fb829e053016912a4fffcc51e32685425
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544008"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102532445"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>App Service on Azure Stack Hub のデプロイの前提条件
 
@@ -56,6 +56,11 @@ Azure App Service on Azure Stack Hub をデプロイする前に、この記事�
 - API 証明書
 - 公開証明書
 - ID 証明書
+
+次のセクションに記載されている特定の要件に加えて、後でツールを使用して一般的な要件をテストすることもできます。 次のものを含む検証の完全な一覧については、「[Azure Stack Hub PKI 証明書の検証](azure-stack-validate-pki-certs.md)」を参照してください。
+- .PFX の **ファイル形式**
+- サーバーとクライアントの認証に設定された **キー使用法**
+- その他
 
 #### <a name="default-domain-certificate"></a>既定のドメイン証明書
 
@@ -149,7 +154,7 @@ Azure App Service では、ファイル サーバーを使用する必要があ�
 ##### <a name="provision-groups-and-accounts-in-a-workgroup"></a>ワークグループでグループとアカウントをプロビジョニングする
 
 >[!NOTE]
-> ファイル サーバーを構成している場合は、**管理者コマンド プロンプト** で次のすべてのコマンドを実行します。 <br>**_PowerShell を使用しないでください。_* _
+> ファイル サーバーを構成している場合は、**管理者コマンド プロンプト** で次のすべてのコマンドを実行します。 <br>**_PowerShell を使用しないでください。_**
 
 Azure Resource Manager テンプレートを使用するとき、ユーザーは既に作成されています。
 
@@ -206,7 +211,7 @@ icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
 icacls %WEBSITES_FOLDER% /inheritance:r
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareUsers:(CI)(S,X,RA)
-icacls %WEBSITES_FOLDER% /grant _S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
+icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>ワークグループ

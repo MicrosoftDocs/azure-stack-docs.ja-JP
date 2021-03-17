@@ -6,17 +6,17 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 02/10/2020
-ms.openlocfilehash: 3711a0e11bac59f00ce51027ea9544f6858dd297
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.date: 03/10/2021
+ms.openlocfilehash: c8b10d02b64185cd0965c358e0d22661f3275342
+ms.sourcegitcommit: e7d6f953e7014900b4e7d710340cfa98d253fce9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487325"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102637572"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI を Azure に接続する
 
-> 適用対象:Azure Stack HCI v20H2
+> 適用対象:Azure Stack HCI バージョン 20H2
 
 Azure Stack HCI は Azure サービスとして提供され、Azure オンライン サービス条件に従ってインストールから 30 日以内に登録する必要があります。 このトピックでは、監視、サポート、課金、およびハイブリッド サービスのために、Azure Stack HCI クラスターを [Azure Arc](https://azure.microsoft.com/services/azure-arc/) に登録する方法について説明します。 登録時に、オンプレミスの個々の Azure Stack HCI クラスターを表す Azure Resource Manager リソースが作成されます。これにより、Azure 管理プレーンが Azure Stack HCI に効果的に拡張されます。 Azure リソースとオンプレミス クラスターの間で情報が定期的に同期されます。 Azure Arc の登録は Azure Stack HCI オペレーティング システムのネイティブ機能であるため、登録にエージェントは必要ありません。
 
@@ -34,7 +34,7 @@ Azure Stack HCI クラスターを作成しないと、Azure に登録するこ�
 最も単純な登録の場合は、Azure AD 管理者に、Windows Admin Center または PowerShell を使用して、登録を完了してもらってください。
 
    > [!IMPORTANT]
-   > Windows Admin Center を使用して Azure Stack HCI クラスターを登録する場合は、まず、クラスター登録に使用する予定のものと同じ Azure Active Directory (テナント) ID を使用して、[Azure に Windows Admin Center を登録](../manage/register-windows-admin-center.md)する必要があります。
+   > Windows Admin Center を使用して Azure Stack HCI クラスターを登録するには、まず、[Azure に Windows Admin Center を登録](../manage/register-windows-admin-center.md)して、Azure Active Directory (テナント) ID を指定する必要があります。 Windows Admin Center を実行しているコンピューターが、クラスターの作成に使用されるものと同じ Azure Active Directory ドメインまたは信頼済みドメインに参加していることを確認します。
 
 ### <a name="internet-access"></a>インターネットへのアクセス
 
@@ -100,20 +100,27 @@ EA または CSP を介した Azure サブスクリプションの場合、最�
 
 ### <a name="azure-active-directory-permissions"></a>Azure Active Directory のアクセス許可
 
-登録プロセスを完了するには、適切な Azure Active Directory のアクセス許可も必要です。 まだお持ちでない場合は、Azure AD 管理者に依頼して、アクセス許可の同意を付与するか、委任してもらいます。 詳しくは、「[Azure の登録を管理する](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)」をご覧ください。
+登録プロセスを完了するには、適切な Azure Active Directory のアクセス許可も必要です。 まだお持ちでない場合は、Azure AD 管理者に依頼して、アクセス許可の同意を付与するか、委任してもらいます。 詳しくは、「[Azure の登録を管理する](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)」をご覧ください。
 
 ## <a name="register-a-cluster-using-windows-admin-center"></a>Windows Admin Center を使用してクラスターを登録する
 
-Azure Stack HCI クラスターを登録する最も簡単な方法は、Windows Admin Center を使用することです。 ユーザーに [Azure Active Directory のアクセス許可](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)が必要であることに注意してください。そうしないと、登録プロセスが完了しないまま終了し、その登録は管理者の同意待ちのままになります。
+Azure Stack HCI クラスターを登録する最も簡単な方法は、Windows Admin Center を使用することです。 ユーザーには [Azure Active Directory のアクセス許可](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)が必要です。ない場合は、登録プロセスが完了しないどころか、登録が終了し、管理者の承認が保留されたままになります。ユーザーはアクセス許可が付与されたら、登録ウィザードを再実行する必要があります。
 
-1. 登録プロセスを開始する前に、[Azure に Windows Admin Center を登録](../manage/register-windows-admin-center.md)しておく必要があります (まだ登録していない場合)。
+1. 登録プロセスを開始する前に、まず [Windows Admin Center を Azure に登録](../manage/register-windows-admin-center.md)し、Azure アカウントで Windows Admin Center にサインインする必要があります。
 
    > [!IMPORTANT]
-   > Windows Admin Center を Azure に登録するときは、実際のクラスター登録に使用するのと同じ Azure Active Directory (テナント) ID を使用することが重要です。 Azure AD テナント ID は、アカウントとグループを含む Azure AD の特定のインスタンスを表します。一方、Azure サブスクリプション ID は、課金が発生した Azure リソースを使用するための契約を表します。 ご自身のテナント ID を確認するには、[portal.azure.com](https://portal.azure.com) にアクセスし、 **[Azure Active Directory]** を選択します。 テナント ID は **[テナント情報]** に表示されます。 Azure サブスクリプション ID を取得するには、 **[サブスクリプション]** に移動し、一覧から ID をコピーして貼り付けます。
+   > Windows Admin Center を Azure に登録するときは、クラスター登録に使用するのと同じ Azure Active Directory (テナント) ID を使用することが重要です。 Azure AD テナント ID は、アカウントとグループを含む Azure AD の特定のインスタンスを表します。一方、Azure サブスクリプション ID は、課金が発生した Azure リソースを使用するための契約を表します。 ご自身のテナント ID を確認するには、[portal.azure.com](https://portal.azure.com) にアクセスし、 **[Azure Active Directory]** を選択します。 テナント ID は **[テナント情報]** に表示されます。 Azure サブスクリプション ID を取得するには、 **[サブスクリプション]** に移動し、一覧から ID をコピーして貼り付けます。
 
-2. Windows Admin Center を開いて、左側の **[ツール]** メニューの一番下にある **[設定]** を選択します。 次に、 **[設定]** メニューの下部にある **[Azure Stack HCI registration]\(Azure Stack HCI の登録\)** を選択します。 クラスターがまだ Azure に登録されていない場合、 **[Registration status]\(登録状態\)** は **[Not registered]\(未登録\)** になります。 続行するには **[登録]** をクリックします。
+2. Windows Admin Center を開いて、左側の **[ツール]** メニューの一番下にある **[設定]** を選択します。 次に、 **[設定]** メニューの下部にある **[Azure Stack HCI registration]\(Azure Stack HCI の登録\)** を選択します。 クラスターがまだ Azure に登録されていない場合、 **[Registration status]\(登録状態\)** は **[Not registered]\(未登録\)** になります。 続行するには **[登録]** をクリックします。 Windows Admin Center ダッシュボードから **[Register this cluster]\(このクラスターを登録\)** を選択することもできます。
 
-3. 登録プロセスを完了するには、Azure アカウントを使用して認証 (サインイン) する必要があります。 登録を続行するには、ご自身の Windows Admin Center ゲートウェイを登録したときに指定した Azure サブスクリプションへのアクセス権がアカウントに必要です。 提供されたコードをコピーし、別のデバイス (ご自分の PC や携帯電話など) で microsoft.com/devicelogin に移動して、コードを入力し、そこにサインインします。 登録ワークフローではログインしたことが検出され、完了に進みます。 その後、Azure portal でクラスターを確認できるようになります。
+   > [!NOTE]
+   > 手順 1 で Windows Admin Center を登録しなかった場合は、ここでそれを行うことを求められます。 クラスター登録ウィザードの代わりに、Windows Admin Center の登録ウィザードが表示されます。
+
+3. クラスターの登録先となる Azure サブスクリプション ID を指定します。 Azure サブスクリプション ID を取得するには、[portal.azure.com](https://portal.azure.com) にアクセスし、 **[サブスクリプション]** に移動して、一覧から ID をコピーして貼り付けます。 Azure AD 管理者から、使用する Azure リソース グループが指定されている場合は、ドロップダウン メニューからそれを選択します。それ以外の場合は、 **[新規作成]** を選択します。 ドロップダウン メニューから Azure リージョンを選択し、 **[登録]** をクリックします。
+
+   :::image type="content" source="media/register/register-with-azure.png" alt-text="クラスター登録ウィザードによって、Azure サブスクリプション ID、リソース グループ、リージョンが求められます" lightbox="media/register/register-with-azure.png":::
+
+4. Azure Active Directory の十分なアクセス許可がある場合は、これでクラスター登録ワークフローが完了し、Azure portal でクラスターを確認できるようになります。 管理者の承認が必要なことを示すメッセージを受け取った場合は、Azure AD 管理者に依頼して、[アプリにアクセス許可を付与](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)してもらってから、上記の手順 2 からウィザードを再実行してください。
 
 ## <a name="register-a-cluster-using-powershell"></a>PowerShell を使用してクラスターを登録する
 
@@ -137,7 +144,7 @@ Azure Stack HCI クラスターを登録する最も簡単な方法は、Windows
 
    この構文では、(Server1 がメンバーである) クラスターを現在のユーザーとして既定の Azure リージョンとクラウド環境に登録し、Azure リソースとリソース グループにスマートな既定の名前を使用します。 また、このコマンドにオプションの `-Region`、`-ResourceName`、および `-ResourceGroupName` パラメーターを追加して、これらの値を指定することもできます。
 
-   `Register-AzStackHCI` コマンドレットを実行するユーザーには [Azure Active Directory のアクセス許可](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)が必要であることに注意してください。そうしないと、登録プロセスが完了しないまま終了し、その登録は管理者の同意待ちのままになります。 アクセス許可が付与されたら、`Register-AzStackHCI` を再実行して登録を完了します。
+   `Register-AzStackHCI` コマンドレットを実行するユーザーには [Azure Active Directory のアクセス許可](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)が必要であることに注意してください。そうしないと、登録プロセスが完了しないまま終了し、その登録は管理者の同意待ちのままになります。 アクセス許可が付与されたら、`Register-AzStackHCI` を再実行して登録を完了します。
 
 3. Azure での認証
 

@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 6812ac4b0841e44b760ce3397c5a06b2051e0036
-ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
+ms.openlocfilehash: f929654eb723f900ebe8a2beefd84afb064e7056
+ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99495518"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102606382"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 統合システムの Azure に接続されたデプロイ計画の決定
 [Azure Stack Hub をご利用のハイブリッド クラウド環境に統合する方法](azure-stack-connection-models.md)を決定した後、Azure Stack Hub デプロイの決定を完了することができます。
@@ -48,16 +48,16 @@ ID ストアに Azure AD を使用するには、グローバル管理者アカ�
 **従量制** または **容量** 課金モデルのどちらかを選択できます。 従量制課金モデルのデプロイは 30 日ごとに少なくとも 1 回、接続を通して Azure に使用状況を報告できる必要があります。 したがって、従量制課金モデルは、接続されたデプロイでのみ使用できます。  
 
 ### <a name="pay-as-you-use"></a>従量制
-従量制課金モデルでは、Azure サブスクリプションに対して使用状況が課金されます。 Azure Stack Hub サービスを使用した場合にのみ支払います。 このモデルに決定した場合は、Azure サブスクリプションと、そのサブスクリプションに関連付けられたアカウント ID (serviceadmin@contoso.onmicrosoft.com など) が必要になります。 EA、CSP、および CSL サブスクリプションがサポートされています。 使用状況レポートは、[Azure Stack Hub の登録](azure-stack-registration.md)中に構成されます。
+従量制課金モデルでは、Azure サブスクリプションに対して使用状況が課金されます。 Azure Stack Hub サービスを使用した場合にのみ支払います。 このモデルに決定した場合は、Azure サブスクリプションと、そのサブスクリプションに関連付けられたアカウント ID (serviceadmin@contoso.onmicrosoft.com など) が必要になります。 EA、CSP、および CSP Shared Services のサブスクリプションがサポートされています。 使用状況レポートは、[Azure Stack Hub の登録](azure-stack-registration.md)中に構成されます。
 
 > [!NOTE]
-> ほとんどの場合、エンタープライズ顧客は EA サブスクリプションを使用し、サービス プロバイダーは CSP または CSL サブスクリプションを使用します。
+> ほとんどの場合、エンタープライズ顧客は EA サブスクリプションを使用し、サービス プロバイダーは CSP または CSP Shared Services サブスクリプションを使用します。
 
 CSP サブスクリプションを使用する場合は、厳密な CSP シナリオによって正しいアプローチが異なるため、下の表を確認してどの CSP サブスクリプションを使用するかを特定してください。
 
 |シナリオ|ドメインおよびサブスクリプション オプション|
 |-----|-----|
-|**直接 CSP パートナー** または **間接 CSP プロバイダー** であり、Azure Stack Hub を操作する|CSL (Common Service Layer) サブスクリプションを使用します。<br>     または<br>パートナー センターで、わかりやすい名前の Azure AD テナントを作成します  (例: &lt;組織>CSPAdmin とそれに関連付けられた Azure CSP サブスクリプション)。|
+|**直接 CSP パートナー** または **間接 CSP プロバイダー** であり、Azure Stack Hub を操作する|CSP Partner Shared Services サブスクリプションを使用します。<br>     または<br>パートナー センターで、わかりやすい名前の Azure AD テナントを作成します  (例: &lt;組織>CSPAdmin とそれに関連付けられた Azure CSP サブスクリプション)。|
 |**間接 CSP リセラー** であり、Azure Stack Hub を操作する|パートナー センターを使用して、間接 CSP プロバイダーに、組織の Azure AD テナントとそれに関連付けられた Azure CSP サブスクリプションを作成するよう依頼します。|
 
 ### <a name="capacity-based-billing"></a>容量ベースの課金

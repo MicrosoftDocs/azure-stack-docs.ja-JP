@@ -3,16 +3,16 @@ title: Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stac
 description: AKS エンジンの前提条件を Azure Stack Hub Marketplace に追加する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 12532ba9e38c37bdf3253a5e33576ca63116f1e0
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/1/2021
+ms.openlocfilehash: ceb51221d03f9c037ac3af2304b55d691f17f021
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246165"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231236"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する
 
@@ -39,9 +39,9 @@ ID 管理サービスのために Azure Active Directory (Azure AD) を使用す
 
 ID 管理サービスのために Active Directory Federated Services (AD FS) を使用する場合は、Kubernetes クラスターをデプロイするユーザーのサービス プリンシパルを作成する必要があります。 クライアント シークレットを使用してサービス プリンシパルを作成します。 手順については、[クライアント シークレットを使用したサービス プリンシパルの作成](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials)に関するセクションを参照してください。
 
-## <a name="add-the-aks-base-image"></a>AKS 基本イメージを追加する
+## <a name="add-an-aks-base-image"></a>AKS Base Image を追加する
 
-Azure から項目を取得して、AKS 基本イメージを Marketplace に追加できます。 ただし、Azure Stack Hub が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)し、項目を追加します。 手順 5 で指定した項目を追加します。
+Azure から項目を取得して、AKS Base Image を Marketplace に追加できます。 ただし、Azure Stack Hub が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)し、項目を追加します。 手順 5 で指定した項目を追加します。
 
 次の項目を Marketplace に追加します。
 
@@ -53,13 +53,7 @@ Azure から項目を取得して、AKS 基本イメージを Marketplace に追
 
 1. 「`AKS Base`」と入力します。
 
-1. AKS エンジンのバージョンと一致するイメージ バージョンを選択します。 AKS エンジンと AKS 基本イメージの対応一覧については、「[Supported Kubernetes Versions (サポートされている Kubernetes バージョン)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)」を参照してください。 
-
-    一覧で、次のように選択します。
-    - **[発行者]** : Azure Kubernetes Service
-    - **オファー**: aks
-    - **Name**:AKS 基本 Ubuntu 16.04-LTS のイメージ ディストリビューション、2020 年 8 月 (2020.09.14 または AKS エンジンにマップされているバージョン)
-    - **バージョン**:2020.09.14
+1. AKS エンジンのバージョンと一致するイメージ バージョンを選択します。 AKS エンジンと AKS 基本イメージの対応一覧については、「[Supported Kubernetes Versions (サポートされている Kubernetes バージョン)](..\user\kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)」を参照してください。 
 
 1. **[ダウンロード]** を選択します。
 

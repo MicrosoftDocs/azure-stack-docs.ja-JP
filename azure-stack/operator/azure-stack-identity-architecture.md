@@ -3,16 +3,16 @@ title: Azure Stack Hub の ID アーキテクチャ
 description: Azure Stack Hub の ID アーキテクチャと、Azure AD と AD FS の違いについて説明します。
 author: BryanLa
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.author: bryanla
 ms.reviewer: fiseraci
-ms.lastreviewed: 07/20/2020
-ms.openlocfilehash: fa79df515e2676655ea98b6024179d3f56c41fbf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.lastreviewed: 03/10/2021
+ms.openlocfilehash: 5f03c3b1f5ca6aa24c2d54acaa090984ff4db90a
+ms.sourcegitcommit: e7d6f953e7014900b4e7d710340cfa98d253fce9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566194"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102637614"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack Hub の ID アーキテクチャ
 
@@ -87,9 +87,9 @@ AD FS トポロジは、次のいずれかの条件に該当する場合に必�
 - 運用環境でのこのトポロジの使用をサポートするには、フェデレーションの信頼を介して、組み込みの Azure Stack Hub AD FS インスタンスを、Active Directory で支援されている既存の AD FS インスタンスに統合する必要があります。
 - Azure Stack Hub の Graph サービスを、既存の Active Directory インスタンスと統合することができます。 また、Azure AD Graph API との一貫性がある API をサポートしている OData ベースの Graph API サービスを使用することもできます。
 
-  Graph API が Active Directory インスタンスと対話するためには、その Active Directory インスタンスに、読み取り専用アクセス許可を持つユーザーの資格情報が必要となります。
-  - 組み込みの AD FS インスタンスは、Windows Server 2016 がベースになっています。
-  - 使用する AD FS と Active Directory インスタンスは、Windows Server 2012 またはそれ以降がベースである必要があります。
+  Active Directory インスタンスと対話するためには、Graph API に、Active Directory インスタンスに対する読み取り専用アクセス許可を持つユーザーの資格情報が必要です。これは次にアクセスします。  
+  - 組み込みの AD FS インスタンス。
+  - 使用する AD FS と Active Directory インスタンス。これらは、Windows Server 2012 以降をベースとするものである必要があります。
   
   使用する Active Directory インスタンスと組み込み AD FS インスタンスの間で、対話は OpenID Connect に限定されず、相互にサポートされている任意のプロトコルを使用できます。
   - ユーザー アカウントは、オンプレミスの Active Directory インスタンスで作成され、管理されます。
